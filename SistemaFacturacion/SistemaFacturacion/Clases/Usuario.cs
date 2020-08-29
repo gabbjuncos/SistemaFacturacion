@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 
 
-namespace ProyectoBugs.Clases
+namespace SistemaFacturacion.Clases
 {
     class Usuario
     {

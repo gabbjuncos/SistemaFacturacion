@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 
-namespace ProyectoBugs.Clases
+namespace SistemaFacturacion.Clases
 {
     class Datos             //Esta clase "Datos" es la que me va a permitir la conectividad con la base de datos
     {
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
-        private string cadenaConexion = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Usuario\Desktop\UTN\3° Año\pav I\curso 3k1\Practico\Clase 2\ProyectoBugs\Errores.mdb";
+        private string cadenaConexion = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\GJ\Downloads\Clase2 06082020 ProyectoBugs-Login con BD-20200829\Errores.mdb";
 
         private void conectar()         //esto seria la accion de conectar, nos conectamos, se abre la BD que  hace referencia
                                         // prepara el comando con esa conexion y ya le voy a pasar el txto que quiero que ejecute ese comando
