@@ -62,6 +62,7 @@ namespace SistemaFacturacion
             {
                 msj = "Login OK";
                 MessageBox.Show(msj, "Ingreso al Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {

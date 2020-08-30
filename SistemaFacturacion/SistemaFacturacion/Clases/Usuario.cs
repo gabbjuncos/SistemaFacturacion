@@ -40,7 +40,7 @@ namespace SistemaFacturacion.Clases
 
         public int validarUsuario(string nombre, string clave)      //esta es la forma de hacer un metodo
         {
-            string consultaSQL = "SELECT * FROM Users WHERE n_usuario='" + nombre + "' AND password='" + clave + "'";
+            string consultaSQL = "SELECT * FROM Usuarios WHERE usuario='" + nombre + "' AND password='" + clave + "'";
             DataTable tabla = new DataTable();
 
             Datos oDato = new Datos();
