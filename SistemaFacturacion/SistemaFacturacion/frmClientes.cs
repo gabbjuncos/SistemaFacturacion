@@ -74,8 +74,8 @@ namespace SistemaFacturacion.Formularios
             //grdClientes.DataSource = oCliente.recuperarClientes();
 
             //cargamos la grilla campo por campo a partir de la consulta
-            //this.cargarGrilla(grdClientes, oCliente.recuperarClientes());
-            grdClientes.DataSource = oCliente.recuperarClientes();
+            this.cargarGrilla(grdClientes, oCliente.recuperarClientes());
+            //grdClientes.DataSource = oCliente.recuperarClientes();
         }
         // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
         private void cargarGrilla(DataGridView grilla, DataTable tabla) {
@@ -155,6 +155,7 @@ namespace SistemaFacturacion.Formularios
         {
             //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
             oCliente.Cuit = txtCuit.Text;
+            oCliente.Fecha_alta = DateTime.Today ;
             oCliente.Razon_social = txtRazonSocial.Text;
             oCliente.Calle = txtCalle.Text;
             oCliente.Numero = txtNumero.Text;
@@ -217,13 +218,25 @@ namespace SistemaFacturacion.Formularios
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {   //mensaje para verificar borrado de cliente
-            if(MessageBox.Show("Esta seguro de eliminar el cliente : " + txtCuit.Text,
+            if (MessageBox.Show("Esta seguro de eliminar el cliente : " + txtCuit.Text,
                                 "Eliminar cliente",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Warning,
                                 MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes)
             {
+                //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
+                oCliente.Cuit = txtCuit.Text;
+                oCliente.Borrado = true;
+                oCliente.Razon_social = txtRazonSocial.Text;
+                oCliente.Calle = txtCalle.Text;
+                oCliente.Numero = txtNumero.Text;
+                oCliente.Id_barrio = int.Parse(txtIdBarrio.Text);
+                oCliente.Id_contacto = int.Parse(txtIdContacto.Text);
+
+                //oCliente.actualizarCliente();
+
+                oCliente.Id_cliente = int.Parse(txtIdCliente.Text);
                 oCliente.darBajaCliente();
                 //actualizamos grilla
                 cargarGrilla(grdClientes, oCliente.recuperarClientes());
@@ -245,14 +258,30 @@ namespace SistemaFacturacion.Formularios
             tabla = oCliente.recuperarClientePorId(id);
             //colocamos cada dato de la columna en los campos correspondientes
             txtIdCliente.Text = tabla.Rows[0]["id_cliente"].ToString();
+
             txtIdBarrio.Text = tabla.Rows[0]["id_barrio"].ToString();
+
             txtCuit.Text = tabla.Rows[0]["cuit"].ToString();
+
             txtRazonSocial.Text = tabla.Rows[0]["razon_social"].ToString();
+
             txtCalle.Text = tabla.Rows[0]["calle"].ToString();
+
             txtNumero.Text = tabla.Rows[0]["numero"].ToString();
+
             txtIdContacto.Text = tabla.Rows[0]["id_contacto"].ToString();
             
 
+        }
+
+        private void txtIdBarrio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

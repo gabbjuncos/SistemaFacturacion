@@ -13,7 +13,7 @@ namespace SistemaFacturacion.Clases
     {
         private SqlConnection conexion = new SqlConnection();
         private SqlCommand comando = new SqlCommand();
-        private string cadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TPPAVI;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False; password=gabijun";
+        private string cadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TPI_PAVI;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         //private OleDbConnection conexion = new OleDbConnection();
         //private OleDbCommand comando = new OleDbCommand();

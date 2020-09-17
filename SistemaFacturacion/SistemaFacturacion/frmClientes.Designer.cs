@@ -30,7 +30,6 @@
         {
             this.lblCuit = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
-            this.btnConsultarCliente = new System.Windows.Forms.Button();
             this.txtCuit = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.grdClientes = new System.Windows.Forms.DataGridView();
@@ -59,7 +58,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,15 +79,6 @@
             this.lblRazonSocial.Size = new System.Drawing.Size(70, 13);
             this.lblRazonSocial.TabIndex = 1;
             this.lblRazonSocial.Text = "Razon Social";
-            // 
-            // btnConsultarCliente
-            // 
-            this.btnConsultarCliente.Location = new System.Drawing.Point(870, 79);
-            this.btnConsultarCliente.Name = "btnConsultarCliente";
-            this.btnConsultarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultarCliente.TabIndex = 3;
-            this.btnConsultarCliente.Text = "Buscar";
-            this.btnConsultarCliente.UseVisualStyleBackColor = true;
             // 
             // txtCuit
             // 
@@ -251,6 +240,7 @@
             this.txtIdBarrio.Name = "txtIdBarrio";
             this.txtIdBarrio.Size = new System.Drawing.Size(100, 20);
             this.txtIdBarrio.TabIndex = 14;
+            this.txtIdBarrio.TextChanged += new System.EventHandler(this.txtIdBarrio_TextChanged);
             // 
             // lblIdBarrio
             // 
@@ -315,6 +305,7 @@
             this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnGrabar
             // 
@@ -326,21 +317,11 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(312, 106);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "label1";
-            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 450);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
@@ -360,7 +341,6 @@
             this.Controls.Add(this.grdClientes);
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.txtCuit);
-            this.Controls.Add(this.btnConsultarCliente);
             this.Controls.Add(this.lblRazonSocial);
             this.Controls.Add(this.lblCuit);
             this.Name = "frmClientes";
@@ -376,7 +356,6 @@
 
         private System.Windows.Forms.Label lblCuit;
         private System.Windows.Forms.Label lblRazonSocial;
-        private System.Windows.Forms.Button btnConsultarCliente;
         private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.DataGridView grdClientes;
@@ -405,6 +384,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_alta;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_contacto;
-        private System.Windows.Forms.Label label1;
     }
 }

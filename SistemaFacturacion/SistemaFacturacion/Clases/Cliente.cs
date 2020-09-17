@@ -16,7 +16,7 @@ namespace SistemaFacturacion.Clases
         private int id_cliente;
         private string cuit;
         private string razon_social;
-        private string borrado;
+        private bool borrado;
         private string calle;
         private string numero;
         private DateTime fecha_alta;
@@ -28,7 +28,7 @@ namespace SistemaFacturacion.Clases
         public DateTime Fecha_alta { get => fecha_alta; set => fecha_alta = value; }
         public string Numero { get => numero; set => numero = value; }
         public string Calle { get => calle; set => calle = value; }
-        public string Borrado { get => borrado; set => borrado = value; }
+        public bool Borrado { get => borrado; set => borrado = value; }
         public string Razon_social { get => razon_social; set => razon_social = value; }
         public string Cuit { get => cuit; set => cuit = value; }
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
@@ -36,8 +36,11 @@ namespace SistemaFacturacion.Clases
         //metodo para crear data table cargada con los datos de clientes a partir de la consulta, teniendo solo encuenta los no borrados(N) 
         public DataTable recuperarClientes()
         {
-            string consultaSQL = "SELECT cl.id_cliente, cl.borrado, cl.id_barrio, cl.cuit, cl.razon_social, cl.calle, cl.numero, cl.fecha_alta, cl.id_contacto" +
-                " FROM Clientes cl";
+            string consultaSQL = "SELECT cl.id_cliente, cl.borrado, b.nombre, cl.cuit, cl.razon_social, cl.calle, cl.numero, cl.fecha_alta, c.apellido" +
+                " FROM Clientes cl, Barrios b, Contactos c" +
+                " WHERE cl.borrado = 0" +
+                " AND cl.id_barrio = b.id_barrio" +
+                " AND cl.id_contacto = c.id_contacto";
                 
             return oDato.consultar(consultaSQL);
         }
@@ -111,14 +114,15 @@ namespace SistemaFacturacion.Clases
         //metodo para realizar la consulta sql referia al insert de los datos que se quieren grabar 
         public void grabarCliente()
         {
-            string sqlInsert = "INSERT INTO Clientes (cuit, razon_social, borrado, calle, numero, id_barrio, id_contacto)" +
+            string sqlInsert = "INSERT INTO Clientes (cuit, razon_social, borrado, calle, numero, id_barrio, fecha_alta ,id_contacto)" +
                 " VALUES ( " +
                 this.cuit + ",'" +
                 this.razon_social + "', " +
-                "'N'" + ", '" +
+                0 + ", '" +
                 this.calle + "', " +
                 this.numero + ", " +
                 this.id_barrio + ", " +
+                " GETDATE()" + ","+
                 this.Id_contacto + ")";
 
             //ejecutamos el metodo para realizar la consulta en la BD pasando la consulta insert
@@ -133,8 +137,8 @@ namespace SistemaFacturacion.Clases
         public void actualizarCliente()
         {
             string sqlUpdate = "UPDATE Clientes SET cuit = " + this.cuit + "," +
-                "razon_social = '" + this.razon_social + "' ," +
-                " borrado = " + "'N'" + "," +
+                " razon_social = '" + this.razon_social + "' ," +
+                " borrado = " + 0 + "," +
                 " calle = '"  + this.calle + "', " +
                 " numero = "  + this.numero + " , " +
                 " id_barrio = " + this.id_barrio + " , " +
@@ -151,8 +155,8 @@ namespace SistemaFacturacion.Clases
         public void darBajaCliente()
         {
             string sqlDarBaja = "UPDATE Clientes SET cuit = " + this.cuit + "," +
-                "razon_social = '" + this.razon_social + "' ," +
-                " borrado = " + "'S'" + "," +
+                " razon_social = '" + this.razon_social + "' ," +
+                " borrado = " + 1 + "," +
                 " calle = '" + this.calle + "', " +
                 " numero = " + this.numero + " , " +
                 " id_barrio = " + this.id_barrio + " , " +
