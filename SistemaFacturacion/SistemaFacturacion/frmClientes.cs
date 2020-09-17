@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Clases;
+using SistemaFacturacion.Formularios;
 
-namespace SistemaFacturacion
+namespace SistemaFacturacion.Formularios
 {
     public partial class frmClientes : Form
     {
@@ -73,8 +74,8 @@ namespace SistemaFacturacion
             //grdClientes.DataSource = oCliente.recuperarClientes();
 
             //cargamos la grilla campo por campo a partir de la consulta
-            this.cargarGrilla(grdClientes, oCliente.recuperarClientes());
-
+            //this.cargarGrilla(grdClientes, oCliente.recuperarClientes());
+            grdClientes.DataSource = oCliente.recuperarClientes();
         }
         // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
         private void cargarGrilla(DataGridView grilla, DataTable tabla) {
@@ -85,16 +86,18 @@ namespace SistemaFacturacion
             //recorremos el datable, contamos filas para limite superior del for
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
+                
+
                 //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
                 grilla.Rows.Add(tabla.Rows[i]["id_cliente"],
                                 tabla.Rows[i]["borrado"],
-                                tabla.Rows[i]["id_barrio"],
+                                tabla.Rows[i]["nombre"],
                                 tabla.Rows[i]["cuit"],
                                 tabla.Rows[i]["razon_social"],
                                 tabla.Rows[i]["calle"],
                                 tabla.Rows[i]["numero"],
                                 tabla.Rows[i]["fecha_alta"],
-                                tabla.Rows[i]["id_contacto"]);
+                                tabla.Rows[i]["apellido"]);
                     
                
             }
@@ -150,6 +153,46 @@ namespace SistemaFacturacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
+            oCliente.Cuit = txtCuit.Text;
+            oCliente.Razon_social = txtRazonSocial.Text;
+            oCliente.Calle = txtCalle.Text;
+            oCliente.Numero = txtNumero.Text;
+            oCliente.Id_barrio = int.Parse(txtIdBarrio.Text);
+            oCliente.Id_contacto = int.Parse(txtIdContacto.Text);
+
+            //validamos los datos antes de grabar
+            if (oCliente.validarDatosClientes())
+            {
+                 //si la bandera dice que es nuevo hacemos agregamos los datos
+                if (this.nuevo) {
+                    //si el usuario que se quiere insertar no existe entonces lo grabamos
+                    if (!oCliente.existe()) {
+
+                        oCliente.grabarCliente();
+
+                    }
+
+                    //si el usuario que se quiere insertar ya existe
+                    else
+                    {
+                        MessageBox.Show("El CLIENTE ya existente");
+                    }
+                }
+                //si la bandera dice que NO es nuevo se trata de una modficacion , entonces actualizaciomos datos
+                else
+                {
+                    oCliente.Id_cliente = int.Parse(txtIdCliente.Text);
+                    oCliente.actualizarCliente();
+                }
+
+                //actualizamos grilla
+                cargarGrilla(grdClientes, oCliente.recuperarClientes());
+                MessageBox.Show("El CLIENTE se grabo correctamente");
+
+            }
+
+          
             //click en grabar deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
             this.habilitar(false);
             //desabilito la bandera nuevo
@@ -181,7 +224,10 @@ namespace SistemaFacturacion
                                 MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes)
             {
-                //delete
+                oCliente.darBajaCliente();
+                //actualizamos grilla
+                cargarGrilla(grdClientes, oCliente.recuperarClientes());
+                MessageBox.Show("El CLIENTE se borro correctamente");
             }
         }
 
