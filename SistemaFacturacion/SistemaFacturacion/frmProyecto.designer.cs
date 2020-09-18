@@ -1,0 +1,348 @@
+﻿namespace SistemaFacturacion
+{
+    partial class frmProyecto
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblProyecto = new System.Windows.Forms.Label();
+            this.txtIdProyecto = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.txtVersion = new System.Windows.Forms.TextBox();
+            this.lblAlcance = new System.Windows.Forms.Label();
+            this.txtAlcance = new System.Windows.Forms.TextBox();
+            this.lblResponsable = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.grdProyecto = new System.Windows.Forms.DataGridView();
+            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alcance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.txtIdResponsable = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProyecto)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lblProyecto
+            // 
+            this.lblProyecto.AutoSize = true;
+            this.lblProyecto.Location = new System.Drawing.Point(48, 44);
+            this.lblProyecto.Name = "lblProyecto";
+            this.lblProyecto.Size = new System.Drawing.Size(63, 13);
+            this.lblProyecto.TabIndex = 0;
+            this.lblProyecto.Text = "ID Proyecto";
+            // 
+            // txtIdProyecto
+            // 
+            this.txtIdProyecto.Location = new System.Drawing.Point(117, 41);
+            this.txtIdProyecto.Name = "txtIdProyecto";
+            this.txtIdProyecto.Size = new System.Drawing.Size(100, 20);
+            this.txtIdProyecto.TabIndex = 1;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(567, 92);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.TabIndex = 2;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(474, 99);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.TabIndex = 3;
+            this.lblDescripcion.Text = "Descripcion";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(48, 92);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(42, 13);
+            this.lblVersion.TabIndex = 4;
+            this.lblVersion.Text = "Version";
+            this.lblVersion.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(117, 92);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Size = new System.Drawing.Size(100, 20);
+            this.txtVersion.TabIndex = 5;
+            // 
+            // lblAlcance
+            // 
+            this.lblAlcance.AutoSize = true;
+            this.lblAlcance.Location = new System.Drawing.Point(241, 95);
+            this.lblAlcance.Name = "lblAlcance";
+            this.lblAlcance.Size = new System.Drawing.Size(46, 13);
+            this.lblAlcance.TabIndex = 6;
+            this.lblAlcance.Text = "Alcance";
+            // 
+            // txtAlcance
+            // 
+            this.txtAlcance.Location = new System.Drawing.Point(325, 92);
+            this.txtAlcance.Name = "txtAlcance";
+            this.txtAlcance.Size = new System.Drawing.Size(121, 20);
+            this.txtAlcance.TabIndex = 7;
+            // 
+            // lblResponsable
+            // 
+            this.lblResponsable.AutoSize = true;
+            this.lblResponsable.Location = new System.Drawing.Point(474, 48);
+            this.lblResponsable.Name = "lblResponsable";
+            this.lblResponsable.Size = new System.Drawing.Size(83, 13);
+            this.lblResponsable.TabIndex = 9;
+            this.lblResponsable.Text = "ID Responsable";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(259, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 10;
+            // 
+            // lblProducto
+            // 
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Location = new System.Drawing.Point(241, 47);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(64, 13);
+            this.lblProducto.TabIndex = 12;
+            this.lblProducto.Text = "ID Producto";
+            // 
+            // grdProyecto
+            // 
+            this.grdProyecto.AllowUserToAddRows = false;
+            this.grdProyecto.AllowUserToDeleteRows = false;
+            this.grdProyecto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdProyecto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_proyecto,
+            this.borrado,
+            this.id_producto,
+            this.descripcion,
+            this.version,
+            this.alcance,
+            this.id_responsable});
+            this.grdProyecto.Location = new System.Drawing.Point(90, 161);
+            this.grdProyecto.Name = "grdProyecto";
+            this.grdProyecto.ReadOnly = true;
+            this.grdProyecto.Size = new System.Drawing.Size(805, 150);
+            this.grdProyecto.TabIndex = 13;
+            // 
+            // id_proyecto
+            // 
+            this.id_proyecto.HeaderText = "ID Proyecto";
+            this.id_proyecto.Name = "id_proyecto";
+            this.id_proyecto.ReadOnly = true;
+            // 
+            // borrado
+            // 
+            this.borrado.HeaderText = "Borrado";
+            this.borrado.Name = "borrado";
+            this.borrado.ReadOnly = true;
+            // 
+            // id_producto
+            // 
+            this.id_producto.HeaderText = "ID Producto";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // version
+            // 
+            this.version.HeaderText = "Version";
+            this.version.Name = "version";
+            this.version.ReadOnly = true;
+            // 
+            // alcance
+            // 
+            this.alcance.HeaderText = "Alcance";
+            this.alcance.Name = "alcance";
+            this.alcance.ReadOnly = true;
+            // 
+            // id_responsable
+            // 
+            this.id_responsable.HeaderText = "ID Responsable";
+            this.id_responsable.Name = "id_responsable";
+            this.id_responsable.ReadOnly = true;
+            this.id_responsable.Width = 110;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(315, 384);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 14;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(518, 384);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(201, 384);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 16;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(90, 384);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(421, 384);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 20;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(619, 384);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 21;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // txtIdProducto
+            // 
+            this.txtIdProducto.Location = new System.Drawing.Point(325, 44);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(100, 20);
+            this.txtIdProducto.TabIndex = 22;
+            // 
+            // txtIdResponsable
+            // 
+            this.txtIdResponsable.Location = new System.Drawing.Point(567, 48);
+            this.txtIdResponsable.Name = "txtIdResponsable";
+            this.txtIdResponsable.Size = new System.Drawing.Size(100, 20);
+            this.txtIdResponsable.TabIndex = 23;
+            // 
+            // frmProyecto
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(915, 450);
+            this.Controls.Add(this.txtIdResponsable);
+            this.Controls.Add(this.txtIdProducto);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnGrabar);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.grdProyecto);
+            this.Controls.Add(this.lblProducto);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblResponsable);
+            this.Controls.Add(this.txtAlcance);
+            this.Controls.Add(this.lblAlcance);
+            this.Controls.Add(this.txtVersion);
+            this.Controls.Add(this.lblVersion);
+            this.Controls.Add(this.lblDescripcion);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtIdProyecto);
+            this.Controls.Add(this.lblProyecto);
+            this.Name = "frmProyecto";
+            this.Text = "Proyectos";
+            this.Load += new System.EventHandler(this.frmProyecto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdProyecto)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblProyecto;
+        private System.Windows.Forms.TextBox txtIdProyecto;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.TextBox txtVersion;
+        private System.Windows.Forms.Label lblAlcance;
+        private System.Windows.Forms.TextBox txtAlcance;
+        private System.Windows.Forms.Label lblResponsable;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblProducto;
+        private System.Windows.Forms.DataGridView grdProyecto;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.TextBox txtIdResponsable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn borrado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alcance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_responsable;
+    }
+}
