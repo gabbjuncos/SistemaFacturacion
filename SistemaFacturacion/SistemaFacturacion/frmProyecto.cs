@@ -96,7 +96,7 @@ namespace SistemaFacturacion
         {
             //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
             oProyecto.Id_producto = int.Parse(txtIdProducto.Text);
-            oProyecto.Id_responsable = int.Parse(txtIdProducto.Text);
+            oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
             oProyecto.Descripcion = txtDescripcion.Text;
             oProyecto.Version = txtVersion.Text;
             oProyecto.Alcance = txtAlcance.Text;
@@ -130,7 +130,7 @@ namespace SistemaFacturacion
 
                 //actualizamos grilla
                 cargarGrilla(grdProyecto, oProyecto.recuperarProyectos());
-                MessageBox.Show("El PROYECTOS se grabo correctamente");
+                MessageBox.Show("El PROYECTO se grabo correctamente");
 
             }
 
@@ -156,11 +156,11 @@ namespace SistemaFacturacion
                 //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
                 grilla.Rows.Add(tabla.Rows[i]["id_proyecto"],
                                 tabla.Rows[i]["borrado"],
-                                tabla.Rows[i]["id_producto"],
+                                tabla.Rows[i]["nombre"],
                                 tabla.Rows[i]["descripcion"],
                                 tabla.Rows[i]["version"],
                                 tabla.Rows[i]["alcance"],
-                                tabla.Rows[i]["id_responsable"]);
+                                tabla.Rows[i]["usuario"]);
 
 
             }

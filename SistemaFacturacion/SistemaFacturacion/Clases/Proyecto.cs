@@ -75,7 +75,7 @@ namespace SistemaFacturacion.Clases
 
         {
             DataTable table = new DataTable();
-            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto= '" + this.id_producto + "'");
+            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto= '" + this.id_proyecto + "'");
             if (table.Rows.Count == 0)
             {
                 return false;
@@ -124,7 +124,7 @@ namespace SistemaFacturacion.Clases
         //metodo para crear data table cargada con los datos de Producto a partir de la consulta, teniendo solo encuenta los no borrados(N) 
         public DataTable recuperarProyectos()
         {
-            string consultaSQL = "SELECT pr.id_proyecto, pr.borrado, p.id_producto, pr.descripcion, pr.version, pr.alcance, u.id_usuario" +
+            string consultaSQL = "SELECT pr.id_proyecto, pr.borrado, p.nombre, pr.descripcion, pr.version, pr.alcance, u.usuario" +
                 " FROM Proyectos pr, Productos p, Usuarios u" +
                 " WHERE pr.borrado = 0" +
                 " AND pr.id_responsable = u.id_usuario" +
