@@ -27,8 +27,21 @@ namespace SistemaFacturacion
         {
             frmClientes frc = new frmClientes();
             frc.ShowDialog();
-            frc.Dispose();
-         
+            frc.Dispose();            
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProducto frpro = new frmProducto();
+            frpro.ShowDialog();
+            frpro.Dispose();
+        }
+
+        private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProyecto frproy = new frmProyecto();
+            frproy.ShowDialog();
+            frproy.Dispose();
         }
     }
 }

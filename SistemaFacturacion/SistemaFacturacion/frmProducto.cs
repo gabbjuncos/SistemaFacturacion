@@ -34,13 +34,37 @@ namespace SistemaFacturacion
         {
             //Carga el formulario deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
             this.habilitar(false);
+
+            //cargamos la grilla campo por campo a partir de la consulta
+            this.cargarGrilla(grdProductos, oProducto.recuperarProductos());
         }
+
+        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
+        private void cargarGrilla(DataGridView grilla, DataTable tabla)
+        {
+            //limpiamos grilla 
+            grilla.Rows.Clear();
+
+
+            //recorremos el datable, contamos filas para limite superior del for
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+
+
+                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
+                grilla.Rows.Add(tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["id_producto"],
+                                tabla.Rows[i]["borrado"]);
+            }
+        }
+
+
         //metodo para habilitar o deshabilitar campos y botones
         private void habilitar(bool x)
         {
             txtid_producto.Enabled = false; //id cliente desabilitado por que es autoincremental
             txtNombre.Enabled = x;
-            
+
 
             btnGrabar.Enabled = x;
             btnCancelar.Enabled = x;
@@ -99,8 +123,8 @@ namespace SistemaFacturacion
             //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
             oProducto.Nombre = txtNombre.Text;
             //oProducto.Id_producto = int.Parse(txtid_producto.Text);
-           
-            
+
+
             //validamos los datos antes de grabar
             if (oProducto.validarDatosProductos())
             {
@@ -140,25 +164,70 @@ namespace SistemaFacturacion
             //desabilito la bandera nuevo
             this.nuevo = false;
         }
+                
 
-
-        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
-        private void cargarGrilla(DataGridView grilla, DataTable tabla)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //limpiamos grilla 
-            grilla.Rows.Clear();
+            // click en cancelar deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
+            this.habilitar(false);
+            //desabilito la bandera nuevo
+            this.nuevo = false;
+        }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //Click en editar habilitamos botones grabar y cancelar y tambien los campos
+            this.habilitar(true);
+            //hacemos foco al NOMBRE
+            this.txtNombre.Focus();
+        }
 
-            //recorremos el datable, contamos filas para limite superior del for
-            for (int i = 0; i < tabla.Rows.Count; i++)
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            //mensaje para verificar borrado de producto
+            if (MessageBox.Show("Esta seguro de eliminar el producto : " + txtNombre.Text,
+                                "Eliminar producto",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning,
+                                MessageBoxDefaultButton.Button2)
+                == DialogResult.Yes)
             {
+                //tomamos los valores de las cajas de texto y se lo asignamos a un objeto producto
+                oProducto.Nombre = txtNombre.Text;
 
 
-                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
-                grilla.Rows.Add(tabla.Rows[i]["nombre"],
-                                tabla.Rows[i]["id_producto"],
-                                tabla.Rows[i]["borrado"]);
+                oProducto.Id_producto = int.Parse(txtid_producto.Text);
+                oProducto.darBajaProducto();
+
+                //actualizamos grilla
+                cargarGrilla(grdProductos, oProducto.recuperarProductos());
+                MessageBox.Show("El PRODUCTO se borro correctamente");
             }
+        }
+
+        //metodo para tomar algun registro dependiendo en que fila este posicionado en la grilla
+        private void grdProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            //columna 0 correspondiente al id producto
+            this.actualizarCampos((int)grdProductos.CurrentRow.Cells[1].Value);
+
+        }
+
+        private void actualizarCampos(int id)
+        {
+            DataTable tabla = new DataTable();
+            tabla = oProducto.recuperarProductoPorId(id);
+
+            //colocamos cada dato de la columna en los campos correspondientes
+            txtid_producto.Text = tabla.Rows[0]["id_producto"].ToString();
+
+            txtNombre.Text = tabla.Rows[0]["nombre"].ToString();
+            
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

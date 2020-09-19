@@ -75,7 +75,7 @@ namespace SistemaFacturacion.Clases
 
         {
             DataTable table = new DataTable();
-            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto= '" + this.id_proyecto + "'");
+            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto = '" + this.id_proyecto + "'");
             if (table.Rows.Count == 0)
             {
                 return false;

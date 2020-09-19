@@ -69,6 +69,7 @@
             // 
             // txtIdProyecto
             // 
+            this.txtIdProyecto.BackColor = System.Drawing.Color.OldLace;
             this.txtIdProyecto.Location = new System.Drawing.Point(117, 41);
             this.txtIdProyecto.Name = "txtIdProyecto";
             this.txtIdProyecto.Size = new System.Drawing.Size(100, 20);
@@ -76,6 +77,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.OldLace;
             this.txtDescripcion.Location = new System.Drawing.Point(567, 92);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
@@ -102,6 +104,7 @@
             // 
             // txtVersion
             // 
+            this.txtVersion.BackColor = System.Drawing.Color.OldLace;
             this.txtVersion.Location = new System.Drawing.Point(117, 92);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Size = new System.Drawing.Size(100, 20);
@@ -118,6 +121,7 @@
             // 
             // txtAlcance
             // 
+            this.txtAlcance.BackColor = System.Drawing.Color.OldLace;
             this.txtAlcance.Location = new System.Drawing.Point(325, 92);
             this.txtAlcance.Name = "txtAlcance";
             this.txtAlcance.Size = new System.Drawing.Size(121, 20);
@@ -213,62 +217,69 @@
             // 
             // btnBorrar
             // 
+            this.btnBorrar.BackColor = System.Drawing.Color.OldLace;
             this.btnBorrar.Location = new System.Drawing.Point(315, 384);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 14;
             this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.OldLace;
             this.btnCancelar.Location = new System.Drawing.Point(518, 384);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
+            this.btnEditar.BackColor = System.Drawing.Color.OldLace;
             this.btnEditar.Location = new System.Drawing.Point(201, 384);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnNuevo
             // 
+            this.btnNuevo.BackColor = System.Drawing.Color.OldLace;
             this.btnNuevo.Location = new System.Drawing.Point(90, 384);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 17;
             this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGrabar
             // 
+            this.btnGrabar.BackColor = System.Drawing.Color.OldLace;
             this.btnGrabar.Location = new System.Drawing.Point(421, 384);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 20;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.UseVisualStyleBackColor = false;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.OldLace;
             this.btnSalir.Location = new System.Drawing.Point(619, 384);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // txtIdProducto
             // 
+            this.txtIdProducto.BackColor = System.Drawing.Color.OldLace;
             this.txtIdProducto.Location = new System.Drawing.Point(325, 44);
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(100, 20);
@@ -285,6 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(915, 450);
             this.Controls.Add(this.txtIdResponsable);
             this.Controls.Add(this.txtIdProducto);

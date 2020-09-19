@@ -38,26 +38,29 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.BackColor = System.Drawing.Color.OldLace;
             this.btnIngresar.Location = new System.Drawing.Point(60, 117);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(81, 23);
             this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.OldLace;
             this.btnSalir.Location = new System.Drawing.Point(185, 117);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(81, 23);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.Color.OldLace;
             this.txtUsuario.Location = new System.Drawing.Point(160, 28);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(115, 20);
@@ -65,6 +68,7 @@
             // 
             // txtClave
             // 
+            this.txtClave.BackColor = System.Drawing.Color.OldLace;
             this.txtClave.Location = new System.Drawing.Point(160, 71);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(115, 20);
@@ -93,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(324, 171);
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblUsuario);

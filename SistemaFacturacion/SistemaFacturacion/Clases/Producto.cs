@@ -82,5 +82,26 @@ namespace SistemaFacturacion.Clases
 
             return oDato.consultar(consultaSQL);
         }
+
+        //metodo para realizar la consulta sql referia al update de los datos modificando el cambo borrado a S
+        public void darBajaProducto()
+        {
+            string sqlDarBaja = "UPDATE Productos SET nombre = '" + this.nombre + "'," +
+                " borrado = " + 1 +
+                " WHERE id_producto = " + this.id_producto;
+
+
+            //ejecutamos el metodo para realizar la consulta en la BD pasando la consulta UPDATE
+            oDato.actualizar(sqlDarBaja);
+
+        }
+
+        //recuperamos un producto determinado a partir de su id 
+        public DataTable recuperarProductoPorId(int id)
+        {
+
+            return oDato.consultar("SELECT * FROM Productos WHERE id_producto =" + id);
+        }
+
     }
 }
