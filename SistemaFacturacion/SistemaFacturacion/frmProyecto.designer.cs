@@ -171,6 +171,7 @@
             this.grdProyecto.ReadOnly = true;
             this.grdProyecto.Size = new System.Drawing.Size(805, 150);
             this.grdProyecto.TabIndex = 13;
+            this.grdProyecto.SelectionChanged += new System.EventHandler(this.grdProyecto_SelectionChanged);
             // 
             // id_proyecto
             // 
@@ -224,6 +225,7 @@
             this.btnBorrar.TabIndex = 14;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCancelar
             // 
@@ -234,6 +236,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -244,6 +247,7 @@
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -276,6 +280,7 @@
             this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // txtIdProducto
             // 

@@ -51,7 +51,7 @@ namespace SistemaFacturacion.Clases
 
             }
 
-           
+
             if (this.id_producto.ToString() == string.Empty | this.id_producto < 0)
             {
                 MessageBox.Show("El campo ID PRODUCTO esta vacio o no es un valor valido");
@@ -75,7 +75,7 @@ namespace SistemaFacturacion.Clases
 
         {
             DataTable table = new DataTable();
-            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto = '" + this.id_proyecto + "'");
+            table = oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto= '" + this.id_proyecto + "'");
             if (table.Rows.Count == 0)
             {
                 return false;
@@ -112,7 +112,7 @@ namespace SistemaFacturacion.Clases
                 " version = '" + this.version + "', " +
                 " alcance = '" + this.alcance + "', " +
                 " id_responsable = " + this.id_responsable + ", " +
-                " borrado = " + 0 + "," +
+                " borrado = " + 0 +
                 " WHERE id_proyecto = " + this.id_proyecto;
 
 
@@ -131,6 +131,26 @@ namespace SistemaFacturacion.Clases
                 " AND pr.id_producto = p.id_producto";
 
             return oDato.consultar(consultaSQL);
+        }
+
+        //metodo para realizar la consulta sql referia al update de los datos modificando el cambo borrado a S
+        public void darBajaProyecto()
+        {
+            string sqlDarBaja = "UPDATE Proyectos SET " +
+                " borrado = " + 1 +
+                " WHERE id_proyecto = " + this.id_proyecto;
+
+
+            //ejecutamos el metodo para realizar la consulta en la BD pasando la consulta UPDATE
+            oDato.actualizar(sqlDarBaja);
+
+        }
+
+        //recuperamos un Proyecto determinado a partir de su id 
+        public DataTable recuperarProyectoPorId(int id)
+        {
+
+            return oDato.consultar("SELECT * FROM Proyectos WHERE id_proyecto=" + id);
         }
     }
 }

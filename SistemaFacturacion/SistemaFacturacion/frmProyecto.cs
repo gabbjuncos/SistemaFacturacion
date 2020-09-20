@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Clases;
 
+
 namespace SistemaFacturacion
 {
     public partial class frmProyecto : Form
@@ -34,6 +35,35 @@ namespace SistemaFacturacion
             //Carga el formulario deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
             this.habilitar(false);
 
+            //cargamos la grilla campo por campo a partir de la consulta
+            this.cargarGrilla(grdProyecto, oProyecto.recuperarProyectos());
+
+        }
+
+        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
+        private void cargarGrilla(DataGridView grilla, DataTable tabla)
+        {
+            //limpiamos grilla 
+            grilla.Rows.Clear();
+
+
+            //recorremos el datable, contamos filas para limite superior del for
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+
+
+                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
+                grilla.Rows.Add(tabla.Rows[i]["id_proyecto"],
+                                tabla.Rows[i]["borrado"],
+                                tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["descripcion"],
+                                tabla.Rows[i]["version"],
+                                tabla.Rows[i]["alcance"],
+                                tabla.Rows[i]["usuario"]);
+
+
+            }
+
         }
 
         //metodo para habilitar o deshabilitar campos y botones
@@ -45,7 +75,7 @@ namespace SistemaFacturacion
             txtVersion.Enabled = x;
             txtAlcance.Enabled = x;
             txtIdResponsable.Enabled = x;
- 
+
             //habilitar botones o deshabilitar
             btnGrabar.Enabled = x;
             btnCancelar.Enabled = x;
@@ -66,7 +96,7 @@ namespace SistemaFacturacion
             txtAlcance.Clear();
             txtDescripcion.Clear();
             txtVersion.Clear();
-           
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -141,30 +171,90 @@ namespace SistemaFacturacion
             this.nuevo = false;
         }
 
-        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
-        private void cargarGrilla(DataGridView grilla, DataTable tabla)
+
+
+        
+
+        
+        
+
+        //metodo para tomar algun registro dependiendo en que fila este posicionado en la grilla
+        private void grdProyecto_SelectionChanged(object sender, EventArgs e)
         {
-            //limpiamos grilla 
-            grilla.Rows.Clear();
+            //columna 0 correspondiente al id Proyecto
+            this.actualizarCampos((int)grdProyecto.CurrentRow.Cells[0].Value);
 
+        }
 
-            //recorremos el datable, contamos filas para limite superior del for
-            for (int i = 0; i < tabla.Rows.Count; i++)
+        private void actualizarCampos(int id)
+        {
+            DataTable tabla = new DataTable();
+            tabla = oProyecto.recuperarProyectoPorId(id);
+            //colocamos cada dato de la columna en los campos correspondientes
+            txtIdProyecto.Text = tabla.Rows[0]["id_proyecto"].ToString();
+
+            txtIdProducto.Text = tabla.Rows[0]["id_producto"].ToString();
+
+            txtIdResponsable.Text = tabla.Rows[0]["id_responsable"].ToString();
+
+            txtVersion.Text = tabla.Rows[0]["version"].ToString();
+
+            txtAlcance.Text = tabla.Rows[0]["alcance"].ToString();
+
+            txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
+
+        }
+
+        
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //Click en editar habilitamos botones grabar y cancelar y tambien los campos
+            this.habilitar(true);
+            //hacemos foco al ID PRODUCTO
+            this.txtIdProducto.Focus();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        // click en cancelar deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
+        {
+            this.habilitar(false);
+            //desabilito la bandera nuevo
+            this.nuevo = false;
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {   //mensaje para verificar borrado de Proyecto
+            if (MessageBox.Show("Esta seguro de eliminar el proyecto : " + txtIdProyecto.Text,
+                                "Eliminar PROYECTO",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning,
+                                MessageBoxDefaultButton.Button2)
+                == DialogResult.Yes)
             {
+                //tomamos los valores de las cajas de texto y se lo asignamos a un objeto Proyecto
+                oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
+                oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
+                oProyecto.Version = txtVersion.Text;
+                oProyecto.Alcance = txtAlcance.Text;
+                oProyecto.Descripcion = txtDescripcion.Text;
 
 
-                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
-                grilla.Rows.Add(tabla.Rows[i]["id_proyecto"],
-                                tabla.Rows[i]["borrado"],
-                                tabla.Rows[i]["nombre"],
-                                tabla.Rows[i]["descripcion"],
-                                tabla.Rows[i]["version"],
-                                tabla.Rows[i]["alcance"],
-                                tabla.Rows[i]["usuario"]);
 
 
+                oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
+                oProyecto.darBajaProyecto();
+
+                //actualizamos grilla
+                cargarGrilla(grdProyecto, oProyecto.recuperarProyectos());
+                MessageBox.Show("El PROYECTO se borro correctamente");
             }
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
