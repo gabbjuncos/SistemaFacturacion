@@ -57,6 +57,19 @@ namespace SistemaFacturacion.Clases
 
         }
 
+        public DataTable consultarTabla(string nombreTabla)
+        {
+
+            DataTable tabla = new DataTable();
+            this.conectar();
+            this.comando.CommandText = "select * from " + nombreTabla;
+            tabla.Load(this.comando.ExecuteReader());
+            this.desconectar();
+            return tabla;
+        }
+
+
+
 
     }
 }

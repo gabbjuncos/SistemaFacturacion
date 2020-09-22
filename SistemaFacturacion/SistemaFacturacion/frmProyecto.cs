@@ -20,6 +20,8 @@ namespace SistemaFacturacion
         // creo objeto Proyecto
         Proyecto oProyecto = new Proyecto();
 
+        Datos oBD = new Datos();
+
         public frmProyecto()
         {
             InitializeComponent();
@@ -38,6 +40,8 @@ namespace SistemaFacturacion
             //cargamos la grilla campo por campo a partir de la consulta
             this.cargarGrilla(grdProyecto, oProyecto.recuperarProyectos());
 
+            this.cargarCombo(cboIdProducto, "Productos",1);
+            this.cargarCombo(cboIdResponsable, "Usuarios",2);
         }
 
         // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
@@ -70,11 +74,14 @@ namespace SistemaFacturacion
         private void habilitar(bool x)
         {
             txtIdProyecto.Enabled = false; //id proyecto desabilitado por que es autoincremental
-            txtIdProducto.Enabled = x;
+            //txtIdProducto.Enabled = x;
             txtDescripcion.Enabled = x;
             txtVersion.Enabled = x;
             txtAlcance.Enabled = x;
-            txtIdResponsable.Enabled = x;
+            //txtIdResponsable.Enabled = x;
+            //para los combobox
+            cboIdProducto.Enabled = x;
+            cboIdResponsable.Enabled = x;
 
             //habilitar botones o deshabilitar
             btnGrabar.Enabled = x;
@@ -91,11 +98,14 @@ namespace SistemaFacturacion
         private void limpiar()
         {
             txtIdProyecto.Clear();
-            txtIdProducto.Clear();
-            txtIdResponsable.Clear();
+            //txtIdProducto.Clear();
+            //txtIdResponsable.Clear();
             txtAlcance.Clear();
             txtDescripcion.Clear();
             txtVersion.Clear();
+            //para que apunte siempre al primero por defecto
+            cboIdResponsable.SelectedIndex = 0;
+            cboIdProducto.SelectedIndex = 0;
 
         }
 
@@ -125,11 +135,18 @@ namespace SistemaFacturacion
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
-            oProyecto.Id_producto = int.Parse(txtIdProducto.Text);
-            oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
+            //oProyecto.Id_producto = int.Parse(txtIdProducto.Text);
+            //oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
+
             oProyecto.Descripcion = txtDescripcion.Text;
             oProyecto.Version = txtVersion.Text;
             oProyecto.Alcance = txtAlcance.Text;
+
+            //seteamos los atributos de id , con los valores que tenga sus combobox
+            oProyecto.Id_responsable = (int)cboIdResponsable.SelectedValue;
+            oProyecto.Id_producto = (int)cboIdProducto.SelectedValue;
+
+
 
             //validamos los datos antes de grabar
             if (oProyecto.validarDatosProyecto())
@@ -193,15 +210,18 @@ namespace SistemaFacturacion
             //colocamos cada dato de la columna en los campos correspondientes
             txtIdProyecto.Text = tabla.Rows[0]["id_proyecto"].ToString();
 
-            txtIdProducto.Text = tabla.Rows[0]["id_producto"].ToString();
+            //txtIdProducto.Text = tabla.Rows[0]["id_producto"].ToString();
 
-            txtIdResponsable.Text = tabla.Rows[0]["id_responsable"].ToString();
+            //txtIdResponsable.Text = tabla.Rows[0]["id_responsable"].ToString();
 
             txtVersion.Text = tabla.Rows[0]["version"].ToString();
 
             txtAlcance.Text = tabla.Rows[0]["alcance"].ToString();
 
             txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
+
+            cboIdResponsable.SelectedValue = tabla.Rows[0]["id_responsable"];
+            cboIdProducto.SelectedValue = tabla.Rows[0]["id_producto"];
 
         }
 
@@ -211,8 +231,8 @@ namespace SistemaFacturacion
         {
             //Click en editar habilitamos botones grabar y cancelar y tambien los campos
             this.habilitar(true);
-            //hacemos foco al ID PRODUCTO
-            this.txtIdProducto.Focus();
+            
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -233,14 +253,16 @@ namespace SistemaFacturacion
                 == DialogResult.Yes)
             {
                 //tomamos los valores de las cajas de texto y se lo asignamos a un objeto Proyecto
-                oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
-                oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
+                //oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
+                //oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
+
+                //seteamos los atributos de id , con los valores que tenga sus combobox
+                oProyecto.Id_responsable = (int)cboIdResponsable.SelectedValue;
+                oProyecto.Id_producto = (int)cboIdProducto.SelectedValue;
+
                 oProyecto.Version = txtVersion.Text;
                 oProyecto.Alcance = txtAlcance.Text;
                 oProyecto.Descripcion = txtDescripcion.Text;
-
-
-
 
                 oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
                 oProyecto.darBajaProyecto();
@@ -255,6 +277,19 @@ namespace SistemaFacturacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cargarCombo(ComboBox combo, string nombreTabla, int numeroColumnaDisplay)
+        {
+
+            DataTable tabla = new DataTable();
+
+            tabla = oBD.consultarTabla(nombreTabla);
+            combo.DataSource = tabla;
+            combo.DisplayMember = tabla.Columns[numeroColumnaDisplay].ColumnName;    // para nombre
+            combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
+            //combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
         }
     }
 }

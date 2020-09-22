@@ -53,8 +53,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtIdProducto = new System.Windows.Forms.TextBox();
-            this.txtIdResponsable = new System.Windows.Forms.TextBox();
+            this.cboIdResponsable = new System.Windows.Forms.ComboBox();
+            this.cboIdProducto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdProyecto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,9 +132,9 @@
             this.lblResponsable.AutoSize = true;
             this.lblResponsable.Location = new System.Drawing.Point(474, 48);
             this.lblResponsable.Name = "lblResponsable";
-            this.lblResponsable.Size = new System.Drawing.Size(83, 13);
+            this.lblResponsable.Size = new System.Drawing.Size(69, 13);
             this.lblResponsable.TabIndex = 9;
-            this.lblResponsable.Text = "ID Responsable";
+            this.lblResponsable.Text = "Responsable";
             // 
             // label2
             // 
@@ -149,9 +149,9 @@
             this.lblProducto.AutoSize = true;
             this.lblProducto.Location = new System.Drawing.Point(241, 47);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(64, 13);
+            this.lblProducto.Size = new System.Drawing.Size(50, 13);
             this.lblProducto.TabIndex = 12;
-            this.lblProducto.Text = "ID Producto";
+            this.lblProducto.Text = "Producto\r\n";
             // 
             // grdProyecto
             // 
@@ -282,20 +282,23 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txtIdProducto
+            // cboIdResponsable
             // 
-            this.txtIdProducto.BackColor = System.Drawing.Color.OldLace;
-            this.txtIdProducto.Location = new System.Drawing.Point(325, 44);
-            this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(100, 20);
-            this.txtIdProducto.TabIndex = 22;
+            this.cboIdResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIdResponsable.FormattingEnabled = true;
+            this.cboIdResponsable.Location = new System.Drawing.Point(567, 45);
+            this.cboIdResponsable.Name = "cboIdResponsable";
+            this.cboIdResponsable.Size = new System.Drawing.Size(121, 21);
+            this.cboIdResponsable.TabIndex = 24;
             // 
-            // txtIdResponsable
+            // cboIdProducto
             // 
-            this.txtIdResponsable.Location = new System.Drawing.Point(567, 48);
-            this.txtIdResponsable.Name = "txtIdResponsable";
-            this.txtIdResponsable.Size = new System.Drawing.Size(100, 20);
-            this.txtIdResponsable.TabIndex = 23;
+            this.cboIdProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIdProducto.FormattingEnabled = true;
+            this.cboIdProducto.Location = new System.Drawing.Point(325, 44);
+            this.cboIdProducto.Name = "cboIdProducto";
+            this.cboIdProducto.Size = new System.Drawing.Size(121, 21);
+            this.cboIdProducto.TabIndex = 25;
             // 
             // frmProyecto
             // 
@@ -303,8 +306,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(915, 450);
-            this.Controls.Add(this.txtIdResponsable);
-            this.Controls.Add(this.txtIdProducto);
+            this.Controls.Add(this.cboIdProducto);
+            this.Controls.Add(this.cboIdResponsable);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnNuevo);
@@ -352,8 +355,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.TextBox txtIdProducto;
-        private System.Windows.Forms.TextBox txtIdResponsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrado;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
@@ -361,5 +362,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn version;
         private System.Windows.Forms.DataGridViewTextBoxColumn alcance;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_responsable;
+        private System.Windows.Forms.ComboBox cboIdResponsable;
+        private System.Windows.Forms.ComboBox cboIdProducto;
     }
 }
