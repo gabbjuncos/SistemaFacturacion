@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Formularios;
+using SistemaFacturacion.Clases;
 
 namespace SistemaFacturacion
 {
     public partial class frmPrincipal : Form
     {
+        Usuario usuarioActual;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -20,7 +22,18 @@ namespace SistemaFacturacion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            frmLogin fl;
+            fl = new frmLogin();
+            fl.ShowDialog();
 
+            this.usuarioActual = fl.MiUsuario;
+
+            if (this.usuarioActual.Id_usuario == 0)
+                this.Close();
+            else
+                this.Text = this.Text + " - Usuario: " + this.usuarioActual.N_usuario;
+
+            fl.Dispose();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -80,17 +80,18 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.OldLace;
             this.txtDescripcion.Location = new System.Drawing.Point(567, 92);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
             this.txtDescripcion.TabIndex = 2;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(474, 99);
+            this.lblDescripcion.Location = new System.Drawing.Point(480, 92);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 3;
-            this.lblDescripcion.Text = "Descripcion";
+            this.lblDescripcion.Text = "Descripción";
+            this.lblDescripcion.Click += new System.EventHandler(this.lblDescripcion_Click);
             // 
             // lblVersion
             // 
@@ -99,7 +100,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(42, 13);
             this.lblVersion.TabIndex = 4;
-            this.lblVersion.Text = "Version";
+            this.lblVersion.Text = "Versión";
             this.lblVersion.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtVersion
@@ -108,12 +109,12 @@
             this.txtVersion.Location = new System.Drawing.Point(117, 92);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Size = new System.Drawing.Size(100, 20);
-            this.txtVersion.TabIndex = 5;
+            this.txtVersion.TabIndex = 0;
             // 
             // lblAlcance
             // 
             this.lblAlcance.AutoSize = true;
-            this.lblAlcance.Location = new System.Drawing.Point(241, 95);
+            this.lblAlcance.Location = new System.Drawing.Point(245, 92);
             this.lblAlcance.Name = "lblAlcance";
             this.lblAlcance.Size = new System.Drawing.Size(46, 13);
             this.lblAlcance.TabIndex = 6;
@@ -125,12 +126,12 @@
             this.txtAlcance.Location = new System.Drawing.Point(325, 92);
             this.txtAlcance.Name = "txtAlcance";
             this.txtAlcance.Size = new System.Drawing.Size(121, 20);
-            this.txtAlcance.TabIndex = 7;
+            this.txtAlcance.TabIndex = 1;
             // 
             // lblResponsable
             // 
             this.lblResponsable.AutoSize = true;
-            this.lblResponsable.Location = new System.Drawing.Point(474, 48);
+            this.lblResponsable.Location = new System.Drawing.Point(474, 44);
             this.lblResponsable.Name = "lblResponsable";
             this.lblResponsable.Size = new System.Drawing.Size(69, 13);
             this.lblResponsable.TabIndex = 9;
@@ -139,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 48);
+            this.label2.Location = new System.Drawing.Point(259, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 10;
@@ -147,7 +148,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(241, 47);
+            this.lblProducto.Location = new System.Drawing.Point(241, 43);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(50, 13);
             this.lblProducto.TabIndex = 12;
@@ -219,10 +220,10 @@
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.OldLace;
-            this.btnBorrar.Location = new System.Drawing.Point(315, 384);
+            this.btnBorrar.Location = new System.Drawing.Point(708, 384);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
-            this.btnBorrar.TabIndex = 14;
+            this.btnBorrar.TabIndex = 5;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
@@ -230,10 +231,10 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.OldLace;
-            this.btnCancelar.Location = new System.Drawing.Point(518, 384);
+            this.btnCancelar.Location = new System.Drawing.Point(306, 384);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -244,7 +245,7 @@
             this.btnEditar.Location = new System.Drawing.Point(201, 384);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 16;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -255,7 +256,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(90, 384);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -263,10 +264,10 @@
             // btnGrabar
             // 
             this.btnGrabar.BackColor = System.Drawing.Color.OldLace;
-            this.btnGrabar.Location = new System.Drawing.Point(421, 384);
+            this.btnGrabar.Location = new System.Drawing.Point(483, 384);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 20;
+            this.btnGrabar.TabIndex = 6;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = false;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
@@ -274,10 +275,10 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.OldLace;
-            this.btnSalir.Location = new System.Drawing.Point(619, 384);
+            this.btnSalir.Location = new System.Drawing.Point(820, 384);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 21;
+            this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -286,7 +287,7 @@
             // 
             this.cboIdResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIdResponsable.FormattingEnabled = true;
-            this.cboIdResponsable.Location = new System.Drawing.Point(567, 45);
+            this.cboIdResponsable.Location = new System.Drawing.Point(567, 41);
             this.cboIdResponsable.Name = "cboIdResponsable";
             this.cboIdResponsable.Size = new System.Drawing.Size(121, 21);
             this.cboIdResponsable.TabIndex = 24;
@@ -295,7 +296,7 @@
             // 
             this.cboIdProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIdProducto.FormattingEnabled = true;
-            this.cboIdProducto.Location = new System.Drawing.Point(325, 44);
+            this.cboIdProducto.Location = new System.Drawing.Point(325, 40);
             this.cboIdProducto.Name = "cboIdProducto";
             this.cboIdProducto.Size = new System.Drawing.Size(121, 21);
             this.cboIdProducto.TabIndex = 25;

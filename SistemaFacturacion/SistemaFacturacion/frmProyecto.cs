@@ -291,5 +291,10 @@ namespace SistemaFacturacion
             combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
             //combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
         }
+
+        private void lblDescripcion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
