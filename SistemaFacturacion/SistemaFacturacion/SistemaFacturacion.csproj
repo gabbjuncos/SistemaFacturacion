@@ -46,11 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\DBHelper.cs" />
+    <Compile Include="Clases\Factura.cs" />
+    <Compile Include="Clases\FacturaDetalle.cs" />
     <Compile Include="Clases\Producto.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Datos.cs" />
     <Compile Include="Clases\Proyecto.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="frmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturas.Designer.cs">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
