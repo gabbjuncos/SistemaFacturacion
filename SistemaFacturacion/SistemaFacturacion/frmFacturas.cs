@@ -95,13 +95,13 @@ namespace SistemaFacturacion
                 if (grdFacturaDetalle.Rows.Count > 0)
                 {
                     //nos conectamos con trasaccion
-                    DBHelper.GetDBHelper();
+                    //DBHelper.GetDBHelper();
                     //grabo cabezera
-                    grabarFactura();
+                    //grabarFactura();
                     //grabo detalle
-                    grabarFacturaDetalle();
+                    //grabarFacturaDetalle();
                     //y desconectarse de la base de datos a partir aca se hace el commit o el roolback
-                    DBHelper.GetDBHelper.();
+                    //DBHelper.GetDBHelper.();
                    
                 }
 
@@ -157,13 +157,13 @@ namespace SistemaFacturacion
             combo.DisplayMember = tabla.Columns[numeroColumnaDisplay].ColumnName;    // para nombre
             combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
             combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
-            //combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
+            combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //agregamos a grilla el detalle colocado
-            grdFacturaDetalle.Rows.Add(txtIdFactura.Text,txtNroOrden.Text,cboProducto.DisplayMember, cboProyecto.DisplayMember,txtPrecio);
+            grdFacturaDetalle.Rows.Add(txtIdFactura.Text,txtNroOrden.Text,cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
 
             //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
             txtPrecioTotal.Text = calcularTotal().ToString();

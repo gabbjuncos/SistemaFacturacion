@@ -3,7 +3,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System;
 using System.Data;
-namespace BugTracker
+namespace SistemaFacturacion
 {
     public class DBHelper
     {
