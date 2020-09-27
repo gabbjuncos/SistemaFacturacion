@@ -40,13 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.grdProyecto = new System.Windows.Forms.DataGridView();
-            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alcance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -55,6 +48,13 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.cboIdResponsable = new System.Windows.Forms.ComboBox();
             this.cboIdProducto = new System.Windows.Forms.ComboBox();
+            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alcance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdProyecto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,49 +174,6 @@
             this.grdProyecto.TabIndex = 13;
             this.grdProyecto.SelectionChanged += new System.EventHandler(this.grdProyecto_SelectionChanged);
             // 
-            // id_proyecto
-            // 
-            this.id_proyecto.HeaderText = "ID Proyecto";
-            this.id_proyecto.Name = "id_proyecto";
-            this.id_proyecto.ReadOnly = true;
-            // 
-            // borrado
-            // 
-            this.borrado.HeaderText = "Borrado";
-            this.borrado.Name = "borrado";
-            this.borrado.ReadOnly = true;
-            // 
-            // id_producto
-            // 
-            this.id_producto.HeaderText = "ID Producto";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // version
-            // 
-            this.version.HeaderText = "Version";
-            this.version.Name = "version";
-            this.version.ReadOnly = true;
-            // 
-            // alcance
-            // 
-            this.alcance.HeaderText = "Alcance";
-            this.alcance.Name = "alcance";
-            this.alcance.ReadOnly = true;
-            // 
-            // id_responsable
-            // 
-            this.id_responsable.HeaderText = "ID Responsable";
-            this.id_responsable.Name = "id_responsable";
-            this.id_responsable.ReadOnly = true;
-            this.id_responsable.Width = 110;
-            // 
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.OldLace;
@@ -301,6 +258,56 @@
             this.cboIdProducto.Size = new System.Drawing.Size(121, 21);
             this.cboIdProducto.TabIndex = 25;
             // 
+            // id_proyecto
+            // 
+            this.id_proyecto.DividerWidth = 2;
+            this.id_proyecto.HeaderText = "ID Proyecto";
+            this.id_proyecto.Name = "id_proyecto";
+            this.id_proyecto.ReadOnly = true;
+            // 
+            // borrado
+            // 
+            this.borrado.DividerWidth = 2;
+            this.borrado.HeaderText = "Borrado";
+            this.borrado.Name = "borrado";
+            this.borrado.ReadOnly = true;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DividerWidth = 2;
+            this.id_producto.HeaderText = "ID Producto";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DividerWidth = 2;
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // version
+            // 
+            this.version.DividerWidth = 2;
+            this.version.HeaderText = "Version";
+            this.version.Name = "version";
+            this.version.ReadOnly = true;
+            // 
+            // alcance
+            // 
+            this.alcance.DividerWidth = 2;
+            this.alcance.HeaderText = "Alcance";
+            this.alcance.Name = "alcance";
+            this.alcance.ReadOnly = true;
+            // 
+            // id_responsable
+            // 
+            this.id_responsable.DividerWidth = 2;
+            this.id_responsable.HeaderText = "ID Responsable";
+            this.id_responsable.Name = "id_responsable";
+            this.id_responsable.ReadOnly = true;
+            this.id_responsable.Width = 110;
+            // 
             // frmProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +363,8 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ComboBox cboIdResponsable;
+        private System.Windows.Forms.ComboBox cboIdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrado;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
@@ -363,7 +372,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn version;
         private System.Windows.Forms.DataGridViewTextBoxColumn alcance;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_responsable;
-        private System.Windows.Forms.ComboBox cboIdResponsable;
-        private System.Windows.Forms.ComboBox cboIdProducto;
     }
 }

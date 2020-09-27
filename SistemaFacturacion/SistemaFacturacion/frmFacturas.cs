@@ -13,6 +13,8 @@ namespace SistemaFacturacion
 {
     public partial class frmFacturas : Form
     {
+        // creo objeto Factura
+        Factura oFactura = new Factura();
         Datos oBD = new Datos();
          
 
@@ -181,6 +183,11 @@ namespace SistemaFacturacion
             }
 
             return total;
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
         }
     }
 }

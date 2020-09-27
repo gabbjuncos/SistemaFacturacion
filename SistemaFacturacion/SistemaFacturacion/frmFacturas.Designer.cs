@@ -31,7 +31,14 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
+            this.id_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNroOrden = new System.Windows.Forms.TextBox();
+            this.lblNroOrden = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -52,22 +59,15 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.id_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
-            this.lblNroOrden = new System.Windows.Forms.Label();
-            this.txtNroOrden = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(118, 32);
+            this.dtpFecha.Location = new System.Drawing.Point(115, 29);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 20);
             this.dtpFecha.TabIndex = 0;
@@ -75,7 +75,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(62, 35);
+            this.lblFecha.Location = new System.Drawing.Point(50, 34);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(37, 13);
             this.lblFecha.TabIndex = 1;
@@ -92,11 +92,50 @@
             this.producto,
             this.proyecto,
             this.precio});
-            this.grdFacturaDetalle.Location = new System.Drawing.Point(105, 101);
+            this.grdFacturaDetalle.Location = new System.Drawing.Point(21, 114);
             this.grdFacturaDetalle.Name = "grdFacturaDetalle";
             this.grdFacturaDetalle.ReadOnly = true;
-            this.grdFacturaDetalle.Size = new System.Drawing.Size(603, 150);
+            this.grdFacturaDetalle.Size = new System.Drawing.Size(712, 150);
             this.grdFacturaDetalle.TabIndex = 2;
+            // 
+            // id_factura
+            // 
+            this.id_factura.DividerWidth = 2;
+            this.id_factura.HeaderText = "ID Factura";
+            this.id_factura.Name = "id_factura";
+            this.id_factura.ReadOnly = true;
+            // 
+            // nroDeOrden
+            // 
+            this.nroDeOrden.DividerWidth = 2;
+            this.nroDeOrden.HeaderText = "Nro. Orden";
+            this.nroDeOrden.Name = "nroDeOrden";
+            this.nroDeOrden.ReadOnly = true;
+            this.nroDeOrden.Width = 110;
+            // 
+            // producto
+            // 
+            this.producto.DividerWidth = 2;
+            this.producto.HeaderText = "Producto";
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            this.producto.Width = 200;
+            // 
+            // proyecto
+            // 
+            this.proyecto.DividerWidth = 2;
+            this.proyecto.HeaderText = "Proyecto";
+            this.proyecto.Name = "proyecto";
+            this.proyecto.ReadOnly = true;
+            this.proyecto.Width = 110;
+            // 
+            // precio
+            // 
+            this.precio.DividerWidth = 2;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 110;
             // 
             // groupBox1
             // 
@@ -120,29 +159,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // txtNroOrden
+            // 
+            this.txtNroOrden.BackColor = System.Drawing.Color.OldLace;
+            this.txtNroOrden.Location = new System.Drawing.Point(459, 26);
+            this.txtNroOrden.Name = "txtNroOrden";
+            this.txtNroOrden.Size = new System.Drawing.Size(98, 20);
+            this.txtNroOrden.TabIndex = 17;
+            // 
+            // lblNroOrden
+            // 
+            this.lblNroOrden.AutoSize = true;
+            this.lblNroOrden.Location = new System.Drawing.Point(394, 29);
+            this.lblNroOrden.Name = "lblNroOrden";
+            this.lblNroOrden.Size = new System.Drawing.Size(59, 13);
+            this.lblNroOrden.TabIndex = 16;
+            this.lblNroOrden.Text = "Nro. Orden";
+            // 
             // btnQuitar
             // 
-            this.btnQuitar.Location = new System.Drawing.Point(633, 63);
+            this.btnQuitar.BackColor = System.Drawing.Color.OldLace;
+            this.btnQuitar.Location = new System.Drawing.Point(454, 71);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(75, 23);
             this.btnQuitar.TabIndex = 12;
             this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(633, 24);
+            this.btnAgregar.BackColor = System.Drawing.Color.OldLace;
+            this.btnAgregar.Location = new System.Drawing.Point(267, 71);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(531, 280);
+            this.lblTotal.Location = new System.Drawing.Point(591, 286);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 13);
             this.lblTotal.TabIndex = 10;
@@ -150,30 +209,34 @@
             // 
             // txtPrecioTotal
             // 
-            this.txtPrecioTotal.Location = new System.Drawing.Point(582, 277);
+            this.txtPrecioTotal.BackColor = System.Drawing.Color.OldLace;
+            this.txtPrecioTotal.Location = new System.Drawing.Point(642, 283);
             this.txtPrecioTotal.Name = "txtPrecioTotal";
             this.txtPrecioTotal.Size = new System.Drawing.Size(91, 20);
             this.txtPrecioTotal.TabIndex = 9;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(493, 27);
+            this.txtPrecio.BackColor = System.Drawing.Color.OldLace;
+            this.txtPrecio.Location = new System.Drawing.Point(633, 27);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 8;
             // 
             // cboProducto
             // 
+            this.cboProducto.BackColor = System.Drawing.Color.OldLace;
             this.cboProducto.FormattingEnabled = true;
-            this.cboProducto.Location = new System.Drawing.Point(304, 26);
+            this.cboProducto.Location = new System.Drawing.Point(267, 26);
             this.cboProducto.Name = "cboProducto";
             this.cboProducto.Size = new System.Drawing.Size(121, 21);
             this.cboProducto.TabIndex = 7;
             // 
             // cboProyecto
             // 
+            this.cboProyecto.BackColor = System.Drawing.Color.OldLace;
             this.cboProyecto.FormattingEnabled = true;
-            this.cboProyecto.Location = new System.Drawing.Point(109, 26);
+            this.cboProyecto.Location = new System.Drawing.Point(83, 26);
             this.cboProyecto.Name = "cboProyecto";
             this.cboProyecto.Size = new System.Drawing.Size(121, 21);
             this.cboProyecto.TabIndex = 6;
@@ -181,7 +244,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(450, 30);
+            this.lblPrecio.Location = new System.Drawing.Point(586, 30);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(37, 13);
             this.lblPrecio.TabIndex = 5;
@@ -190,7 +253,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(248, 30);
+            this.lblProducto.Location = new System.Drawing.Point(211, 30);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(50, 13);
             this.lblProducto.TabIndex = 4;
@@ -199,7 +262,7 @@
             // lblProyecto
             // 
             this.lblProyecto.AutoSize = true;
-            this.lblProyecto.Location = new System.Drawing.Point(44, 30);
+            this.lblProyecto.Location = new System.Drawing.Point(18, 30);
             this.lblProyecto.Name = "lblProyecto";
             this.lblProyecto.Size = new System.Drawing.Size(49, 13);
             this.lblProyecto.TabIndex = 3;
@@ -217,7 +280,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(386, 78);
+            this.lblCliente.Location = new System.Drawing.Point(395, 78);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(39, 13);
             this.lblCliente.TabIndex = 5;
@@ -226,7 +289,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(65, 78);
+            this.lblUsuario.Location = new System.Drawing.Point(50, 78);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 6;
@@ -234,6 +297,7 @@
             // 
             // txtNroFactura
             // 
+            this.txtNroFactura.BackColor = System.Drawing.Color.OldLace;
             this.txtNroFactura.Location = new System.Drawing.Point(440, 32);
             this.txtNroFactura.Name = "txtNroFactura";
             this.txtNroFactura.Size = new System.Drawing.Size(121, 20);
@@ -241,6 +305,7 @@
             // 
             // cboCliente
             // 
+            this.cboCliente.BackColor = System.Drawing.Color.OldLace;
             this.cboCliente.FormattingEnabled = true;
             this.cboCliente.Location = new System.Drawing.Point(440, 78);
             this.cboCliente.Name = "cboCliente";
@@ -249,90 +314,61 @@
             // 
             // cboUsuario
             // 
+            this.cboUsuario.BackColor = System.Drawing.Color.OldLace;
             this.cboUsuario.FormattingEnabled = true;
-            this.cboUsuario.Location = new System.Drawing.Point(120, 75);
+            this.cboUsuario.Location = new System.Drawing.Point(115, 75);
             this.cboUsuario.Name = "cboUsuario";
             this.cboUsuario.Size = new System.Drawing.Size(121, 21);
             this.cboUsuario.TabIndex = 9;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(542, 475);
+            this.btnSalir.BackColor = System.Drawing.Color.OldLace;
+            this.btnSalir.Location = new System.Drawing.Point(690, 475);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 10;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(371, 475);
+            this.btnCancelar.BackColor = System.Drawing.Color.OldLace;
+            this.btnCancelar.Location = new System.Drawing.Point(579, 475);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(255, 474);
+            this.btnGrabar.BackColor = System.Drawing.Color.OldLace;
+            this.btnGrabar.Location = new System.Drawing.Point(173, 474);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 12;
             this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.UseVisualStyleBackColor = false;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(129, 474);
+            this.btnNuevo.BackColor = System.Drawing.Color.OldLace;
+            this.btnNuevo.Location = new System.Drawing.Point(53, 474);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 13;
             this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // id_factura
-            // 
-            this.id_factura.HeaderText = "ID Factura";
-            this.id_factura.Name = "id_factura";
-            this.id_factura.ReadOnly = true;
-            // 
-            // nroDeOrden
-            // 
-            this.nroDeOrden.HeaderText = "Nro. Orden";
-            this.nroDeOrden.Name = "nroDeOrden";
-            this.nroDeOrden.ReadOnly = true;
-            this.nroDeOrden.Width = 110;
-            // 
-            // producto
-            // 
-            this.producto.HeaderText = "Producto";
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            this.producto.Width = 110;
-            // 
-            // proyecto
-            // 
-            this.proyecto.HeaderText = "Proyecto";
-            this.proyecto.Name = "proyecto";
-            this.proyecto.ReadOnly = true;
-            this.proyecto.Width = 110;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 110;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(589, 34);
+            this.label1.Location = new System.Drawing.Point(598, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 14;
@@ -340,31 +376,17 @@
             // 
             // txtIdFactura
             // 
+            this.txtIdFactura.BackColor = System.Drawing.Color.OldLace;
             this.txtIdFactura.Location = new System.Drawing.Point(665, 34);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(100, 20);
             this.txtIdFactura.TabIndex = 15;
             // 
-            // lblNroOrden
-            // 
-            this.lblNroOrden.AutoSize = true;
-            this.lblNroOrden.Location = new System.Drawing.Point(44, 68);
-            this.lblNroOrden.Name = "lblNroOrden";
-            this.lblNroOrden.Size = new System.Drawing.Size(59, 13);
-            this.lblNroOrden.TabIndex = 16;
-            this.lblNroOrden.Text = "Nro. Orden";
-            // 
-            // txtNroOrden
-            // 
-            this.txtNroOrden.Location = new System.Drawing.Point(109, 65);
-            this.txtNroOrden.Name = "txtNroOrden";
-            this.txtNroOrden.Size = new System.Drawing.Size(121, 20);
-            this.txtNroOrden.TabIndex = 17;
-            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 540);
             this.Controls.Add(this.txtIdFactura);
             this.Controls.Add(this.label1);
@@ -418,14 +440,14 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdFactura;
+        private System.Windows.Forms.TextBox txtNroOrden;
+        private System.Windows.Forms.Label lblNroOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDeOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIdFactura;
-        private System.Windows.Forms.TextBox txtNroOrden;
-        private System.Windows.Forms.Label lblNroOrden;
     }
 }
