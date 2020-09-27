@@ -86,33 +86,53 @@ namespace SistemaFacturacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-
+            //para capturar el identity de factura
+            DataTable table = new DataTable();
             //click en grabar deshabilitando los campos y habilitando solo botones nuevo, borrar y salir
             this.habilitar(false);
 
             //ejecutamos metodo validar para verificar que se haya cargado la cabecera de la factura y sus detalles
-            if (validarFactura()) {
+            if (validarFactura())
+            {
+
+                //set de los atributos al obj Factura
+
+                oFactura.Fecha = dtpFecha.Value;
+                oFactura.Numero_factura = txtNroFactura.Text;
+                oFactura.Id_usuario_creador = (int)cboUsuario.SelectedValue;
+                oFactura.Id_cliente = (int)cboCliente.SelectedValue;
+
 
                 //verificamos que haya detalles cargados
                 if (grdFacturaDetalle.Rows.Count > 0)
                 {
+
                     //nos conectamos con trasaccion
-                    //DBHelper.GetDBHelper();
+                    BDHelper.getBDHelper().conectarConTransaccion();
                     //grabo cabezera
-                    //grabarFactura();
+                    oFactura.grabarFactura();
+
+                    int id = new int();
+                    table = BDHelper.getBDHelper().ConsultaSQL("select @@identity as 'id_factura'");
+                    id = (int)table.Rows[0]["id_factura"];
+
                     //grabo detalle
-                    //grabarFacturaDetalle();
+
+
+                    grabarFacturaDetalle(id);
                     //y desconectarse de la base de datos a partir aca se hace el commit o el roolback
-                    //DBHelper.GetDBHelper.();
-                   
+                    BDHelper.getBDHelper().desconectar();
+
                 }
 
 
-                else {
+                else
+                {
                     MessageBox.Show("Debe tener al menos un DETALLE DE FACTURA.");
 
                 }
             }
+
         }
 
         private bool validarFactura()
@@ -188,6 +208,28 @@ namespace SistemaFacturacion
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
+        }
+
+        public void grabarFacturaDetalle(int idFactura)
+        {
+            for (int i = 0; i < grdFacturaDetalle.Rows.Count; i++)
+            {
+                string consultaSQL = "INSERT INTO FacturasDetalle (id_factura, numero_orden, id_producto, id_proyecto, precio , borrado)" +
+                " VALUES ( " +
+                idFactura + ", " +
+                grdFacturaDetalle.Rows[i].Cells["numero_orden"].Value.ToString() + " , " +
+                grdFacturaDetalle.Rows[i].Cells["id_producto"].Value.ToString() + " , " +
+                grdFacturaDetalle.Rows[i].Cells["id_proyecto"].Value.ToString() + " , " +
+                grdFacturaDetalle.Rows[i].Cells["precio"].Value.ToString() + " , " +
+                0 + ")";
+
+                BDHelper.getBDHelper().EjecutarSQLConTransaccion(consultaSQL);
+
+
+            }
+
+
+
         }
     }
 }
