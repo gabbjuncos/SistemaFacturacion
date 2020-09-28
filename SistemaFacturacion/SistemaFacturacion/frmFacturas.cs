@@ -88,7 +88,7 @@ namespace SistemaFacturacion
             //hacemos focus en el campo CUIT
             this.txtNroFactura.Focus();
 
-            oFactura.cargarNroFactura();
+            oFactura.CargarNumeroFactura();
             txtNroFactura.Text = oFactura.Numero_factura.ToString();
 
         }

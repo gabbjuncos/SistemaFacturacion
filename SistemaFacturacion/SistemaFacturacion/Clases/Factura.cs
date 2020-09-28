@@ -55,12 +55,27 @@ namespace SistemaFacturacion.Clases
         public void CargarNumeroFactura() {
 
             DataTable table = new DataTable();
-            string nroFactura = "'{}'"
-            //consulto solo la columna de numero factura 
-            table = oDato.consultar(" SELECT numero_factura from Facturas");
 
-            
-            Numero_factura = table.Rows[0]["numero_factura"].ToString();
+            //consulto solo la columna de numero factura 
+            table = oDato.consultar(" SELECT MAX((CAST(replace(numero_factura, '0', '0') AS DECIMAL(18, 0)))) AS numero_factura" +
+                                     " FROM facturas");
+
+            int nroFactura = int.Parse(table.Rows[0]["numero_factura"].ToString());
+
+            nroFactura += 1;
+
+            var stringNroFactura = "000000000000";
+            var aStringBuilder = new StringBuilder(stringNroFactura);
+
+            int cantidadNumeros = nroFactura.ToString().Length;
+            int desdeLaPosicion = 12 - cantidadNumeros;
+
+            aStringBuilder.Remove(desdeLaPosicion, cantidadNumeros);
+            aStringBuilder.Insert(desdeLaPosicion, nroFactura.ToString());
+
+            stringNroFactura = aStringBuilder.ToString();
+
+            Numero_factura = stringNroFactura.ToString();
 
 
         }
