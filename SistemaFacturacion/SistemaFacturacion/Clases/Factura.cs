@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using SistemaFacturacion.Clases;
+using SistemaFacturacion.Formularios;
 
 
 namespace SistemaFacturacion.Clases
@@ -12,6 +14,8 @@ namespace SistemaFacturacion.Clases
     {
         //creo objeto dato para conexiones con base de datos
         Datos oDato = new Datos();
+
+        private List<FacturaDetalle> listFacturaDetalle;
 
         private int id_factura;
         private string numero_factura;
@@ -26,6 +30,7 @@ namespace SistemaFacturacion.Clases
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public int Id_usuario_creador { get => id_usuario_creador; set => id_usuario_creador = value; }
         public bool Borrado { get => borrado; set => borrado = value; }
+        internal List<FacturaDetalle> ListFacturaDetalle { get => listFacturaDetalle; set => listFacturaDetalle = value; }
 
         //metodo para cargar numero de factura, se conecta con la BD y se fija cual es el ultimo y a ese le incrementa 1
         public void cargarNroFactura()
@@ -47,20 +52,114 @@ namespace SistemaFacturacion.Clases
             
         }
 
-        public void grabarFactura()
-        {
+        public void CargarNumeroFactura() {
 
-            string consultaSQL = "INSERT INTO Facturas (numero_factura, id_cliente, fecha, id_usuario_creador, borrado)" +
-                " VALUES ( '" +
-                this.numero_factura + "', " +
-                this.id_cliente + ",'" +
-                this.fecha + "'," +
-                this.id_usuario_creador + ", " +
-                0 + ")";
+            DataTable table = new DataTable();
+            string nroFactura = "'{}'"
+            //consulto solo la columna de numero factura 
+            table = oDato.consultar(" SELECT numero_factura from Facturas");
 
-            BDHelper.getBDHelper().EjecutarSQLConTransaccion(consultaSQL);
+            
+            Numero_factura = table.Rows[0]["numero_factura"].ToString();
 
 
         }
+
+       
+
+        public void grabarFacturaConDataManager()
+        {
+
+            DataManager dm = new DataManager();
+
+            try { 
+            dm.Open();
+            dm.BeginTransaction();
+
+            string sql = string.Concat("INSERT INTO [dbo].[Facturas] ",
+                                        "           ([numero_factura]   ",
+                                        "           ,[id_cliente]         ",
+                                        "           ,[fecha]       ",
+                                        "           ,[id_usuario_creador]       ",
+                                        "           ,[borrado])      ",
+                                        "     VALUES                 ",
+                                        "           (@numero_factura   ",
+                                        "           ,@id_cliente          ",
+                                        "           ,@fecha        ",
+                                        "           ,@id_usuario_creador    ",
+                                        "           ,@borrado)       ");
+
+
+            var parametros = new Dictionary<string, object>();
+            parametros.Add("numero_factura", numero_factura);
+            parametros.Add("id_cliente", id_cliente);
+            parametros.Add("fecha", fecha);
+            parametros.Add("id_usuario_creador", id_usuario_creador);
+            parametros.Add("borrado", false);
+            dm.EjecutarSQLCONPARAMETROS(sql, parametros);
+
+            var newId = dm.ConsultaSQLScalar(" SELECT @@IDENTITY");
+            
+            
+            
+           
+
+            Id_factura = Convert.ToInt32(newId);
+
+
+            foreach (var itemFactura in listFacturaDetalle)
+            {
+                string sqlDetalle = string.Concat(" INSERT INTO [dbo].[FacturasDetalle] ",
+                                                    "           ([id_factura]           ",
+                                                    "           ,[numero_orden]          ",
+                                                    "           ,[id_proyecto]      ",
+                                                    "           ,[id_producto]             ",
+                                                    "           ,[precio]             ",
+                                                    "           ,[borrado])             ",
+                                                    "     VALUES                        ",
+                                                    "           (@id_factura            ",
+                                                    "           ,@numero_orden          ",
+                                                    "           ,@id_proyecto       ",
+                                                    "           ,@id_producto              ",
+                                                    "           ,@precio              ",
+                                                    "           ,@borrado)               ");
+
+                var paramDetalle = new Dictionary<string, object>();
+                paramDetalle.Add("id_factura", id_factura);
+                paramDetalle.Add("numero_orden", itemFactura.Numero_orden);
+                paramDetalle.Add("id_proyecto", itemFactura.Id_proyecto);
+                paramDetalle.Add("id_producto", itemFactura.Id_producto);
+                paramDetalle.Add("precio", itemFactura.Precio);
+                paramDetalle.Add("borrado", false);
+
+                dm.EjecutarSQLCONPARAMETROS(sqlDetalle, paramDetalle);
+            }
+
+
+
+            dm.Commit();
+
+        }
+
+            catch (Exception ex)
+
+            {
+                dm.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                // Cierra la conexión 
+                dm.Close();
+            }
+
+           
+
+        }
+
+
+
+
+
     }
 }

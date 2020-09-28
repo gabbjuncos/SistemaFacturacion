@@ -17,7 +17,11 @@ namespace SistemaFacturacion
         // creo objeto Factura
         Factura oFactura = new Factura();
         Datos oBD = new Datos();
-         
+
+        List<FacturaDetalle> listaItems = new List<FacturaDetalle>();
+
+
+
 
         public frmFacturas()
         {
@@ -111,33 +115,36 @@ namespace SistemaFacturacion
                 //verificamos que haya detalles cargados
                 if (grdFacturaDetalle.Rows.Count > 0)
                 {
+                    cargarListaConDetalles();
 
-                    //nos conectamos con trasaccion
-                    BDHelper.getBDHelper().conectarConTransaccion();
-                    //grabo cabezera
-                    oFactura.grabarFactura();
-
-                    //int id = 0;
-                    //table = BDHelper.getBDHelper().ConsultaSQL("select @@identity as 'id_factura'");
-                    table = oBD.consultar("select @@identity as 'id_factura'");
-                    if (table.Rows.Count > 0)
+                    try
                     {
-                        txtIdFactura.Text = table.Rows[0].ToString();
+                        //txtIdFactura.Text = listaItems.Count.ToString();
+
+                        //txtNroFactura.Text = oFactura.ListFacturaDetalle.Count.ToString();
+
+                        //nos conectamos con trasaccion
+                        //BDHelper.getBDHelper().conectarConTransaccion();
+
+                        //grabo cabezera
+                        //oFactura.grabarFactura();
+
+                        oFactura.grabarFacturaConDataManager();
+                        txtIdFactura.Text = oFactura.Id_factura.ToString();
+
+                        MessageBox.Show("Se ha realizado la TRANSACCION con EXITO");
+
                     }
-                    else 
-                    {
-                        txtIdFactura.Text = "No";
+
+                    catch{
+
+                        MessageBox.Show("Ha ocurrido un ERROR al realizar la TRANSACCION");
+
+
                     }
-                        
-                    
-
-                    //grabo detalle
 
 
-                    //grabarFacturaDetalle(id);
-                    //y desconectarse de la base de datos a partir aca se hace el commit o el roolback
-                    BDHelper.getBDHelper().desconectar();
-
+               
                 }
 
 
@@ -225,23 +232,31 @@ namespace SistemaFacturacion
             grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
         }
 
-        public void grabarFacturaDetalle(int idFactura)
+        public void cargarListaConDetalles()
         {
+            //FacturaDetalle oFacturaDetalle = new FacturaDetalle();
             for (int i = 0; i < grdFacturaDetalle.Rows.Count; i++)
             {
-                string consultaSQL = "INSERT INTO FacturasDetalle (id_factura, numero_orden, id_producto, id_proyecto, precio , borrado)" +
-                " VALUES ( " +
-                idFactura + ", " +
-                grdFacturaDetalle.Rows[i].Cells["numero_orden"].Value.ToString() + " , " +
-                grdFacturaDetalle.Rows[i].Cells["id_producto"].Value.ToString() + " , " +
-                grdFacturaDetalle.Rows[i].Cells["id_proyecto"].Value.ToString() + " , " +
-                grdFacturaDetalle.Rows[i].Cells["precio"].Value.ToString() + " , " +
-                0 + ")";
+                FacturaDetalle oFacturaDetalle = new FacturaDetalle();
+                //oFactura.ListFacturaDetalle.Add(new FacturaDetalle()
+                //{
 
-                BDHelper.getBDHelper().EjecutarSQLConTransaccion(consultaSQL);
+                oFacturaDetalle.Numero_orden = int.Parse(grdFacturaDetalle.Rows[i].Cells["nroDeOrden"].Value.ToString());
+                oFacturaDetalle.Id_producto = int.Parse(grdFacturaDetalle.Rows[i].Cells["producto"].Value.ToString());
+                oFacturaDetalle.Id_proyecto = int.Parse(grdFacturaDetalle.Rows[i].Cells["proyecto"].Value.ToString());
+                oFacturaDetalle.Precio = Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells["precio"].Value.ToString());
+                oFacturaDetalle.Borrado = false;
+
+                //});
+
+                listaItems.Add(oFacturaDetalle);
+
 
 
             }
+
+            //le pasa la lista con los objetos detalles al atributo lista de la factura
+            oFactura.ListFacturaDetalle = listaItems;
 
 
 
