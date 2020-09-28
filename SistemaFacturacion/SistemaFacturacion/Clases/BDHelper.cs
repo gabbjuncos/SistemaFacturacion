@@ -20,7 +20,7 @@ public class BDHelper
     private ResultadoTransaccion miEstado = ResultadoTransaccion.exito;
     private tipoConexion miTipo = tipoConexion.simple;
 
-    private string string_conexion = "Data Source=CX-OSCAR;Initial Catalog=Pedidos;Integrated Security=True";
+    private string string_conexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TPI_PAVI3;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         
         //"Data Source=maquis;Initial Catalog=Pedidos;User ID=avisuales1;password=avisuales1";
 

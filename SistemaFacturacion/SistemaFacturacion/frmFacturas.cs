@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Clases;
 
+
 namespace SistemaFacturacion
 {
     public partial class frmFacturas : Form
@@ -82,6 +83,10 @@ namespace SistemaFacturacion
             this.limpiar();
             //hacemos focus en el campo CUIT
             this.txtNroFactura.Focus();
+
+            oFactura.cargarNroFactura();
+            txtNroFactura.Text = oFactura.Numero_factura.ToString();
+
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -112,14 +117,24 @@ namespace SistemaFacturacion
                     //grabo cabezera
                     oFactura.grabarFactura();
 
-                    int id = new int();
-                    table = BDHelper.getBDHelper().ConsultaSQL("select @@identity as 'id_factura'");
-                    id = (int)table.Rows[0]["id_factura"];
+                    //int id = 0;
+                    //table = BDHelper.getBDHelper().ConsultaSQL("select @@identity as 'id_factura'");
+                    table = oBD.consultar("select @@identity as 'id_factura'");
+                    if (table.Rows.Count > 0)
+                    {
+                        txtIdFactura.Text = table.Rows[0].ToString();
+                    }
+                    else 
+                    {
+                        txtIdFactura.Text = "No";
+                    }
+                        
+                    
 
                     //grabo detalle
 
 
-                    grabarFacturaDetalle(id);
+                    //grabarFacturaDetalle(id);
                     //y desconectarse de la base de datos a partir aca se hace el commit o el roolback
                     BDHelper.getBDHelper().desconectar();
 

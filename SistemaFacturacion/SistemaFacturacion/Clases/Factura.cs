@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+
 
 namespace SistemaFacturacion.Clases
 {
@@ -31,14 +33,18 @@ namespace SistemaFacturacion.Clases
             DataTable table = new DataTable();
             //consulto solo la columna de numero factura 
             table = oDato.consultar(" SELECT MAX((CAST(replace(numero_factura, '-', '.') AS DECIMAL(18, 8)))) AS numero_factura" +
-                                     " FROM facturas)");
+                                     " FROM facturas");
 
             double numero_factura = Convert.ToDouble(table.Rows[0]["numero_factura"]);
 
-            numero_factura = +0.0001;
+            numero_factura += 1;
 
-            Numero_factura = numero_factura.ToString();
+            //Numero_factura = numero_factura.ToString();
 
+            Numero_factura = table.Rows[0]["numero_factura"].ToString();
+            
+
+            
         }
 
         public void grabarFactura()
