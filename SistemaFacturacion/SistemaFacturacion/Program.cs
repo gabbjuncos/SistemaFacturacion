@@ -17,7 +17,7 @@ namespace SistemaFacturacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmFacturas());
+            Application.Run(new frmPrincipal());
         }
     }
 }

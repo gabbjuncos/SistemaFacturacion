@@ -20,6 +20,9 @@ namespace SistemaFacturacion
 
         List<FacturaDetalle> listaItems = new List<FacturaDetalle>();
 
+        int nro_orden = 0;
+
+
 
 
 
@@ -42,8 +45,11 @@ namespace SistemaFacturacion
         //metodo para habilitar o deshabilitar campos y botones
         private void habilitar(bool x)
         {
-            txtNroFactura.Enabled = x;
+            txtNroFactura.Enabled = false;
             txtPrecio.Enabled = x;
+            txtPrecioTotal.Enabled = false;
+            txtIdFactura.Enabled = false;
+            txtNroOrden.Enabled = false;
             dtpFecha.Enabled = x;
 
             cboCliente.Enabled = x;
@@ -59,23 +65,28 @@ namespace SistemaFacturacion
             btnNuevo.Enabled = !x;
 
             btnSalir.Enabled = !x;
-            grdFacturaDetalle.Enabled = !x;
+            //grdFacturaDetalle.Enabled = !x;
 
         }
 
         //metodo para limpiar campos 
         private void limpiar()
         {
-            
-            
+                        
             txtNroFactura.Clear();
             txtPrecio.Clear();
+            txtIdFactura.Clear();
+            txtPrecioTotal.Clear();
+            txtNroFactura.Clear();
+            txtNroOrden.Clear();
+            listaItems.Clear();
             
             //para que apunten siempre al primero los combos por defecto
-            cboCliente.SelectedIndex = 0;
-            cboProducto.SelectedIndex = 0;
-            cboProyecto.SelectedIndex = 0;
-            cboUsuario.SelectedIndex = 0;
+            cboCliente.SelectedIndex = -1;
+            cboProducto.SelectedIndex = -1;
+            cboProyecto.SelectedIndex = -1;
+            cboUsuario.SelectedIndex = -1;
+            grdFacturaDetalle.Rows.Clear();
 
         }
 
@@ -117,36 +128,29 @@ namespace SistemaFacturacion
                 {
                     cargarListaConDetalles();
 
+                    //intentamos realizar la transaccion
                     try
                     {
-                        //txtIdFactura.Text = listaItems.Count.ToString();
-
-                        //txtNroFactura.Text = oFactura.ListFacturaDetalle.Count.ToString();
-
-                        //nos conectamos con trasaccion
-                        //BDHelper.getBDHelper().conectarConTransaccion();
-
-                        //grabo cabezera
-                        //oFactura.grabarFactura();
-
+                        //Ejecuta el metodo pra realizar la transaccion 
                         oFactura.grabarFacturaConDataManager();
+                        //Mostramos el nuevo ID en la caja detexto ID de pactura
                         txtIdFactura.Text = oFactura.Id_factura.ToString();
 
                         MessageBox.Show("Se ha realizado la TRANSACCION con EXITO");
+                        limpiar();
+                        
 
                     }
 
-                    catch{
+                    //En caso de que no se pueda realizar la transaccion mostramos mensaje
+                    catch {
 
                         MessageBox.Show("Ha ocurrido un ERROR al realizar la TRANSACCION");
-
-
+                        limpiar();
+                        
                     }
-
-
-               
+                                   
                 }
-
 
                 else
                 {
@@ -206,11 +210,26 @@ namespace SistemaFacturacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            nro_orden += 1;
+            txtNroOrden.Text = nro_orden.ToString();
+
             //agregamos a grilla el detalle colocado
             grdFacturaDetalle.Rows.Add(txtIdFactura.Text,txtNroOrden.Text,cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
 
             //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
             txtPrecioTotal.Text = calcularTotal().ToString();
+
+            //Bloquea el usuario y el cliente luego de agregar
+            cboCliente.Enabled = false;
+            cboUsuario.Enabled = false;
+
+            //Limpia los combo box luego de agregar 
+            cboProyecto.SelectedIndex = -1;
+            cboProducto.SelectedIndex = -1;
+            txtNroOrden.Clear();
+            txtPrecio.Clear();
+
+            
         }
 
 
@@ -229,7 +248,26 @@ namespace SistemaFacturacion
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
+            if (nro_orden > 0)
+            {
+                nro_orden -= 1;
+                //txtNroOrden.Text = nro_orden.ToString();
+            }
+            else
+            {
+                nro_orden = 0;
+            }
+
+            if(grdFacturaDetalle.Rows.Count > 0)
+            {
+                grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
+            }
+            
+
+            //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
+            txtPrecioTotal.Text = calcularTotal().ToString();
+
+            
         }
 
         public void cargarListaConDetalles()
@@ -238,8 +276,7 @@ namespace SistemaFacturacion
             for (int i = 0; i < grdFacturaDetalle.Rows.Count; i++)
             {
                 FacturaDetalle oFacturaDetalle = new FacturaDetalle();
-                //oFactura.ListFacturaDetalle.Add(new FacturaDetalle()
-                //{
+                
 
                 oFacturaDetalle.Numero_orden = int.Parse(grdFacturaDetalle.Rows[i].Cells["nroDeOrden"].Value.ToString());
                 oFacturaDetalle.Id_producto = int.Parse(grdFacturaDetalle.Rows[i].Cells["producto"].Value.ToString());
@@ -247,7 +284,6 @@ namespace SistemaFacturacion
                 oFacturaDetalle.Precio = Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells["precio"].Value.ToString());
                 oFacturaDetalle.Borrado = false;
 
-                //});
 
                 listaItems.Add(oFacturaDetalle);
 

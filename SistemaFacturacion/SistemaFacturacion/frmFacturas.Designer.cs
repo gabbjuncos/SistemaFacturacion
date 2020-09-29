@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
@@ -61,6 +62,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,9 +77,10 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(50, 34);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(37, 13);
+            this.lblFecha.Size = new System.Drawing.Size(42, 13);
             this.lblFecha.TabIndex = 1;
             this.lblFecha.Text = "Fecha";
             // 
@@ -85,6 +88,7 @@
             // 
             this.grdFacturaDetalle.AllowUserToAddRows = false;
             this.grdFacturaDetalle.AllowUserToDeleteRows = false;
+            this.grdFacturaDetalle.BackgroundColor = System.Drawing.Color.OldLace;
             this.grdFacturaDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFacturaDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_factura,
@@ -162,7 +166,7 @@
             // txtNroOrden
             // 
             this.txtNroOrden.BackColor = System.Drawing.Color.OldLace;
-            this.txtNroOrden.Location = new System.Drawing.Point(459, 26);
+            this.txtNroOrden.Location = new System.Drawing.Point(482, 26);
             this.txtNroOrden.Name = "txtNroOrden";
             this.txtNroOrden.Size = new System.Drawing.Size(98, 20);
             this.txtNroOrden.TabIndex = 17;
@@ -170,9 +174,10 @@
             // lblNroOrden
             // 
             this.lblNroOrden.AutoSize = true;
-            this.lblNroOrden.Location = new System.Drawing.Point(394, 29);
+            this.lblNroOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroOrden.Location = new System.Drawing.Point(407, 30);
             this.lblNroOrden.Name = "lblNroOrden";
-            this.lblNroOrden.Size = new System.Drawing.Size(59, 13);
+            this.lblNroOrden.Size = new System.Drawing.Size(69, 13);
             this.lblNroOrden.TabIndex = 16;
             this.lblNroOrden.Text = "Nro. Orden";
             // 
@@ -201,9 +206,10 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(591, 286);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblTotal.Size = new System.Drawing.Size(36, 13);
             this.lblTotal.TabIndex = 10;
             this.lblTotal.Text = "Total";
             // 
@@ -236,7 +242,7 @@
             // 
             this.cboProyecto.BackColor = System.Drawing.Color.OldLace;
             this.cboProyecto.FormattingEnabled = true;
-            this.cboProyecto.Location = new System.Drawing.Point(83, 26);
+            this.cboProyecto.Location = new System.Drawing.Point(81, 25);
             this.cboProyecto.Name = "cboProyecto";
             this.cboProyecto.Size = new System.Drawing.Size(121, 21);
             this.cboProyecto.TabIndex = 6;
@@ -244,54 +250,60 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.Location = new System.Drawing.Point(586, 30);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.Size = new System.Drawing.Size(43, 13);
             this.lblPrecio.TabIndex = 5;
             this.lblPrecio.Text = "Precio";
             // 
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(211, 30);
+            this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducto.Location = new System.Drawing.Point(208, 30);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(50, 13);
+            this.lblProducto.Size = new System.Drawing.Size(58, 13);
             this.lblProducto.TabIndex = 4;
             this.lblProducto.Text = "Producto";
             // 
             // lblProyecto
             // 
             this.lblProyecto.AutoSize = true;
+            this.lblProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProyecto.Location = new System.Drawing.Point(18, 30);
             this.lblProyecto.Name = "lblProyecto";
-            this.lblProyecto.Size = new System.Drawing.Size(49, 13);
+            this.lblProyecto.Size = new System.Drawing.Size(57, 13);
             this.lblProyecto.TabIndex = 3;
             this.lblProyecto.Text = "Proyecto";
             // 
             // lblNroFactura
             // 
             this.lblNroFactura.AutoSize = true;
-            this.lblNroFactura.Location = new System.Drawing.Point(368, 36);
+            this.lblNroFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroFactura.Location = new System.Drawing.Point(356, 36);
             this.lblNroFactura.Name = "lblNroFactura";
-            this.lblNroFactura.Size = new System.Drawing.Size(66, 13);
+            this.lblNroFactura.Size = new System.Drawing.Size(78, 13);
             this.lblNroFactura.TabIndex = 4;
             this.lblNroFactura.Text = "Nro. Factura";
             // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(395, 78);
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(388, 81);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblCliente.Size = new System.Drawing.Size(46, 13);
             this.lblCliente.TabIndex = 5;
             this.lblCliente.Text = "Cliente";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.Location = new System.Drawing.Point(50, 78);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -368,9 +380,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(598, 39);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(587, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "ID Factura";
             // 
@@ -381,6 +394,11 @@
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(100, 20);
             this.txtIdFactura.TabIndex = 15;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // frmFacturas
             // 
@@ -449,5 +467,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

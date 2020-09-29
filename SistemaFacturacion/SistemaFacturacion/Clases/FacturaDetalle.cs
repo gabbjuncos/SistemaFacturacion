@@ -10,7 +10,7 @@ namespace SistemaFacturacion.Clases
     {
         //creo objeto dato para conexiones con base de datos
 
-        Datos oDato = new Datos();
+        Datos oDato = new Datos();  // Los objetos son entidades 
 
         private int id_detalle_factura;
         private int id_factura;
@@ -30,7 +30,7 @@ namespace SistemaFacturacion.Clases
 
         public void grabarFacturaDetalle()
         {
-
+            //Armamos la consulta para grabar los atributos del objeto detalle en la Base de Datos.
             string consultaSQL = "INSERT INTO FacturasDetalle (numero_orden, id_producto, id_proyecto, precio , borrado)" +
                 " VALUES ( " +
                 this.numero_orden + " , " +

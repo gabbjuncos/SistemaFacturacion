@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\BDHelper.cs" />
+    <Compile Include="Clases\DataManager.cs" />
     <Compile Include="Clases\DBHelper.cs" />
     <Compile Include="Clases\Factura.cs" />
     <Compile Include="Clases\FacturaDetalle.cs" />

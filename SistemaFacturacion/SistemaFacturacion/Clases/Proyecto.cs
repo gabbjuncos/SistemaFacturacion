@@ -70,7 +70,7 @@ namespace SistemaFacturacion.Clases
             return true;
         }
 
-        // metodo para verificar si existe el cliente con un determinado cuit y devuelve si o no
+        // metodo para verificar si existe el proyecto con un determinado ID y devuelve si o no
         public bool existe()
 
         {

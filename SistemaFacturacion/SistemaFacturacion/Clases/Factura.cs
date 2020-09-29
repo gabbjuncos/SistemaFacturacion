@@ -32,7 +32,8 @@ namespace SistemaFacturacion.Clases
         public bool Borrado { get => borrado; set => borrado = value; }
         internal List<FacturaDetalle> ListFacturaDetalle { get => listFacturaDetalle; set => listFacturaDetalle = value; }
 
-        //metodo para cargar numero de factura, se conecta con la BD y se fija cual es el ultimo y a ese le incrementa 1
+        //metodo para cargar numero de factura, se conecta con la BD y se fija cual es el ultimo y a ese 
+        //le incrementa 1
         public void cargarNroFactura()
         {
             DataTable table = new DataTable();
@@ -81,7 +82,7 @@ namespace SistemaFacturacion.Clases
         }
 
        
-
+        //Metodo para grabar la cabecera de la factura, junto con cada uno de sus detalles recorriendo la lista de detalles
         public void grabarFacturaConDataManager()
         {
 

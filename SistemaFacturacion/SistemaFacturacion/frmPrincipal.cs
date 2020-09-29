@@ -56,5 +56,13 @@ namespace SistemaFacturacion
             frproy.ShowDialog();
             frproy.Dispose();
         }
+
+        private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFacturas frfac = new frmFacturas();
+            frfac.ShowDialog();
+            frfac.Dispose();
+
+        }
     }
 }

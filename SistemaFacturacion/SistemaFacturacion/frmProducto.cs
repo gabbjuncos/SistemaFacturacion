@@ -39,7 +39,8 @@ namespace SistemaFacturacion
             this.cargarGrilla(grdProductos, oProducto.recuperarProductos());
         }
 
-        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
+        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla 
+        //para hacerlos coincidir
         private void cargarGrilla(DataGridView grilla, DataTable tabla)
         {
             //limpiamos grilla 
@@ -51,7 +52,9 @@ namespace SistemaFacturacion
             {
 
 
-                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
+                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna 
+                //de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el 
+                //nombre en el databla
                 grilla.Rows.Add(tabla.Rows[i]["nombre"],
                                 tabla.Rows[i]["id_producto"],
                                 tabla.Rows[i]["borrado"]);
@@ -120,10 +123,9 @@ namespace SistemaFacturacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
+            //tomamos los valores de las cajas de texto y se lo asignamos a un objeto producto
             oProducto.Nombre = txtNombre.Text;
-            //oProducto.Id_producto = int.Parse(txtid_producto.Text);
-
+           
 
             //validamos los datos antes de grabar
             if (oProducto.validarDatosProductos())

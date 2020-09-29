@@ -44,7 +44,8 @@ namespace SistemaFacturacion
             this.cargarCombo(cboIdResponsable, "Usuarios",2);
         }
 
-        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla para hacerlos coincidir, 
+        // metodo para cargar la grilla com su respectivos campos tomando como parametro la grilla y databla 
+        //para hacerlos coincidir, 
         private void cargarGrilla(DataGridView grilla, DataTable tabla)
         {
             //limpiamos grilla 
@@ -56,7 +57,8 @@ namespace SistemaFacturacion
             {
 
 
-                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
+                //cargamos la fila de la gilla, en el orden que ponemos cada instruccion es el orden de la columna 
+                //de la grilla a la que se va a cargar el correspondiente valor de la columna que se indica con el nombre en el databla
                 grilla.Rows.Add(tabla.Rows[i]["id_proyecto"],
                                 tabla.Rows[i]["borrado"],
                                 tabla.Rows[i]["nombre"],
@@ -134,10 +136,8 @@ namespace SistemaFacturacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            //tomamos los valores de las cajas de texto y se lo asignamos a un objeto cliente
-            //oProyecto.Id_producto = int.Parse(txtIdProducto.Text);
-            //oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
-
+            //tomamos los valores de las cajas de texto y se lo asignamos a un objeto proyecto
+            
             oProyecto.Descripcion = txtDescripcion.Text;
             oProyecto.Version = txtVersion.Text;
             oProyecto.Alcance = txtAlcance.Text;
@@ -210,9 +210,6 @@ namespace SistemaFacturacion
             //colocamos cada dato de la columna en los campos correspondientes
             txtIdProyecto.Text = tabla.Rows[0]["id_proyecto"].ToString();
 
-            //txtIdProducto.Text = tabla.Rows[0]["id_producto"].ToString();
-
-            //txtIdResponsable.Text = tabla.Rows[0]["id_responsable"].ToString();
 
             txtVersion.Text = tabla.Rows[0]["version"].ToString();
 
@@ -253,9 +250,7 @@ namespace SistemaFacturacion
                 == DialogResult.Yes)
             {
                 //tomamos los valores de las cajas de texto y se lo asignamos a un objeto Proyecto
-                //oProyecto.Id_proyecto = int.Parse(txtIdProyecto.Text);
-                //oProyecto.Id_responsable = int.Parse(txtIdResponsable.Text);
-
+               
                 //seteamos los atributos de id , con los valores que tenga sus combobox
                 oProyecto.Id_responsable = (int)cboIdResponsable.SelectedValue;
                 oProyecto.Id_producto = (int)cboIdProducto.SelectedValue;

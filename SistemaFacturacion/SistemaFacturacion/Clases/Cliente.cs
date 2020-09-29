@@ -33,7 +33,8 @@ namespace SistemaFacturacion.Clases
         public string Cuit { get => cuit; set => cuit = value; }
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
 
-        //metodo para crear data table cargada con los datos de clientes a partir de la consulta, teniendo solo encuenta los no borrados(N) 
+        //metodo para crear data table cargada con los datos de clientes a partir de la consulta,
+        //teniendo solo encuenta los no borrados(N) 
         public DataTable recuperarClientes()
         {
             string consultaSQL = "SELECT cl.id_cliente, cl.borrado, b.nombre, cl.cuit, cl.razon_social, cl.calle, cl.numero, cl.fecha_alta, c.apellido" +
@@ -151,7 +152,8 @@ namespace SistemaFacturacion.Clases
 
         }
 
-        //metodo para realizar la consulta sql referia al update de los datos modificando el cambo borrado a S
+        //metodo para realizar la consulta sql referia al update de los datos modificando el cambo 
+        //borrado a S
         public void darBajaCliente()
         {
             string sqlDarBaja = "UPDATE Clientes SET cuit = " + this.cuit + "," +
