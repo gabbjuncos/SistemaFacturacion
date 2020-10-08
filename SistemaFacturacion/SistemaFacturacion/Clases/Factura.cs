@@ -34,6 +34,8 @@ namespace SistemaFacturacion.Clases
 
         //metodo para cargar numero de factura, se conecta con la BD y se fija cual es el ultimo y a ese 
         //le incrementa 1
+        //Debemos generar un identiy
+        //esto debemos sacar
         public void cargarNroFactura()
         {
             DataTable table = new DataTable();
