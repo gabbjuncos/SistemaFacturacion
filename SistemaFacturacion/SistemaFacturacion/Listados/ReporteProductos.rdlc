@@ -6,54 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.38326cm</Width>
+              <Width>4.41823cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.18111cm</Width>
+              <Width>4.41823cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.07528cm</Width>
+              <Width>4.41823cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.77cm</Width>
+              <Width>4.41823cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.10271cm</Height>
+              <Height>1.03656cm</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox4">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>ID PRODUCTO</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox6">
@@ -63,8 +31,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>NOMBRE</Value>
-                              <Style />
+                              <Value>ID</Value>
+                              <Style>
+                                <FontFamily>Book Antiqua</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -95,8 +67,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>PRECIO</Value>
-                              <Style />
+                              <Value>Nombre</Value>
+                              <Style>
+                                <FontFamily>Book Antiqua</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -127,8 +103,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>FECHA</Value>
-                              <Style />
+                              <Value>Precio</Value>
+                              <Style>
+                                <FontFamily>Book Antiqua</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -150,28 +130,66 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Fecha</Value>
+                              <Style>
+                                <FontFamily>Book Antiqua</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.10271cm</Height>
+              <Height>1.03656cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Id_producto">
+                    <Textbox Name="id_producto">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Id_producto.Value</Value>
+                              <Value>=Fields!id_producto.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Id_producto</rd:DefaultName>
+                      <rd:DefaultName>id_producto</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -187,21 +205,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Nombre">
+                    <Textbox Name="nombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Nombre.Value</Value>
+                              <Value>=Fields!nombre.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Nombre</rd:DefaultName>
+                      <rd:DefaultName>nombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -217,21 +237,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Precio">
+                    <Textbox Name="precio">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Precio.Value</Value>
+                              <Value>=Fields!precio.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Precio</rd:DefaultName>
+                      <rd:DefaultName>precio</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -247,21 +269,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Fecha">
+                    <Textbox Name="fecha">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Fecha.Value</Value>
+                              <Value>=Fields!fecha.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Fecha</rd:DefaultName>
+                      <rd:DefaultName>fecha</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -297,11 +321,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>1.16099cm</Top>
-        <Left>1.42557cm</Left>
-        <Height>2.20542cm</Height>
-        <Width>18.40965cm</Width>
+        <DataSetName>DatosListadoProductos</DataSetName>
+        <Top>1.13453cm</Top>
+        <Left>0.81703cm</Left>
+        <Height>2.07312cm</Height>
+        <Width>17.67292cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -340,7 +364,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.28787cm</Top>
-          <Left>5.18266cm</Left>
+          <Left>6.37328cm</Left>
           <Height>0.6cm</Height>
           <Width>5.80729cm</Width>
           <Style>
@@ -369,7 +393,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.28787cm</Top>
-          <Left>14.28433cm</Left>
+          <Left>15.73954cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -413,7 +437,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>1.42558cm</Top>
-          <Left>6.24099cm</Left>
+          <Left>7.64328cm</Left>
           <Height>0.74401cm</Height>
           <Width>4.28625cm</Width>
           <Style>
@@ -453,26 +477,26 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DatosListadoProductos">
       <Query>
         <DataSourceName>DSProductos</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Id_producto">
-          <DataField>Id_producto</DataField>
+        <Field Name="id_producto">
+          <DataField>id_producto</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Nombre">
-          <DataField>Nombre</DataField>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Precio">
-          <DataField>Precio</DataField>
+        <Field Name="precio">
+          <DataField>precio</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="Fecha">
-          <DataField>Fecha</DataField>
+        <Field Name="fecha">
+          <DataField>fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
