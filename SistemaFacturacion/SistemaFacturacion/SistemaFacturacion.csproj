@@ -110,6 +110,14 @@
     <Compile Include="frmProyecto.designer.cs">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listados\DSProductos.cs">
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\DSProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Listados\frmReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +148,7 @@
     <EmbeddedResource Include="Listados\frmReporteProductos.resx">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Report1.rdlc" />
     <EmbeddedResource Include="Listados\ReporteProductos.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,6 +159,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Listados\DSProductos.xsc">
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </None>
+    <None Include="Listados\DSProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Listados\DSProductos.xss">
+      <DependentUpon>DSProductos.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
