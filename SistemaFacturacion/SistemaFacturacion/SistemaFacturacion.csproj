@@ -124,12 +124,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSProductos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Listados\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Listados\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Listados\frmReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,16 +157,12 @@
     <EmbeddedResource Include="frmProyecto.resx">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Listados\frmReporteProductos.resx">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\frmReporteProyectos.resx">
       <DependentUpon>frmReporteProyectos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\Report1.rdlc" />
     <EmbeddedResource Include="Listados\ReporteProductos.rdlc" />
     <EmbeddedResource Include="Listados\ReporteProyectos.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">

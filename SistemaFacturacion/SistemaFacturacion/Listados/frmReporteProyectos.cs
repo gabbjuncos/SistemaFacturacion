@@ -30,6 +30,13 @@ namespace SistemaFacturacion.Listados
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
+            if (dtpFecheDesde.Value > dtpFechaHasta.Value)
+            {
+                MessageBox.Show("Rango invalido de fechas");
+                dtpFecheDesde.Focus();
+                return;
+            }
+
             DataTable table = new DataTable();
 
             string sql = "select p.id_proyecto , p.descripcion, fd.precio, f.fecha from Facturas f join FacturasDetalle fd on f.id_factura = fd.id_factura " +
@@ -42,6 +49,8 @@ namespace SistemaFacturacion.Listados
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(ds);
             reportViewer1.RefreshReport();
+
+            MessageBox.Show("Las fechas han sido filtradas correctamente");
 
         }
 

@@ -30,23 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSProductos = new SistemaFacturacion.Listados.DSProductos();
             this.lblDesde = new System.Windows.Forms.Label();
             this.lblHasta = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.rptReporteProductos = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dSProductos = new SistemaFacturacion.Listados.DSProductos();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dSProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSProductos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dSProductos;
+            // 
+            // dSProductos
+            // 
+            this.dSProductos.DataSetName = "DSProductos";
+            this.dSProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.Location = new System.Drawing.Point(91, 18);
+            this.lblDesde.Location = new System.Drawing.Point(78, 16);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(80, 13);
             this.lblDesde.TabIndex = 1;
@@ -56,7 +66,7 @@
             // 
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHasta.Location = new System.Drawing.Point(91, 62);
+            this.lblHasta.Location = new System.Drawing.Point(78, 60);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(73, 13);
             this.lblHasta.TabIndex = 2;
@@ -65,7 +75,7 @@
             // dtpDesde
             // 
             this.dtpDesde.CalendarMonthBackground = System.Drawing.Color.OldLace;
-            this.dtpDesde.Location = new System.Drawing.Point(209, 12);
+            this.dtpDesde.Location = new System.Drawing.Point(196, 10);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 3;
@@ -73,7 +83,7 @@
             // dtpHasta
             // 
             this.dtpHasta.CalendarMonthBackground = System.Drawing.Color.OldLace;
-            this.dtpHasta.Location = new System.Drawing.Point(209, 55);
+            this.dtpHasta.Location = new System.Drawing.Point(196, 53);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 4;
@@ -81,7 +91,7 @@
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.OldLace;
-            this.btnImprimir.Location = new System.Drawing.Point(529, 33);
+            this.btnImprimir.Location = new System.Drawing.Point(530, 33);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 5;
@@ -103,16 +113,6 @@
             this.rptReporteProductos.TabIndex = 6;
             this.rptReporteProductos.Load += new System.EventHandler(this.rptReporteProductos_Load);
             // 
-            // dSProductos
-            // 
-            this.dSProductos.DataSetName = "DSProductos";
-            this.dSProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dSProductos;
-            // 
             // frmReporteProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,8 +128,8 @@
             this.Name = "frmReporteProductos";
             this.Text = "frmReporteProductos";
             this.Load += new System.EventHandler(this.frmReporteProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dSProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -32,6 +32,11 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
+            this.id_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNroOrden = new System.Windows.Forms.TextBox();
             this.lblNroOrden = new System.Windows.Forms.Label();
@@ -58,11 +63,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.id_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +102,46 @@
             this.grdFacturaDetalle.Size = new System.Drawing.Size(712, 150);
             this.grdFacturaDetalle.TabIndex = 2;
             // 
+            // id_factura
+            // 
+            this.id_factura.DividerWidth = 2;
+            this.id_factura.HeaderText = "ID Factura";
+            this.id_factura.Name = "id_factura";
+            this.id_factura.ReadOnly = true;
+            this.id_factura.Visible = false;
+            // 
+            // nroDeOrden
+            // 
+            this.nroDeOrden.DividerWidth = 2;
+            this.nroDeOrden.HeaderText = "Nro. Orden";
+            this.nroDeOrden.Name = "nroDeOrden";
+            this.nroDeOrden.ReadOnly = true;
+            this.nroDeOrden.Width = 110;
+            // 
+            // producto
+            // 
+            this.producto.DividerWidth = 2;
+            this.producto.HeaderText = "Producto";
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            this.producto.Width = 200;
+            // 
+            // proyecto
+            // 
+            this.proyecto.DividerWidth = 2;
+            this.proyecto.HeaderText = "Proyecto";
+            this.proyecto.Name = "proyecto";
+            this.proyecto.ReadOnly = true;
+            this.proyecto.Width = 110;
+            // 
+            // precio
+            // 
+            this.precio.DividerWidth = 2;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 110;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNroOrden);
@@ -122,7 +162,7 @@
             this.groupBox1.Size = new System.Drawing.Size(756, 303);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Detalle de Factura";
             // 
             // txtNroOrden
             // 
@@ -360,46 +400,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // id_factura
-            // 
-            this.id_factura.DividerWidth = 2;
-            this.id_factura.HeaderText = "ID Factura";
-            this.id_factura.Name = "id_factura";
-            this.id_factura.ReadOnly = true;
-            this.id_factura.Visible = false;
-            // 
-            // nroDeOrden
-            // 
-            this.nroDeOrden.DividerWidth = 2;
-            this.nroDeOrden.HeaderText = "Nro. Orden";
-            this.nroDeOrden.Name = "nroDeOrden";
-            this.nroDeOrden.ReadOnly = true;
-            this.nroDeOrden.Width = 110;
-            // 
-            // producto
-            // 
-            this.producto.DividerWidth = 2;
-            this.producto.HeaderText = "Producto";
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            this.producto.Width = 200;
-            // 
-            // proyecto
-            // 
-            this.proyecto.DividerWidth = 2;
-            this.proyecto.HeaderText = "Proyecto";
-            this.proyecto.Name = "proyecto";
-            this.proyecto.ReadOnly = true;
-            this.proyecto.Width = 110;
-            // 
-            // precio
-            // 
-            this.precio.DividerWidth = 2;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 110;
             // 
             // frmFacturas
             // 

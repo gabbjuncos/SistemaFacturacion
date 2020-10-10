@@ -36,7 +36,7 @@ namespace SistemaFacturacion
 
             fl.Dispose();
         }
-
+              
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmClientes frc = new frmClientes();
@@ -60,10 +60,12 @@ namespace SistemaFacturacion
 
         private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          
             frmFacturas frfac = new frmFacturas();
+            frfac.Text = frfac.Text + " - Usuario: " + this.usuarioActual.N_usuario;
+
             frfac.ShowDialog();
             frfac.Dispose();
-
         }
 
         private void listadoDeProductosToolStripMenuItem_Click(object sender, EventArgs e)

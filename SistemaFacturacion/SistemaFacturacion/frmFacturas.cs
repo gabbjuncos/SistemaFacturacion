@@ -18,12 +18,10 @@ namespace SistemaFacturacion
         Factura oFactura = new Factura();
         Datos oBD = new Datos();
 
+
         List<FacturaDetalle> listaItems = new List<FacturaDetalle>();
 
         int nro_orden = 0;
-
-
-
 
 
         public frmFacturas()
@@ -33,13 +31,17 @@ namespace SistemaFacturacion
 
         private void frmFacturas_Load(object sender, EventArgs e)
         {
+            string nombreUsuario = this.Text.Remove(0,19);
+
             //Carga el formulario deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
             this.habilitar(false);
 
             this.cargarCombo(cboCliente, "Clientes", 2);
             this.cargarCombo(cboProducto, "Productos", 1);
             this.cargarCombo(cboProyecto, "Proyectos", 2);
-            this.cargarCombo(cboUsuario, "Usuarios", 2);
+            this.cargarComboUsuario(cboUsuario, nombreUsuario, 2);
+
+
         }
 
         //metodo para habilitar o deshabilitar campos y botones
@@ -53,7 +55,7 @@ namespace SistemaFacturacion
             dtpFecha.Enabled = x;
 
             cboCliente.Enabled = x;
-            cboUsuario.Enabled = x;
+            cboUsuario.Enabled = false;
             cboProducto.Enabled = x;
             cboProyecto.Enabled = x;
 
@@ -85,7 +87,7 @@ namespace SistemaFacturacion
             cboCliente.SelectedIndex = -1;
             cboProducto.SelectedIndex = -1;
             cboProyecto.SelectedIndex = -1;
-            cboUsuario.SelectedIndex = -1;
+            cboUsuario.SelectedIndex = 0;
             grdFacturaDetalle.Rows.Clear();
 
         }
@@ -136,7 +138,7 @@ namespace SistemaFacturacion
                         //Mostramos el nuevo ID en la caja detexto ID de pactura
                         txtIdFactura.Text = oFactura.Id_factura.ToString();
 
-                        MessageBox.Show("Se ha realizado la TRANSACCION con EXITO");
+                        MessageBox.Show("Se ha realizado la FACTURACION con EXITO");
                         limpiar();
                         
 
@@ -145,7 +147,7 @@ namespace SistemaFacturacion
                     //En caso de que no se pueda realizar la transaccion mostramos mensaje
                     catch {
 
-                        MessageBox.Show("Ha ocurrido un ERROR al realizar la TRANSACCION");
+                        MessageBox.Show("Ha ocurrido un ERROR al realizar la FACTURACION");
                         limpiar();
                         
                     }
@@ -206,6 +208,20 @@ namespace SistemaFacturacion
             combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
             combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
             combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
+        }
+
+        private void cargarComboUsuario(ComboBox combo, string nombreUsuario, int numeroColumnaDisplay)
+        {
+
+            DataTable tabla = new DataTable();
+            string sql_consulta = "Select * from Usuarios where usuario = '" + nombreUsuario + "'";
+
+            tabla = oBD.consultar(sql_consulta);
+            combo.DataSource = tabla;
+            combo.DisplayMember = tabla.Columns[numeroColumnaDisplay].ColumnName;    // para nombre
+            combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
+            combo.SelectedIndex = 0; // queda apuntando a la nada cuando se ejecuta 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -352,8 +352,10 @@
                 <TextRun>
                   <Value>Listado de Productos</Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
+                    <FontFamily>Book Antiqua</FontFamily>
+                    <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
