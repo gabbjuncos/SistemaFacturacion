@@ -36,54 +36,8 @@ namespace SistemaFacturacion.Clases
         //le incrementa 1
         //Debemos generar un identiy
         //esto debemos sacar
-        public void cargarNroFactura()
-        {
-            DataTable table = new DataTable();
-            //consulto solo la columna de numero factura 
-            table = oDato.consultar(" SELECT MAX((CAST(replace(numero_factura, '-', '.') AS DECIMAL(18, 8)))) AS numero_factura" +
-                                     " FROM facturas");
+                
 
-            double numero_factura = Convert.ToDouble(table.Rows[0]["numero_factura"]);
-
-            numero_factura += 1;
-
-            //Numero_factura = numero_factura.ToString();
-
-            Numero_factura = table.Rows[0]["numero_factura"].ToString();
-            
-
-            
-        }
-
-        public void CargarNumeroFactura() {
-
-            DataTable table = new DataTable();
-
-            //consulto solo la columna de numero factura 
-            table = oDato.consultar(" SELECT MAX((CAST(replace(numero_factura, '0', '0') AS DECIMAL(18, 0)))) AS numero_factura" +
-                                     " FROM facturas");
-
-            int nroFactura = int.Parse(table.Rows[0]["numero_factura"].ToString());
-
-            nroFactura += 1;
-
-            var stringNroFactura = "000000000000";
-            var aStringBuilder = new StringBuilder(stringNroFactura);
-
-            int cantidadNumeros = nroFactura.ToString().Length;
-            int desdeLaPosicion = 12 - cantidadNumeros;
-
-            aStringBuilder.Remove(desdeLaPosicion, cantidadNumeros);
-            aStringBuilder.Insert(desdeLaPosicion, nroFactura.ToString());
-
-            stringNroFactura = aStringBuilder.ToString();
-
-            Numero_factura = stringNroFactura.ToString();
-
-
-        }
-
-       
         //Metodo para grabar la cabecera de la factura, junto con cada uno de sus detalles recorriendo la lista de detalles
         public void grabarFacturaConDataManager()
         {
@@ -109,7 +63,7 @@ namespace SistemaFacturacion.Clases
 
 
             var parametros = new Dictionary<string, object>();
-            parametros.Add("numero_factura", numero_factura);
+            parametros.Add("numero_factura", "");
             parametros.Add("id_cliente", id_cliente);
             parametros.Add("fecha", fecha);
             parametros.Add("id_usuario_creador", id_usuario_creador);
@@ -117,7 +71,11 @@ namespace SistemaFacturacion.Clases
             dm.EjecutarSQLCONPARAMETROS(sql, parametros);
 
             var newId = dm.ConsultaSQLScalar(" SELECT @@IDENTITY");
-            
+
+            string sql_update_nroFactura = "UPDATE facturas SET numero_factura = '" + newId.ToString() + "' WHERE id_factura = " + newId;
+            dm.EjecutarSQL(sql_update_nroFactura);
+
+
             
             
            

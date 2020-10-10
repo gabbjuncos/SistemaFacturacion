@@ -47,10 +47,8 @@ namespace SistemaFacturacion
         //metodo para habilitar o deshabilitar campos y botones
         private void habilitar(bool x)
         {
-            txtNroFactura.Enabled = false;
             txtPrecio.Enabled = x;
             txtPrecioTotal.Enabled = false;
-            txtIdFactura.Enabled = false;
             txtNroOrden.Enabled = false;
             dtpFecha.Enabled = x;
 
@@ -75,11 +73,9 @@ namespace SistemaFacturacion
         private void limpiar()
         {
                         
-            txtNroFactura.Clear();
+            
             txtPrecio.Clear();
-            txtIdFactura.Clear();
             txtPrecioTotal.Clear();
-            txtNroFactura.Clear();
             txtNroOrden.Clear();
             listaItems.Clear();
             
@@ -97,12 +93,7 @@ namespace SistemaFacturacion
             //Al hacer click en Nuevo habilitamos botones, agregar,quitar, cancelar y tambien los campos       
             this.habilitar(true);
             //limpamos campos cajas texto
-            this.limpiar();
-            //hacemos focus en el campo CUIT
-            this.txtNroFactura.Focus();
-
-            oFactura.CargarNumeroFactura();
-            txtNroFactura.Text = oFactura.Numero_factura.ToString();
+            this.limpiar();                     
 
         }
 
@@ -120,7 +111,6 @@ namespace SistemaFacturacion
                 //set de los atributos al obj Factura
 
                 oFactura.Fecha = dtpFecha.Value;
-                oFactura.Numero_factura = txtNroFactura.Text;
                 oFactura.Id_usuario_creador = (int)cboUsuario.SelectedValue;
                 oFactura.Id_cliente = (int)cboCliente.SelectedValue;
 
@@ -135,9 +125,6 @@ namespace SistemaFacturacion
                     {
                         //Ejecuta el metodo pra realizar la transaccion 
                         oFactura.grabarFacturaConDataManager();
-                        //Mostramos el nuevo ID en la caja detexto ID de pactura
-                        txtIdFactura.Text = oFactura.Id_factura.ToString();
-
                         MessageBox.Show("Se ha realizado la FACTURACION con EXITO");
                         limpiar();
                         
@@ -171,15 +158,7 @@ namespace SistemaFacturacion
                 dtpFecha.Focus();
 
                 return false;
-            }
-            //verificamos que la caja de texto nro factura no este vacia y quede marcado con color para cargar
-            if (txtNroFactura.Text == string.Empty) {
-                txtNroFactura.BackColor = Color.Red;
-                txtNroFactura.Focus();
-                return false;
-            }
-
-
+            }            
             return true;
         }
 
@@ -230,7 +209,7 @@ namespace SistemaFacturacion
             txtNroOrden.Text = nro_orden.ToString();
 
             //agregamos a grilla el detalle colocado
-            grdFacturaDetalle.Rows.Add(txtIdFactura.Text,txtNroOrden.Text,cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
+            grdFacturaDetalle.Rows.Add(txtNroOrden.Text,cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
 
             //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
             txtPrecioTotal.Text = calcularTotal().ToString();
@@ -256,7 +235,7 @@ namespace SistemaFacturacion
 
             for (int i = 0; i < grdFacturaDetalle.Rows.Count ; i++)
             {
-                total += Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells[4].Value);
+                total += Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells[3].Value);
             }
 
             return total;

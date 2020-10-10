@@ -32,11 +32,6 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
-            this.id_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNroOrden = new System.Windows.Forms.TextBox();
             this.lblNroOrden = new System.Windows.Forms.Label();
@@ -50,19 +45,19 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.lblProyecto = new System.Windows.Forms.Label();
-            this.lblNroFactura = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.txtNroFactura = new System.Windows.Forms.TextBox();
             this.cboCliente = new System.Windows.Forms.ComboBox();
             this.cboUsuario = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +86,6 @@
             this.grdFacturaDetalle.BackgroundColor = System.Drawing.Color.OldLace;
             this.grdFacturaDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFacturaDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_factura,
             this.nroDeOrden,
             this.producto,
             this.proyecto,
@@ -101,46 +95,6 @@
             this.grdFacturaDetalle.ReadOnly = true;
             this.grdFacturaDetalle.Size = new System.Drawing.Size(712, 150);
             this.grdFacturaDetalle.TabIndex = 2;
-            // 
-            // id_factura
-            // 
-            this.id_factura.DividerWidth = 2;
-            this.id_factura.HeaderText = "ID Factura";
-            this.id_factura.Name = "id_factura";
-            this.id_factura.ReadOnly = true;
-            this.id_factura.Visible = false;
-            // 
-            // nroDeOrden
-            // 
-            this.nroDeOrden.DividerWidth = 2;
-            this.nroDeOrden.HeaderText = "Nro. Orden";
-            this.nroDeOrden.Name = "nroDeOrden";
-            this.nroDeOrden.ReadOnly = true;
-            this.nroDeOrden.Width = 110;
-            // 
-            // producto
-            // 
-            this.producto.DividerWidth = 2;
-            this.producto.HeaderText = "Producto";
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            this.producto.Width = 200;
-            // 
-            // proyecto
-            // 
-            this.proyecto.DividerWidth = 2;
-            this.proyecto.HeaderText = "Proyecto";
-            this.proyecto.Name = "proyecto";
-            this.proyecto.ReadOnly = true;
-            this.proyecto.Width = 110;
-            // 
-            // precio
-            // 
-            this.precio.DividerWidth = 2;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 110;
             // 
             // groupBox1
             // 
@@ -278,16 +232,6 @@
             this.lblProyecto.TabIndex = 3;
             this.lblProyecto.Text = "Proyecto";
             // 
-            // lblNroFactura
-            // 
-            this.lblNroFactura.AutoSize = true;
-            this.lblNroFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroFactura.Location = new System.Drawing.Point(356, 36);
-            this.lblNroFactura.Name = "lblNroFactura";
-            this.lblNroFactura.Size = new System.Drawing.Size(78, 13);
-            this.lblNroFactura.TabIndex = 4;
-            this.lblNroFactura.Text = "Nro. Factura";
-            // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
@@ -307,14 +251,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario";
-            // 
-            // txtNroFactura
-            // 
-            this.txtNroFactura.BackColor = System.Drawing.Color.OldLace;
-            this.txtNroFactura.Location = new System.Drawing.Point(440, 32);
-            this.txtNroFactura.Name = "txtNroFactura";
-            this.txtNroFactura.Size = new System.Drawing.Size(121, 20);
-            this.txtNroFactura.TabIndex = 7;
             // 
             // cboCliente
             // 
@@ -378,28 +314,42 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(587, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "ID Factura";
-            // 
-            // txtIdFactura
-            // 
-            this.txtIdFactura.BackColor = System.Drawing.Color.OldLace;
-            this.txtIdFactura.Location = new System.Drawing.Point(665, 34);
-            this.txtIdFactura.Name = "txtIdFactura";
-            this.txtIdFactura.Size = new System.Drawing.Size(100, 20);
-            this.txtIdFactura.TabIndex = 15;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // nroDeOrden
+            // 
+            this.nroDeOrden.DividerWidth = 2;
+            this.nroDeOrden.HeaderText = "Nro. Orden";
+            this.nroDeOrden.Name = "nroDeOrden";
+            this.nroDeOrden.ReadOnly = true;
+            this.nroDeOrden.Width = 110;
+            // 
+            // producto
+            // 
+            this.producto.DividerWidth = 2;
+            this.producto.HeaderText = "Producto";
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            this.producto.Width = 200;
+            // 
+            // proyecto
+            // 
+            this.proyecto.DividerWidth = 2;
+            this.proyecto.HeaderText = "Proyecto";
+            this.proyecto.Name = "proyecto";
+            this.proyecto.ReadOnly = true;
+            this.proyecto.Width = 110;
+            // 
+            // precio
+            // 
+            this.precio.DividerWidth = 2;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 110;
             // 
             // frmFacturas
             // 
@@ -407,18 +357,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 540);
-            this.Controls.Add(this.txtIdFactura);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cboUsuario);
             this.Controls.Add(this.cboCliente);
-            this.Controls.Add(this.txtNroFactura);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblCliente);
-            this.Controls.Add(this.lblNroFactura);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtpFecha);
@@ -447,10 +393,8 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Label lblProyecto;
-        private System.Windows.Forms.Label lblNroFactura;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TextBox txtNroFactura;
         private System.Windows.Forms.ComboBox cboCliente;
         private System.Windows.Forms.ComboBox cboUsuario;
         private System.Windows.Forms.Button btnQuitar;
@@ -459,12 +403,9 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIdFactura;
         private System.Windows.Forms.TextBox txtNroOrden;
         private System.Windows.Forms.Label lblNroOrden;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_factura;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDeOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
