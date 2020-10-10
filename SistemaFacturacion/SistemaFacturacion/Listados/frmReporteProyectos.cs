@@ -37,7 +37,7 @@ namespace SistemaFacturacion.Listados
                           " where CAST(f.fecha AS DATE) between CAST('" + dtpFecheDesde.Value.ToString("yyyy-MM-dd") + "' AS date) AND CAST('" + dtpFechaHasta.Value.ToString("yyyy-MM-dd") + "' AS date)";
 
             table = oBD.consultar(sql);
-            ReportDataSource ds = new ReportDataSource("DatosListadoProyectos", table);
+            ReportDataSource ds = new ReportDataSource("ListadoProyectos", table);
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(ds);
@@ -53,7 +53,7 @@ namespace SistemaFacturacion.Listados
                           "join Proyectos p on fd.id_proyecto = p.id_proyecto";
 
             tabla = oBD.consultar(sql);
-            ReportDataSource ds = new ReportDataSource("DatosListadoProyectos", tabla);
+            ReportDataSource ds = new ReportDataSource("ListadoProyectos", tabla);
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(ds);

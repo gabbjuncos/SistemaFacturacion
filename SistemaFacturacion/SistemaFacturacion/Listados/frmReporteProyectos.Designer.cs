@@ -30,24 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.DSPProyectos = new SistemaFacturacion.Listados.DSPProyectos();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dtpFecheDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.lblHasta = new System.Windows.Forms.Label();
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.btnAplicar = new System.Windows.Forms.Button();
-            this.DSPProyectos = new SistemaFacturacion.Listados.DSPProyectos();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dSPProyectosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPProyectos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPProyectosBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.DSPProyectos;
+            // 
+            // DSPProyectos
+            // 
+            this.DSPProyectos.DataSetName = "DSPProyectos";
+            this.DSPProyectos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             reportDataSource1.Name = "ListadoProyectos";
-            reportDataSource1.Value = this.dataTable1BindingSource1;
+            reportDataSource1.Value = this.dSPProyectosBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Listados.ReporteProyectos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(126, 84);
@@ -99,20 +111,15 @@
             this.btnAplicar.UseVisualStyleBackColor = true;
             this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
-            // DSPProyectos
-            // 
-            this.DSPProyectos.DataSetName = "DSPProyectos";
-            this.DSPProyectos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // DataTable1BindingSource
             // 
             this.DataTable1BindingSource.DataMember = "DataTable1";
             this.DataTable1BindingSource.DataSource = this.DSPProyectos;
             // 
-            // dataTable1BindingSource1
+            // dSPProyectosBindingSource
             // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.DSPProyectos;
+            this.dSPProyectosBindingSource.DataSource = this.DSPProyectos;
+            this.dSPProyectosBindingSource.Position = 0;
             // 
             // frmReporteProyectos
             // 
@@ -128,9 +135,10 @@
             this.Name = "frmReporteProyectos";
             this.Text = "Listado de Proyectos";
             this.Load += new System.EventHandler(this.frmReporteProyectos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPProyectos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPProyectosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +155,6 @@
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
+        private System.Windows.Forms.BindingSource dSPProyectosBindingSource;
     }
 }
