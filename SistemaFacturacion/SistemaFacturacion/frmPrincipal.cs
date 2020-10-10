@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Formularios;
 using SistemaFacturacion.Clases;
+using SistemaFacturacion.Listados;
 
 namespace SistemaFacturacion
 {
@@ -63,6 +64,20 @@ namespace SistemaFacturacion
             frfac.ShowDialog();
             frfac.Dispose();
 
+        }
+
+        private void listadoDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteProductos frp = new frmReporteProductos();
+            frp.ShowDialog();
+            frp.Dispose();
+        }
+
+        private void listadoDeProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteProyectos frrp = new frmReporteProyectos();
+            frrp.ShowDialog();
+            frrp.Dispose();
         }
     }
 }

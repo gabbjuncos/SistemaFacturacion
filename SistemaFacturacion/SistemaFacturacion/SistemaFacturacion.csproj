@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SistemaFacturacion</RootNamespace>
     <AssemblyName>SistemaFacturacion</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -110,6 +111,11 @@
     <Compile Include="frmProyecto.designer.cs">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listados\DSPProyectos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPProyectos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Listados\DSProductos.cs">
       <DependentUpon>DSProductos.xsd</DependentUpon>
     </Compile>
@@ -118,11 +124,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSProductos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Listados\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listados\frmReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listados\frmReporteProductos.Designer.cs">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\frmReporteProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\frmReporteProyectos.Designer.cs">
+      <DependentUpon>frmReporteProyectos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,11 +163,18 @@
     <EmbeddedResource Include="frmProyecto.resx">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\frmReporteProductos.resx">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\frmReporteProyectos.resx">
+      <DependentUpon>frmReporteProyectos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\Report1.rdlc" />
     <EmbeddedResource Include="Listados\ReporteProductos.rdlc" />
+    <EmbeddedResource Include="Listados\ReporteProyectos.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -158,7 +183,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Listados\DSPProyectos.xsc">
+      <DependentUpon>DSPProyectos.xsd</DependentUpon>
+    </None>
+    <None Include="Listados\DSPProyectos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPProyectos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Listados\DSPProyectos.xss">
+      <DependentUpon>DSPProyectos.xsd</DependentUpon>
+    </None>
     <None Include="Listados\DSProductos.xsc">
       <DependentUpon>DSProductos.xsd</DependentUpon>
     </None>
@@ -185,19 +222,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\nativeBinaries\x64\msvcr120.dll" />
+    <Content Include="SqlServerTypes\nativeBinaries\x64\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\nativeBinaries\x86\msvcr120.dll" />
+    <Content Include="SqlServerTypes\nativeBinaries\x86\SqlServerSpatial140.dll" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
