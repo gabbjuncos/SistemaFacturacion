@@ -38,8 +38,8 @@ namespace SistemaFacturacion
             this.habilitar(false);
 
             this.cargarCombo(cboCliente, "Clientes", 2);
-            this.cargarCombo(cboProducto, "Productos", 1);
-            this.cargarCombo(cboProyecto, "Proyectos", 2);
+            this.cargarComboProyectos_Productos(cboProducto, "Productos","nombre", 1);
+            this.cargarComboProyectos_Productos(cboProyecto, "Proyectos","descripcion", 2);
             this.cargarComboUsuario(cboUsuario, nombreUsuario, 2);
 
 
@@ -50,6 +50,8 @@ namespace SistemaFacturacion
         {
             txtPrecio.Enabled = x;
             txtPrecioTotal.Enabled = false;
+            txtNuevoCliente.Enabled = x;
+
             dtpFecha.Enabled = x;
 
             cboCliente.Enabled = x;
@@ -176,7 +178,7 @@ namespace SistemaFacturacion
         }
 
         private void cargarCombo(ComboBox combo, string nombreTabla, int numeroColumnaDisplay)
-        {
+        {   
 
             DataTable tabla = new DataTable();
 
@@ -187,12 +189,26 @@ namespace SistemaFacturacion
             combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
             combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
         }
-
+        
         private void cargarComboUsuario(ComboBox combo, string nombreUsuario, int numeroColumnaDisplay)
         {
 
             DataTable tabla = new DataTable();
             string sql_consulta = "Select * from Usuarios where usuario = '" + nombreUsuario + "'";
+
+            tabla = oBD.consultar(sql_consulta);
+            combo.DataSource = tabla;
+            combo.DisplayMember = tabla.Columns[numeroColumnaDisplay].ColumnName;    // para nombre
+            combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
+            combo.SelectedIndex = 0; // queda apuntando a la nada cuando se ejecuta 
+        }
+
+        private void cargarComboProyectos_Productos(ComboBox combo, string nombreTabla, string nombreColumna, int numeroColumnaDisplay)
+        {
+
+            DataTable tabla = new DataTable();
+            string sql_consulta = "Select * from " + nombreTabla + " order by " + nombreColumna;
 
             tabla = oBD.consultar(sql_consulta);
             combo.DataSource = tabla;
