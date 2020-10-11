@@ -49,7 +49,6 @@ namespace SistemaFacturacion
         {
             txtPrecio.Enabled = x;
             txtPrecioTotal.Enabled = false;
-            txtNroOrden.Enabled = false;
             dtpFecha.Enabled = x;
 
             cboCliente.Enabled = x;
@@ -76,7 +75,6 @@ namespace SistemaFacturacion
             
             txtPrecio.Clear();
             txtPrecioTotal.Clear();
-            txtNroOrden.Clear();
             listaItems.Clear();
             
             //para que apunten siempre al primero los combos por defecto
@@ -206,10 +204,9 @@ namespace SistemaFacturacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             nro_orden += 1;
-            txtNroOrden.Text = nro_orden.ToString();
 
             //agregamos a grilla el detalle colocado
-            grdFacturaDetalle.Rows.Add(txtNroOrden.Text,cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
+            grdFacturaDetalle.Rows.Add(nro_orden.ToString(), cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
 
             //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
             txtPrecioTotal.Text = calcularTotal().ToString();
@@ -221,7 +218,6 @@ namespace SistemaFacturacion
             //Limpia los combo box luego de agregar 
             cboProyecto.SelectedIndex = -1;
             cboProducto.SelectedIndex = -1;
-            txtNroOrden.Clear();
             txtPrecio.Clear();
 
             
@@ -246,7 +242,6 @@ namespace SistemaFacturacion
             if (nro_orden > 0)
             {
                 nro_orden -= 1;
-                //txtNroOrden.Text = nro_orden.ToString();
             }
             else
             {
