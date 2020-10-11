@@ -32,6 +32,12 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
+            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -53,12 +59,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtNuevoCliente = new System.Windows.Forms.Button();
-            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chcProyecto = new System.Windows.Forms.CheckBox();
+            this.chcProducto = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,8 +101,56 @@
             this.grdFacturaDetalle.Size = new System.Drawing.Size(712, 150);
             this.grdFacturaDetalle.TabIndex = 2;
             // 
+            // nroDeOrden
+            // 
+            this.nroDeOrden.DividerWidth = 2;
+            this.nroDeOrden.HeaderText = "Nro. Orden";
+            this.nroDeOrden.Name = "nroDeOrden";
+            this.nroDeOrden.ReadOnly = true;
+            this.nroDeOrden.Width = 110;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DividerWidth = 2;
+            this.id_producto.HeaderText = "Id_Producto";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
+            this.id_producto.Width = 200;
+            // 
+            // producto
+            // 
+            this.producto.HeaderText = "Producto";
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            // 
+            // id_proyecto
+            // 
+            this.id_proyecto.DividerWidth = 2;
+            this.id_proyecto.HeaderText = "Id_Proyecto";
+            this.id_proyecto.Name = "id_proyecto";
+            this.id_proyecto.ReadOnly = true;
+            this.id_proyecto.Visible = false;
+            this.id_proyecto.Width = 110;
+            // 
+            // proyecto
+            // 
+            this.proyecto.HeaderText = "Proyecto";
+            this.proyecto.Name = "proyecto";
+            this.proyecto.ReadOnly = true;
+            // 
+            // precio
+            // 
+            this.precio.DividerWidth = 2;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 110;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chcProducto);
+            this.groupBox1.Controls.Add(this.chcProyecto);
             this.groupBox1.Controls.Add(this.btnQuitar);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.lblTotal);
@@ -171,7 +221,7 @@
             // 
             this.cboProducto.BackColor = System.Drawing.Color.OldLace;
             this.cboProducto.FormattingEnabled = true;
-            this.cboProducto.Location = new System.Drawing.Point(267, 26);
+            this.cboProducto.Location = new System.Drawing.Point(404, 26);
             this.cboProducto.Name = "cboProducto";
             this.cboProducto.Size = new System.Drawing.Size(121, 21);
             this.cboProducto.TabIndex = 7;
@@ -180,7 +230,7 @@
             // 
             this.cboProyecto.BackColor = System.Drawing.Color.OldLace;
             this.cboProyecto.FormattingEnabled = true;
-            this.cboProyecto.Location = new System.Drawing.Point(81, 25);
+            this.cboProyecto.Location = new System.Drawing.Point(105, 27);
             this.cboProyecto.Name = "cboProyecto";
             this.cboProyecto.Size = new System.Drawing.Size(121, 21);
             this.cboProyecto.TabIndex = 6;
@@ -199,7 +249,7 @@
             // 
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.Location = new System.Drawing.Point(208, 30);
+            this.lblProducto.Location = new System.Drawing.Point(340, 35);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(58, 13);
             this.lblProducto.TabIndex = 4;
@@ -209,7 +259,7 @@
             // 
             this.lblProyecto.AutoSize = true;
             this.lblProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProyecto.Location = new System.Drawing.Point(18, 30);
+            this.lblProyecto.Location = new System.Drawing.Point(42, 34);
             this.lblProyecto.Name = "lblProyecto";
             this.lblProyecto.Size = new System.Drawing.Size(57, 13);
             this.lblProyecto.TabIndex = 3;
@@ -313,51 +363,25 @@
             this.txtNuevoCliente.UseVisualStyleBackColor = false;
             this.txtNuevoCliente.Click += new System.EventHandler(this.txtNuevoCliente_Click);
             // 
-            // nroDeOrden
+            // chcProyecto
             // 
-            this.nroDeOrden.DividerWidth = 2;
-            this.nroDeOrden.HeaderText = "Nro. Orden";
-            this.nroDeOrden.Name = "nroDeOrden";
-            this.nroDeOrden.ReadOnly = true;
-            this.nroDeOrden.Width = 110;
+            this.chcProyecto.AutoSize = true;
+            this.chcProyecto.Location = new System.Drawing.Point(21, 33);
+            this.chcProyecto.Name = "chcProyecto";
+            this.chcProyecto.Size = new System.Drawing.Size(15, 14);
+            this.chcProyecto.TabIndex = 13;
+            this.chcProyecto.UseVisualStyleBackColor = true;
+            this.chcProyecto.CheckedChanged += new System.EventHandler(this.chcProyecto_CheckedChanged);
             // 
-            // id_producto
+            // chcProducto
             // 
-            this.id_producto.DividerWidth = 2;
-            this.id_producto.HeaderText = "Id_Producto";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            this.id_producto.Visible = false;
-            this.id_producto.Width = 200;
-            // 
-            // producto
-            // 
-            this.producto.HeaderText = "Producto";
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            // 
-            // id_proyecto
-            // 
-            this.id_proyecto.DividerWidth = 2;
-            this.id_proyecto.HeaderText = "Id_Proyecto";
-            this.id_proyecto.Name = "id_proyecto";
-            this.id_proyecto.ReadOnly = true;
-            this.id_proyecto.Visible = false;
-            this.id_proyecto.Width = 110;
-            // 
-            // proyecto
-            // 
-            this.proyecto.HeaderText = "Proyecto";
-            this.proyecto.Name = "proyecto";
-            this.proyecto.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.DividerWidth = 2;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 110;
+            this.chcProducto.AutoSize = true;
+            this.chcProducto.Location = new System.Drawing.Point(319, 34);
+            this.chcProducto.Name = "chcProducto";
+            this.chcProducto.Size = new System.Drawing.Size(15, 14);
+            this.chcProducto.TabIndex = 14;
+            this.chcProducto.UseVisualStyleBackColor = true;
+            this.chcProducto.CheckedChanged += new System.EventHandler(this.chcProducto_CheckedChanged);
             // 
             // frmFacturas
             // 
@@ -420,5 +444,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.CheckBox chcProducto;
+        private System.Windows.Forms.CheckBox chcProyecto;
     }
 }

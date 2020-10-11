@@ -42,7 +42,8 @@ namespace SistemaFacturacion.Listados
 
             string sql = "select p.id_producto , p.nombre, fd.precio, f.fecha from Facturas f join FacturasDetalle fd on f.id_factura = fd.id_factura " +
                           "join Productos p on fd.id_producto = p.id_producto" +
-                          " where CAST(f.fecha AS DATE) between CAST('" + dtpDesde.Value.ToString("yyyy-MM-dd") + "' AS date) AND CAST('" + dtpHasta.Value.ToString("yyyy-MM-dd") + "' AS date)";
+                          " where CAST(f.fecha AS DATE) between CAST('" + dtpDesde.Value.ToString("yyyy-MM-dd") + "' AS date) AND CAST('" + dtpHasta.Value.ToString("yyyy-MM-dd") + "' AS date)" +
+                          " AND nombre <> '<<Ninguno>>'"; ;
 
             table = oBD.consultar(sql);
             ReportDataSource ds = new ReportDataSource("DatosListadoProductos", table);
@@ -60,7 +61,8 @@ namespace SistemaFacturacion.Listados
 
 
             string sql = "select p.id_producto , p.nombre, fd.precio, f.fecha from Facturas f join FacturasDetalle fd on f.id_factura = fd.id_factura " +
-                          "join Productos p on fd.id_producto = p.id_producto";
+                          "join Productos p on fd.id_producto = p.id_producto" +
+                          " where nombre <> '<<Ninguno>>'";
 
             tabla = oBD.consultar(sql);
             ReportDataSource ds = new ReportDataSource("DatosListadoProductos", tabla);

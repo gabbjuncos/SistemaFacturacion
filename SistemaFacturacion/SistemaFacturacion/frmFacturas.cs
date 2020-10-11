@@ -58,6 +58,9 @@ namespace SistemaFacturacion
             cboUsuario.Enabled = false;
             cboProducto.Enabled = x;
             cboProyecto.Enabled = x;
+            chcProyecto.Enabled = x;
+            chcProducto.Enabled = x;
+
 
 
             btnGrabar.Enabled = x;
@@ -82,9 +85,10 @@ namespace SistemaFacturacion
             
             //para que apunten siempre al primero los combos por defecto
             cboCliente.SelectedIndex = -1;
-            cboProducto.SelectedIndex = -1;
-            cboProyecto.SelectedIndex = -1;
+            cboProducto.SelectedIndex = 0;
+            cboProyecto.SelectedIndex = 0;
             cboUsuario.SelectedIndex = 0;
+
             grdFacturaDetalle.Rows.Clear();
 
         }
@@ -93,6 +97,7 @@ namespace SistemaFacturacion
         {
             //Al hacer click en Nuevo habilitamos botones, agregar,quitar, cancelar y tambien los campos       
             this.habilitar(true);
+
             //limpamos campos cajas texto
             this.limpiar();                     
 
@@ -207,6 +212,7 @@ namespace SistemaFacturacion
         private void cargarComboProyectos_Productos(ComboBox combo, string nombreTabla, string nombreColumna, int numeroColumnaDisplay)
         {
 
+
             DataTable tabla = new DataTable();
             string sql_consulta = "Select * from " + nombreTabla + " order by " + nombreColumna;
 
@@ -291,16 +297,10 @@ namespace SistemaFacturacion
 
 
                 listaItems.Add(oFacturaDetalle);
-
-
-
             }
 
             //le pasa la lista con los objetos detalles al atributo lista de la factura
             oFactura.ListFacturaDetalle = listaItems;
-
-
-
         }
 
         private void txtNuevoCliente_Click(object sender, EventArgs e)
@@ -311,6 +311,38 @@ namespace SistemaFacturacion
             //Se refresca nuevamente el combo box clientes
             this.cargarCombo(cboCliente, "Clientes", 2);
 
+        }
+
+        private void chcProyecto_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (chcProyecto.Checked == true)
+            {
+                cboProducto.Enabled = false;
+                cboProyecto.Enabled = true;
+                chcProducto.Checked = false;
+            }
+            else 
+            {
+                cboProyecto.Enabled = false;
+                cboProyecto.SelectedIndex = 0;
+            }
+            
+        }
+
+        private void chcProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chcProducto.Checked == true)
+            {
+                cboProducto.Enabled = true;
+                cboProyecto.Enabled = false;
+                chcProyecto.Checked = false;
+            }
+            else
+            {
+                cboProducto.Enabled = false;
+                cboProducto.SelectedIndex = 0;
+            }
         }
     }
 }
