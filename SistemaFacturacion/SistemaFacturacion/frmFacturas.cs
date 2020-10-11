@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Clases;
+using SistemaFacturacion.Formularios;
 
 
 namespace SistemaFacturacion
@@ -285,6 +286,16 @@ namespace SistemaFacturacion
             oFactura.ListFacturaDetalle = listaItems;
 
 
+
+        }
+
+        private void txtNuevoCliente_Click(object sender, EventArgs e)
+        {
+            frmClientes frc = new frmClientes();
+            frc.ShowDialog();
+            frc.Dispose();
+            //Se refresca nuevamente el combo box clientes
+            this.cargarCombo(cboCliente, "Clientes", 2);
 
         }
     }

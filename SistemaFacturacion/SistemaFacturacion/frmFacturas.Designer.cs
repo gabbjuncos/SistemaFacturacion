@@ -56,6 +56,7 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtNuevoCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -329,12 +330,24 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // txtNuevoCliente
+            // 
+            this.txtNuevoCliente.BackColor = System.Drawing.Color.OldLace;
+            this.txtNuevoCliente.Location = new System.Drawing.Point(375, 34);
+            this.txtNuevoCliente.Name = "txtNuevoCliente";
+            this.txtNuevoCliente.Size = new System.Drawing.Size(118, 23);
+            this.txtNuevoCliente.TabIndex = 14;
+            this.txtNuevoCliente.Text = "Nuevo Cliente";
+            this.txtNuevoCliente.UseVisualStyleBackColor = false;
+            this.txtNuevoCliente.Click += new System.EventHandler(this.txtNuevoCliente_Click);
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.txtNuevoCliente);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnCancelar);
@@ -386,5 +399,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.Button txtNuevoCliente;
     }
 }
