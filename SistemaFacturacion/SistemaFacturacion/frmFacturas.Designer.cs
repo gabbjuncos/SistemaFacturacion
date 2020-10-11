@@ -32,10 +32,6 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
-            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -57,6 +53,12 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtNuevoCliente = new System.Windows.Forms.Button();
+            this.nroDeOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +88,9 @@
             this.grdFacturaDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFacturaDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nroDeOrden,
+            this.id_producto,
             this.producto,
+            this.id_proyecto,
             this.proyecto,
             this.precio});
             this.grdFacturaDetalle.Location = new System.Drawing.Point(21, 114);
@@ -94,38 +98,6 @@
             this.grdFacturaDetalle.ReadOnly = true;
             this.grdFacturaDetalle.Size = new System.Drawing.Size(712, 150);
             this.grdFacturaDetalle.TabIndex = 2;
-            // 
-            // nroDeOrden
-            // 
-            this.nroDeOrden.DividerWidth = 2;
-            this.nroDeOrden.HeaderText = "Nro. Orden";
-            this.nroDeOrden.Name = "nroDeOrden";
-            this.nroDeOrden.ReadOnly = true;
-            this.nroDeOrden.Width = 110;
-            // 
-            // producto
-            // 
-            this.producto.DividerWidth = 2;
-            this.producto.HeaderText = "Producto";
-            this.producto.Name = "producto";
-            this.producto.ReadOnly = true;
-            this.producto.Width = 200;
-            // 
-            // proyecto
-            // 
-            this.proyecto.DividerWidth = 2;
-            this.proyecto.HeaderText = "Proyecto";
-            this.proyecto.Name = "proyecto";
-            this.proyecto.ReadOnly = true;
-            this.proyecto.Width = 110;
-            // 
-            // precio
-            // 
-            this.precio.DividerWidth = 2;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 110;
             // 
             // groupBox1
             // 
@@ -341,6 +313,52 @@
             this.txtNuevoCliente.UseVisualStyleBackColor = false;
             this.txtNuevoCliente.Click += new System.EventHandler(this.txtNuevoCliente_Click);
             // 
+            // nroDeOrden
+            // 
+            this.nroDeOrden.DividerWidth = 2;
+            this.nroDeOrden.HeaderText = "Nro. Orden";
+            this.nroDeOrden.Name = "nroDeOrden";
+            this.nroDeOrden.ReadOnly = true;
+            this.nroDeOrden.Width = 110;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DividerWidth = 2;
+            this.id_producto.HeaderText = "Id_Producto";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
+            this.id_producto.Width = 200;
+            // 
+            // producto
+            // 
+            this.producto.HeaderText = "Producto";
+            this.producto.Name = "producto";
+            this.producto.ReadOnly = true;
+            // 
+            // id_proyecto
+            // 
+            this.id_proyecto.DividerWidth = 2;
+            this.id_proyecto.HeaderText = "Id_Proyecto";
+            this.id_proyecto.Name = "id_proyecto";
+            this.id_proyecto.ReadOnly = true;
+            this.id_proyecto.Visible = false;
+            this.id_proyecto.Width = 110;
+            // 
+            // proyecto
+            // 
+            this.proyecto.HeaderText = "Proyecto";
+            this.proyecto.Name = "proyecto";
+            this.proyecto.ReadOnly = true;
+            // 
+            // precio
+            // 
+            this.precio.DividerWidth = 2;
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 110;
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,10 +413,12 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button txtNuevoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDeOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn proyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.Button txtNuevoCliente;
     }
 }

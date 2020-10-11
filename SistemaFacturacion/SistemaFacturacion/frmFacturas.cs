@@ -223,7 +223,7 @@ namespace SistemaFacturacion
             nro_orden += 1;
 
             //agregamos a grilla el detalle colocado
-            grdFacturaDetalle.Rows.Add(nro_orden.ToString(), cboProducto.SelectedValue, cboProyecto.SelectedValue, txtPrecio.Text);
+            grdFacturaDetalle.Rows.Add(nro_orden.ToString(), cboProducto.SelectedValue, cboProducto.Text , cboProyecto.SelectedValue, cboProyecto.Text, txtPrecio.Text);
 
             //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
             txtPrecioTotal.Text = calcularTotal().ToString();
@@ -235,9 +235,7 @@ namespace SistemaFacturacion
             //Limpia los combo box luego de agregar 
             cboProyecto.SelectedIndex = -1;
             cboProducto.SelectedIndex = -1;
-            txtPrecio.Clear();
-
-            
+            txtPrecio.Clear();            
         }
 
 
@@ -248,7 +246,7 @@ namespace SistemaFacturacion
 
             for (int i = 0; i < grdFacturaDetalle.Rows.Count ; i++)
             {
-                total += Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells[3].Value);
+                total += Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells[5].Value);
             }
 
             return total;
@@ -286,8 +284,8 @@ namespace SistemaFacturacion
                 
 
                 oFacturaDetalle.Numero_orden = int.Parse(grdFacturaDetalle.Rows[i].Cells["nroDeOrden"].Value.ToString());
-                oFacturaDetalle.Id_producto = int.Parse(grdFacturaDetalle.Rows[i].Cells["producto"].Value.ToString());
-                oFacturaDetalle.Id_proyecto = int.Parse(grdFacturaDetalle.Rows[i].Cells["proyecto"].Value.ToString());
+                oFacturaDetalle.Id_producto = int.Parse(grdFacturaDetalle.Rows[i].Cells["id_producto"].Value.ToString());
+                oFacturaDetalle.Id_proyecto = int.Parse(grdFacturaDetalle.Rows[i].Cells["id_proyecto"].Value.ToString());
                 oFacturaDetalle.Precio = Convert.ToDouble(grdFacturaDetalle.Rows[i].Cells["precio"].Value.ToString());
                 oFacturaDetalle.Borrado = false;
 
