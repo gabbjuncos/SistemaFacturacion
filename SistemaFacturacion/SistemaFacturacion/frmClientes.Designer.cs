@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCuit = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.txtCuit = new System.Windows.Forms.TextBox();
@@ -41,15 +41,15 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtCalle = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
-            this.txtIdBarrio = new System.Windows.Forms.TextBox();
             this.lblIdBarrio = new System.Windows.Forms.Label();
             this.lblCalle = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.lblIdContacto = new System.Windows.Forms.Label();
-            this.txtIdContacto = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.cboIdContacto = new System.Windows.Forms.ComboBox();
+            this.cboIdBarrio = new System.Windows.Forms.ComboBox();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +66,7 @@
             // 
             this.lblCuit.AutoSize = true;
             this.lblCuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCuit.Location = new System.Drawing.Point(222, 32);
+            this.lblCuit.Location = new System.Drawing.Point(25, 25);
             this.lblCuit.Name = "lblCuit";
             this.lblCuit.Size = new System.Drawing.Size(29, 13);
             this.lblCuit.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             this.lblRazonSocial.AutoSize = true;
             this.lblRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRazonSocial.Location = new System.Drawing.Point(437, 33);
+            this.lblRazonSocial.Location = new System.Drawing.Point(222, 25);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(82, 13);
             this.lblRazonSocial.TabIndex = 1;
@@ -86,7 +86,7 @@
             // txtCuit
             // 
             this.txtCuit.BackColor = System.Drawing.Color.OldLace;
-            this.txtCuit.Location = new System.Drawing.Point(276, 30);
+            this.txtCuit.Location = new System.Drawing.Point(79, 23);
             this.txtCuit.Name = "txtCuit";
             this.txtCuit.Size = new System.Drawing.Size(100, 20);
             this.txtCuit.TabIndex = 4;
@@ -95,7 +95,7 @@
             // txtRazonSocial
             // 
             this.txtRazonSocial.BackColor = System.Drawing.Color.OldLace;
-            this.txtRazonSocial.Location = new System.Drawing.Point(529, 32);
+            this.txtRazonSocial.Location = new System.Drawing.Point(328, 22);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(100, 20);
             this.txtRazonSocial.TabIndex = 5;
@@ -162,25 +162,27 @@
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(25, 33);
+            this.lblCliente.Location = new System.Drawing.Point(662, 32);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(63, 13);
             this.lblCliente.TabIndex = 10;
             this.lblCliente.Text = "ID Cliente";
+            this.lblCliente.Visible = false;
             this.lblCliente.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // txtIdCliente
             // 
             this.txtIdCliente.BackColor = System.Drawing.Color.OldLace;
-            this.txtIdCliente.Location = new System.Drawing.Point(97, 29);
+            this.txtIdCliente.Location = new System.Drawing.Point(742, 25);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
             this.txtIdCliente.TabIndex = 11;
+            this.txtIdCliente.Visible = false;
             // 
             // txtCalle
             // 
             this.txtCalle.BackColor = System.Drawing.Color.OldLace;
-            this.txtCalle.Location = new System.Drawing.Point(97, 77);
+            this.txtCalle.Location = new System.Drawing.Point(79, 72);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(100, 20);
             this.txtCalle.TabIndex = 12;
@@ -188,29 +190,20 @@
             // txtNumero
             // 
             this.txtNumero.BackColor = System.Drawing.Color.OldLace;
-            this.txtNumero.Location = new System.Drawing.Point(276, 79);
+            this.txtNumero.Location = new System.Drawing.Point(328, 72);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 20);
             this.txtNumero.TabIndex = 13;
-            // 
-            // txtIdBarrio
-            // 
-            this.txtIdBarrio.BackColor = System.Drawing.Color.OldLace;
-            this.txtIdBarrio.Location = new System.Drawing.Point(529, 77);
-            this.txtIdBarrio.Name = "txtIdBarrio";
-            this.txtIdBarrio.Size = new System.Drawing.Size(100, 20);
-            this.txtIdBarrio.TabIndex = 14;
-            this.txtIdBarrio.TextChanged += new System.EventHandler(this.txtIdBarrio_TextChanged);
             // 
             // lblIdBarrio
             // 
             this.lblIdBarrio.AutoSize = true;
             this.lblIdBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdBarrio.Location = new System.Drawing.Point(437, 79);
+            this.lblIdBarrio.Location = new System.Drawing.Point(469, 79);
             this.lblIdBarrio.Name = "lblIdBarrio";
-            this.lblIdBarrio.Size = new System.Drawing.Size(57, 13);
+            this.lblIdBarrio.Size = new System.Drawing.Size(40, 13);
             this.lblIdBarrio.TabIndex = 15;
-            this.lblIdBarrio.Text = "ID Barrio";
+            this.lblIdBarrio.Text = "Barrio";
             // 
             // lblCalle
             // 
@@ -227,7 +220,7 @@
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(222, 84);
+            this.lblNumero.Location = new System.Drawing.Point(250, 79);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(50, 13);
             this.lblNumero.TabIndex = 17;
@@ -238,19 +231,11 @@
             // 
             this.lblIdContacto.AutoSize = true;
             this.lblIdContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdContacto.Location = new System.Drawing.Point(667, 83);
+            this.lblIdContacto.Location = new System.Drawing.Point(667, 79);
             this.lblIdContacto.Name = "lblIdContacto";
-            this.lblIdContacto.Size = new System.Drawing.Size(75, 13);
+            this.lblIdContacto.Size = new System.Drawing.Size(58, 13);
             this.lblIdContacto.TabIndex = 18;
-            this.lblIdContacto.Text = "ID Contacto";
-            // 
-            // txtIdContacto
-            // 
-            this.txtIdContacto.BackColor = System.Drawing.Color.OldLace;
-            this.txtIdContacto.Location = new System.Drawing.Point(748, 77);
-            this.txtIdContacto.Name = "txtIdContacto";
-            this.txtIdContacto.Size = new System.Drawing.Size(100, 20);
-            this.txtIdContacto.TabIndex = 19;
+            this.lblIdContacto.Text = "Contacto";
             // 
             // btnCancelar
             // 
@@ -285,10 +270,28 @@
             this.btnGrabar.UseVisualStyleBackColor = false;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // cboIdContacto
+            // 
+            this.cboIdContacto.BackColor = System.Drawing.Color.OldLace;
+            this.cboIdContacto.FormattingEnabled = true;
+            this.cboIdContacto.Location = new System.Drawing.Point(747, 72);
+            this.cboIdContacto.Name = "cboIdContacto";
+            this.cboIdContacto.Size = new System.Drawing.Size(95, 21);
+            this.cboIdContacto.TabIndex = 23;
+            // 
+            // cboIdBarrio
+            // 
+            this.cboIdBarrio.BackColor = System.Drawing.Color.OldLace;
+            this.cboIdBarrio.FormattingEnabled = true;
+            this.cboIdBarrio.Location = new System.Drawing.Point(529, 71);
+            this.cboIdBarrio.Name = "cboIdBarrio";
+            this.cboIdBarrio.Size = new System.Drawing.Size(100, 21);
+            this.cboIdBarrio.TabIndex = 24;
+            // 
             // id_cliente
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
-            this.id_cliente.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
+            this.id_cliente.DefaultCellStyle = dataGridViewCellStyle1;
             this.id_cliente.DividerWidth = 2;
             this.id_cliente.HeaderText = "ID Cliente";
             this.id_cliente.Name = "id_cliente";
@@ -304,7 +307,7 @@
             // id_barrio
             // 
             this.id_barrio.DividerWidth = 2;
-            this.id_barrio.HeaderText = "ID Barrio";
+            this.id_barrio.HeaderText = "Barrio";
             this.id_barrio.Name = "id_barrio";
             this.id_barrio.ReadOnly = true;
             // 
@@ -346,7 +349,7 @@
             // id_contacto
             // 
             this.id_contacto.DividerWidth = 2;
-            this.id_contacto.HeaderText = "ID Contacto";
+            this.id_contacto.HeaderText = "Contacto";
             this.id_contacto.Name = "id_contacto";
             this.id_contacto.ReadOnly = true;
             // 
@@ -356,15 +359,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(994, 450);
+            this.Controls.Add(this.cboIdBarrio);
+            this.Controls.Add(this.cboIdContacto);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.txtIdContacto);
             this.Controls.Add(this.lblIdContacto);
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblCalle);
             this.Controls.Add(this.lblIdBarrio);
-            this.Controls.Add(this.txtIdBarrio);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtCalle);
             this.Controls.Add(this.txtIdCliente);
@@ -400,15 +403,15 @@
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.TextBox txtCalle;
         private System.Windows.Forms.TextBox txtNumero;
-        private System.Windows.Forms.TextBox txtIdBarrio;
         private System.Windows.Forms.Label lblIdBarrio;
         private System.Windows.Forms.Label lblCalle;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.Label lblIdContacto;
-        private System.Windows.Forms.TextBox txtIdContacto;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.ComboBox cboIdContacto;
+        private System.Windows.Forms.ComboBox cboIdBarrio;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrado;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_barrio;

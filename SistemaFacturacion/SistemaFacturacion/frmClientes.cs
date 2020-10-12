@@ -63,15 +63,8 @@ namespace SistemaFacturacion.Formularios
             //Carga el formulario deshabilitando los campos y habilitando solo botones nuevo, editar, borrar y salir
             this.habilitar(false);
 
-            //DataTable tabla = new DataTable();
-            //oBD.consultarTabla("barrios");
-            //cboBarrios.DataSource = tabla;
-            //cboBarrios.displaymember = tabla.colums[1].columnName;
-            //cboBarrios.ValueMember = tabla.colums[0].columnName;
-            //cboBarrios.dropDownStyle = comboboxsyle.dropdowslist;
-            //cboBarrios.selectedIndex = -1;
-
-            //grdClientes.DataSource = oCliente.recuperarClientes();
+            this.cargarCombo(cboIdBarrio, "Barrios", 1);
+            this.cargarCombo(cboIdContacto, "Contactos", 2);
 
             //cargamos la grilla campo por campo a partir de la consulta
             this.cargarGrilla(grdClientes, oCliente.recuperarClientes());
@@ -112,8 +105,10 @@ namespace SistemaFacturacion.Formularios
             txtRazonSocial.Enabled = x;
             txtCalle.Enabled = x;
             txtNumero.Enabled = x;
-            txtIdContacto.Enabled = x;
-            txtIdBarrio.Enabled = x;
+            //txtIdContacto.Enabled = x;
+            //txtIdBarrio.Enabled = x;
+            cboIdBarrio.Enabled = x;
+            cboIdContacto.Enabled = x;
 
             btnGrabar.Enabled = x;
             btnCancelar.Enabled = x;
@@ -133,8 +128,11 @@ namespace SistemaFacturacion.Formularios
             txtCuit.Clear();
             txtCalle.Clear();
             txtNumero.Clear();
-            txtIdBarrio.Clear();
-            txtIdContacto.Clear();
+            //txtIdBarrio.Clear();
+            //txtIdContacto.Clear();
+            cboIdBarrio.SelectedIndex = -1;
+            cboIdContacto.SelectedIndex = -1;
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -159,8 +157,8 @@ namespace SistemaFacturacion.Formularios
             oCliente.Razon_social = txtRazonSocial.Text;
             oCliente.Calle = txtCalle.Text;
             oCliente.Numero = txtNumero.Text;
-            oCliente.Id_barrio = int.Parse(txtIdBarrio.Text);
-            oCliente.Id_contacto = int.Parse(txtIdContacto.Text);
+            oCliente.Id_barrio = int.Parse(cboIdBarrio.SelectedValue.ToString());
+            oCliente.Id_contacto = int.Parse(cboIdContacto.SelectedValue.ToString());
 
             //validamos los datos antes de grabar
             if (oCliente.validarDatosClientes())
@@ -231,8 +229,8 @@ namespace SistemaFacturacion.Formularios
                 oCliente.Razon_social = txtRazonSocial.Text;
                 oCliente.Calle = txtCalle.Text;
                 oCliente.Numero = txtNumero.Text;
-                oCliente.Id_barrio = int.Parse(txtIdBarrio.Text);
-                oCliente.Id_contacto = int.Parse(txtIdContacto.Text);
+                oCliente.Id_barrio = int.Parse(cboIdBarrio.ValueMember);
+                oCliente.Id_contacto = int.Parse(cboIdContacto.ValueMember);
 
                 //oCliente.actualizarCliente();
 
@@ -259,7 +257,7 @@ namespace SistemaFacturacion.Formularios
             //colocamos cada dato de la columna en los campos correspondientes
             txtIdCliente.Text = tabla.Rows[0]["id_cliente"].ToString();
 
-            txtIdBarrio.Text = tabla.Rows[0]["id_barrio"].ToString();
+            cboIdBarrio.SelectedValue = int.Parse(tabla.Rows[0]["id_barrio"].ToString());
 
             txtCuit.Text = tabla.Rows[0]["cuit"].ToString();
 
@@ -269,7 +267,7 @@ namespace SistemaFacturacion.Formularios
 
             txtNumero.Text = tabla.Rows[0]["numero"].ToString();
 
-            txtIdContacto.Text = tabla.Rows[0]["id_contacto"].ToString();
+            cboIdContacto.SelectedValue = int.Parse(tabla.Rows[0]["id_contacto"].ToString());
             
 
         }
@@ -282,6 +280,19 @@ namespace SistemaFacturacion.Formularios
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cargarCombo(ComboBox combo, string nombreTabla, int numeroColumnaDisplay)
+        {
+
+            DataTable tabla = new DataTable();
+
+            tabla = oBD.consultarTabla(nombreTabla);
+            combo.DataSource = tabla;
+            combo.DisplayMember = tabla.Columns[numeroColumnaDisplay].ColumnName;    // para nombre
+            combo.ValueMember = tabla.Columns[0].ColumnName;      //para ide
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;  //por si no lo hago por las propeidades para que no se pueda editar cuando escribo en el combo en ejecucion
+            combo.SelectedIndex = -1; // queda apuntando a la nada cuando se ejecuta 
         }
     }
 }
