@@ -99,7 +99,11 @@ namespace SistemaFacturacion
             this.habilitar(true);
 
             //limpamos campos cajas texto
-            this.limpiar();                     
+            this.limpiar();
+
+            //Bloqueamos los combobox
+            this.cboProducto.Enabled = false;
+            this.cboProyecto.Enabled = false;
 
         }
 
@@ -109,6 +113,7 @@ namespace SistemaFacturacion
             DataTable table = new DataTable();
             //click en grabar deshabilitando los campos y habilitando solo botones nuevo, borrar y salir
             this.habilitar(false);
+            cboCliente.Enabled = true;
 
             //ejecutamos metodo validar para verificar que se haya cargado la cabecera de la factura y sus detalles
             if (validarFactura())
@@ -132,19 +137,15 @@ namespace SistemaFacturacion
                         //Ejecuta el metodo pra realizar la transaccion 
                         oFactura.grabarFacturaConDataManager();
                         MessageBox.Show("Se ha realizado la FACTURACION con EXITO");
-                        limpiar();
-                        
-
+                        limpiar();                 
                     }
 
                     //En caso de que no se pueda realizar la transaccion mostramos mensaje
                     catch {
 
                         MessageBox.Show("Ha ocurrido un ERROR al realizar la FACTURACION");
-                        limpiar();
-                        
-                    }
-                                   
+                        limpiar();                        
+                    }                                   
                 }
 
                 else
@@ -153,18 +154,29 @@ namespace SistemaFacturacion
 
                 }
             }
+            else
+            {
+                this.habilitar(true);
+            }
 
         }
 
         private bool validarFactura()
         {   //validamos que la fecha no este vacia y quede marcado con color lo que falta cargar
-            if (dtpFecha.Value == null) {
+            if (dtpFecha.Value == null) 
+            {
                 MessageBox.Show("Debe ingresar una FECHA");
                 dtpFecha.CalendarTitleBackColor = Color.Red;
                 dtpFecha.Focus();
 
                 return false;
-            }            
+            }
+            if (cboCliente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un Cliente");
+                cboCliente.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -226,27 +238,60 @@ namespace SistemaFacturacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            nro_orden += 1;
+            if (chcProducto.Checked == false && chcProyecto.Checked == false)
+            {
+                MessageBox.Show("Debe Seleccionar un producto o un proyecto");
+                cboProyecto.SelectedIndex = 0;
+                cboProducto.SelectedIndex = 0;
+                txtPrecio.Clear();
+            }
+            else
+            {
+                if (chcProyecto.Checked == true && cboProyecto.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Debe Seleccionar un proyecto");
+                    cboProyecto.Focus();
+                    cboProyecto.SelectedIndex = 0;
+                    cboProducto.SelectedIndex = 0;
+                    txtPrecio.Clear();
+                    return;
+                }
+                
+                if(chcProducto.Checked == true && cboProducto.SelectedIndex == 0)
+                {
+                        MessageBox.Show("Debe Seleccionar un producto");
+                        cboProducto.Focus();
+                        cboProyecto.SelectedIndex = 0;
+                        cboProducto.SelectedIndex = 0;
+                        txtPrecio.Clear();
+                        return;
+                }
 
-            //agregamos a grilla el detalle colocado
-            grdFacturaDetalle.Rows.Add(nro_orden.ToString(), cboProducto.SelectedValue, cboProducto.Text , cboProyecto.SelectedValue, cboProyecto.Text, txtPrecio.Text);
+                if (txtPrecio.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar un Precio");
+                    return;
+                }
+                nro_orden += 1;
 
-            //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
-            txtPrecioTotal.Text = calcularTotal().ToString();
+                //agregamos a grilla el detalle colocado
+                grdFacturaDetalle.Rows.Add(nro_orden.ToString(), cboProducto.SelectedValue, cboProducto.Text, cboProyecto.SelectedValue, cboProyecto.Text, txtPrecio.Text);
 
-            //Bloquea el usuario y el cliente luego de agregar
-            cboCliente.Enabled = false;
-            cboUsuario.Enabled = false;
+                //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
+                txtPrecioTotal.Text = calcularTotal().ToString();
 
-            //Limpia los combo box luego de agregar 
-            cboProyecto.SelectedIndex = -1;
-            cboProducto.SelectedIndex = -1;
-            txtPrecio.Clear();            
+                //Bloquea el usuario y el cliente luego de agregar
+                cboUsuario.Enabled = false;
+
+                //Limpia los combo box luego de agregar 
+                cboProyecto.SelectedIndex = 0;
+                cboProducto.SelectedIndex = 0;
+                txtPrecio.Clear();
+            }            
+            
         }
 
-
         //metodo para calcular el precio total de los detalles
-
         private double calcularTotal() {
             double total = 0;
 
@@ -260,23 +305,26 @@ namespace SistemaFacturacion
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if (nro_orden > 0)
+            int cantidad_Filas = grdFacturaDetalle.Rows.Count;
+            if (cantidad_Filas == 0)
             {
-                nro_orden -= 1;
+                MessageBox.Show("No se puede quitar una fila. Grilla vacía");
             }
             else
             {
-                nro_orden = 0;
-            }
-
-            if(grdFacturaDetalle.Rows.Count > 0)
-            {
+                //primero quitamos la fila que el usuario elige
                 grdFacturaDetalle.Rows.Remove(grdFacturaDetalle.CurrentRow);
-            }
-            
 
-            //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
-            txtPrecioTotal.Text = calcularTotal().ToString();
+                cantidad_Filas = grdFacturaDetalle.Rows.Count;
+
+                for (int i = 0; i < cantidad_Filas; i++)
+                {
+                    grdFacturaDetalle.Rows[i].Cells[0].Value = i + 1;
+                }
+                nro_orden = cantidad_Filas;
+                //calculamos precio total de la grilla y lo ponemos en la caja de texto precio total
+                txtPrecioTotal.Text = calcularTotal().ToString();
+            }
 
             
         }
