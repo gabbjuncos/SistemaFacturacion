@@ -164,7 +164,8 @@ namespace SistemaFacturacion.Formularios
             if (oCliente.validarDatosClientes())
             {
                  //si la bandera dice que es nuevo hacemos agregamos los datos
-                if (this.nuevo) {
+                if (this.nuevo) 
+                {
                     //si el usuario que se quiere insertar no existe entonces lo grabamos
                     if (!oCliente.existe()) {
 
@@ -229,8 +230,8 @@ namespace SistemaFacturacion.Formularios
                 oCliente.Razon_social = txtRazonSocial.Text;
                 oCliente.Calle = txtCalle.Text;
                 oCliente.Numero = txtNumero.Text;
-                oCliente.Id_barrio = int.Parse(cboIdBarrio.ValueMember);
-                oCliente.Id_contacto = int.Parse(cboIdContacto.ValueMember);
+                oCliente.Id_barrio = int.Parse(cboIdBarrio.SelectedValue.ToString());
+                oCliente.Id_contacto = int.Parse(cboIdContacto.SelectedValue.ToString());
 
                 //oCliente.actualizarCliente();
 

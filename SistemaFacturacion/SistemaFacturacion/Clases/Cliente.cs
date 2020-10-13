@@ -58,42 +58,37 @@ namespace SistemaFacturacion.Clases
             if (this.cuit.ToString() == string.Empty) {
                 MessageBox.Show("El campo CUIT esta vacio");
                 return false;
-
             }
+
             if (this.razon_social == string.Empty)
             {
                 MessageBox.Show("El campo RAZON SOCIAL esta vacio");
                 return false;
-
             }
+
             if (this.calle == string.Empty)
             {
                 MessageBox.Show("El campo CALLE esta vacio");
                 return false;
-
             }
 
             if (this.numero.ToString() == string.Empty)
             {
                 MessageBox.Show("El campo NUMERO esta vacio o no es un valor valido");
                 return false;
-
             }
+
             if (this.id_barrio.ToString() == string.Empty | this.id_barrio < 0)
             {
                 MessageBox.Show("El campo ID BARRIO esta vacio o no es un valor valido");
                 return false;
-
             }
 
             if (this.id_contacto.ToString() == string.Empty | this.id_contacto < 0)
             {
                 MessageBox.Show("El campo ID CONTACTO esta vacio o no es un valor valido");
                 return false;
-
             }
-
-
             return true;
         }
 
@@ -101,7 +96,7 @@ namespace SistemaFacturacion.Clases
         public bool existe()
         {
             DataTable table = new DataTable();
-            table = oDato.consultar("SELECT * FROM clientes WHERE cuit= '" + this.cuit+"'");
+            table = oDato.consultar("SELECT * FROM clientes WHERE cuit= '" + this.cuit+"' AND borrado = 0 ");
             if (table.Rows.Count == 0)
             {
                 return false;

@@ -303,6 +303,7 @@
             this.borrado.HeaderText = "Borrado";
             this.borrado.Name = "borrado";
             this.borrado.ReadOnly = true;
+            this.borrado.Visible = false;
             // 
             // id_barrio
             // 

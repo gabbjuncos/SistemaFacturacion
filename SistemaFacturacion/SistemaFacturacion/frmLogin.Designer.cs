@@ -71,6 +71,7 @@
             this.txtClave.BackColor = System.Drawing.Color.OldLace;
             this.txtClave.Location = new System.Drawing.Point(160, 71);
             this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(115, 20);
             this.txtClave.TabIndex = 3;
             // 
