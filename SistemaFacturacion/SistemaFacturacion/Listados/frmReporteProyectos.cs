@@ -42,7 +42,7 @@ namespace SistemaFacturacion.Listados
             string sql = "select p.id_proyecto , p.descripcion, fd.precio, f.fecha from Facturas f join FacturasDetalle fd on f.id_factura = fd.id_factura " +
                           "join Proyectos p on fd.id_proyecto = p.id_proyecto" +
                           " where CAST(f.fecha AS DATE) between CAST('" + dtpFecheDesde.Value.ToString("yyyy-MM-dd") + "' AS date) AND CAST('" + dtpFechaHasta.Value.ToString("yyyy-MM-dd") + "' AS date)" +
-                          " AND descripcion <> '<<Ninguno>>'"; ;
+                          " AND descripcion <> '<<Ninguno>>'";
 
             table = oBD.consultar(sql);
             ReportDataSource ds = new ReportDataSource("ListadoProyectos", table);

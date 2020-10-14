@@ -16,5 +16,11 @@ namespace SistemaFacturacion.Reportes
         {
             InitializeComponent();
         }
+
+        private void frmProyectosVendidos_Load(object sender, EventArgs e)
+        {
+
+            this.rpvEstadisticaProyectosVendidos.RefreshReport();
+        }
     }
 }
