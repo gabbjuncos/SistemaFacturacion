@@ -39,6 +39,8 @@
             this.proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chcProducto = new System.Windows.Forms.CheckBox();
+            this.chcProyecto = new System.Windows.Forms.CheckBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtNuevoCliente = new System.Windows.Forms.Button();
-            this.chcProyecto = new System.Windows.Forms.CheckBox();
-            this.chcProducto = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturaDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -168,6 +168,26 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Factura";
+            // 
+            // chcProducto
+            // 
+            this.chcProducto.AutoSize = true;
+            this.chcProducto.Location = new System.Drawing.Point(319, 34);
+            this.chcProducto.Name = "chcProducto";
+            this.chcProducto.Size = new System.Drawing.Size(15, 14);
+            this.chcProducto.TabIndex = 14;
+            this.chcProducto.UseVisualStyleBackColor = true;
+            this.chcProducto.CheckedChanged += new System.EventHandler(this.chcProducto_CheckedChanged);
+            // 
+            // chcProyecto
+            // 
+            this.chcProyecto.AutoSize = true;
+            this.chcProyecto.Location = new System.Drawing.Point(21, 33);
+            this.chcProyecto.Name = "chcProyecto";
+            this.chcProyecto.Size = new System.Drawing.Size(15, 14);
+            this.chcProyecto.TabIndex = 13;
+            this.chcProyecto.UseVisualStyleBackColor = true;
+            this.chcProyecto.CheckedChanged += new System.EventHandler(this.chcProyecto_CheckedChanged);
             // 
             // btnQuitar
             // 
@@ -355,33 +375,13 @@
             // txtNuevoCliente
             // 
             this.txtNuevoCliente.BackColor = System.Drawing.Color.OldLace;
-            this.txtNuevoCliente.Location = new System.Drawing.Point(375, 34);
+            this.txtNuevoCliente.Location = new System.Drawing.Point(626, 78);
             this.txtNuevoCliente.Name = "txtNuevoCliente";
             this.txtNuevoCliente.Size = new System.Drawing.Size(118, 23);
             this.txtNuevoCliente.TabIndex = 14;
             this.txtNuevoCliente.Text = "Nuevo Cliente";
             this.txtNuevoCliente.UseVisualStyleBackColor = false;
             this.txtNuevoCliente.Click += new System.EventHandler(this.txtNuevoCliente_Click);
-            // 
-            // chcProyecto
-            // 
-            this.chcProyecto.AutoSize = true;
-            this.chcProyecto.Location = new System.Drawing.Point(21, 33);
-            this.chcProyecto.Name = "chcProyecto";
-            this.chcProyecto.Size = new System.Drawing.Size(15, 14);
-            this.chcProyecto.TabIndex = 13;
-            this.chcProyecto.UseVisualStyleBackColor = true;
-            this.chcProyecto.CheckedChanged += new System.EventHandler(this.chcProyecto_CheckedChanged);
-            // 
-            // chcProducto
-            // 
-            this.chcProducto.AutoSize = true;
-            this.chcProducto.Location = new System.Drawing.Point(319, 34);
-            this.chcProducto.Name = "chcProducto";
-            this.chcProducto.Size = new System.Drawing.Size(15, 14);
-            this.chcProducto.TabIndex = 14;
-            this.chcProducto.UseVisualStyleBackColor = true;
-            this.chcProducto.CheckedChanged += new System.EventHandler(this.chcProducto_CheckedChanged);
             // 
             // frmFacturas
             // 
