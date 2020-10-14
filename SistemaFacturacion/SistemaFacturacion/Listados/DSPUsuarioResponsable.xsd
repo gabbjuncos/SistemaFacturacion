@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPUsuarioResponsable" targetNamespace="http://tempuri.org/DSPUsuarioResponsable.xsd" xmlns:mstns="http://tempuri.org/DSPUsuarioResponsable.xsd" xmlns="http://tempuri.org/DSPUsuarioResponsable.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPUsuarioResponsable" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSPUsuarioResponsable" msprop:Generator_UserDSName="DSPUsuarioResponsable">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtUsuarioResponsable" msprop:Generator_TableClassName="dtUsuarioResponsableDataTable" msprop:Generator_TableVarName="tabledtUsuarioResponsable" msprop:Generator_TablePropName="dtUsuarioResponsable" msprop:Generator_RowDeletingName="dtUsuarioResponsableRowDeleting" msprop:Generator_RowChangingName="dtUsuarioResponsableRowChanging" msprop:Generator_RowEvHandlerName="dtUsuarioResponsableRowChangeEventHandler" msprop:Generator_RowDeletedName="dtUsuarioResponsableRowDeleted" msprop:Generator_UserTableName="dtUsuarioResponsable" msprop:Generator_RowChangedName="dtUsuarioResponsableRowChanged" msprop:Generator_RowEvArgName="dtUsuarioResponsableRowChangeEvent" msprop:Generator_RowClassName="dtUsuarioResponsableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_proyecto" msprop:Generator_ColumnVarNameInTable="columnid_proyecto" msprop:Generator_ColumnPropNameInRow="id_proyecto" msprop:Generator_ColumnPropNameInTable="id_proyectoColumn" msprop:Generator_UserColumnName="id_proyecto" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="version" msprop:Generator_ColumnVarNameInTable="columnversion" msprop:Generator_ColumnPropNameInRow="version" msprop:Generator_ColumnPropNameInTable="versionColumn" msprop:Generator_UserColumnName="version" type="xs:string" minOccurs="0" />
+              <xs:element name="alcance" msprop:Generator_ColumnVarNameInTable="columnalcance" msprop:Generator_ColumnPropNameInRow="alcance" msprop:Generator_ColumnPropNameInTable="alcanceColumn" msprop:Generator_UserColumnName="alcance" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
