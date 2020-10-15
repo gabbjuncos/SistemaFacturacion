@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
+using SistemaFacturacion.Listados;
+
 
 namespace SistemaFacturacion.Reportes
 {
@@ -16,5 +19,15 @@ namespace SistemaFacturacion.Reportes
         {
             InitializeComponent();
         }
+
+        private void frmProductosVendidos_Load(object sender, EventArgs e)
+        {
+
+
+
+            this.reportViewer1.RefreshReport();
+        }
+
+
     }
 }

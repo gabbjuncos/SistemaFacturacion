@@ -28,39 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rptUsuarioResponsable = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.lblFechaHasta = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cboUsuarioResponsable = new System.Windows.Forms.ComboBox();
             this.lblUsuarioResponsable = new System.Windows.Forms.Label();
+            this.dtpFechaInicial = new System.Windows.Forms.DateTimePicker();
+            this.dtUsuarioResponsableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSPUsuarioResponsable = new SistemaFacturacion.Listados.DSPUsuarioResponsable();
+            ((System.ComponentModel.ISupportInitialize)(this.dtUsuarioResponsableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPUsuarioResponsable)).BeginInit();
             this.SuspendLayout();
             // 
             // rptUsuarioResponsable
             // 
             this.rptUsuarioResponsable.BackColor = System.Drawing.Color.OldLace;
             this.rptUsuarioResponsable.DocumentMapWidth = 64;
+            reportDataSource1.Name = "ListadoUsuariosResponsables";
+            reportDataSource1.Value = this.dtUsuarioResponsableBindingSource;
+            this.rptUsuarioResponsable.LocalReport.DataSources.Add(reportDataSource1);
+            this.rptUsuarioResponsable.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Listados.ReporteUsuariosResponsables.rdlc";
             this.rptUsuarioResponsable.Location = new System.Drawing.Point(38, 161);
             this.rptUsuarioResponsable.Name = "rptUsuarioResponsable";
             this.rptUsuarioResponsable.ServerReport.BearerToken = null;
             this.rptUsuarioResponsable.Size = new System.Drawing.Size(727, 242);
             this.rptUsuarioResponsable.TabIndex = 0;
+            this.rptUsuarioResponsable.Load += new System.EventHandler(this.rptUsuarioResponsable_Load);
             // 
-            // dateTimePicker1
+            // dtpFechaHasta
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(135, 17);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(135, 57);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dtpFechaHasta.Location = new System.Drawing.Point(135, 57);
+            this.dtpFechaHasta.Name = "dtpFechaHasta";
+            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaHasta.TabIndex = 2;
             // 
             // lblFechaDesde
             // 
@@ -89,6 +93,7 @@
             this.btnFiltrar.TabIndex = 5;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cboUsuarioResponsable
             // 
@@ -108,6 +113,23 @@
             this.lblUsuarioResponsable.TabIndex = 7;
             this.lblUsuarioResponsable.Text = "Usuario Responsable";
             // 
+            // dtpFechaInicial
+            // 
+            this.dtpFechaInicial.Location = new System.Drawing.Point(135, 17);
+            this.dtpFechaInicial.Name = "dtpFechaInicial";
+            this.dtpFechaInicial.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaInicial.TabIndex = 1;
+            // 
+            // dtUsuarioResponsableBindingSource
+            // 
+            this.dtUsuarioResponsableBindingSource.DataMember = "dtUsuarioResponsable";
+            this.dtUsuarioResponsableBindingSource.DataSource = this.DSPUsuarioResponsable;
+            // 
+            // DSPUsuarioResponsable
+            // 
+            this.DSPUsuarioResponsable.DataSetName = "DSPUsuarioResponsable";
+            this.DSPUsuarioResponsable.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmReporteUsuariosResponsables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,12 +141,14 @@
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.lblFechaHasta);
             this.Controls.Add(this.lblFechaDesde);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFechaHasta);
+            this.Controls.Add(this.dtpFechaInicial);
             this.Controls.Add(this.rptUsuarioResponsable);
             this.Name = "frmReporteUsuariosResponsables";
-            this.Text = "Listado de Responsables de Proyecto";
+            this.Text = "Listado de Facturaciones por Usuario";
             this.Load += new System.EventHandler(this.frmReporteUsuariosResponsables_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtUsuarioResponsableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSPUsuarioResponsable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,12 +157,14 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer rptUsuarioResponsable;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Label lblFechaHasta;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cboUsuarioResponsable;
         private System.Windows.Forms.Label lblUsuarioResponsable;
+        private System.Windows.Forms.BindingSource dtUsuarioResponsableBindingSource;
+        private DSPUsuarioResponsable DSPUsuarioResponsable;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicial;
     }
 }

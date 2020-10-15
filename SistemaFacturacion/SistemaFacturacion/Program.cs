@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFacturacion.Formularios;
 using SistemaFacturacion.Listados;
+using SistemaFacturacion.Reportes;
 
 namespace SistemaFacturacion
 {
