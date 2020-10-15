@@ -163,16 +163,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\DSPProductosProyectosVendidos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSPProductosProyectosVendidos.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\DSPProductosVendidos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSPProductosVendidos.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\DSPProyectosVendidos.cs">
       <DependentUpon>DSPProyectosVendidos.xsd</DependentUpon>
     </Compile>
@@ -181,16 +171,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPProyectosVendidos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DSPTotalVentasUsuarioProductoProyecto.Designer.cs">
+    <Compile Include="Reportes\DSProductosVendidos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DSPTotalVentasUsuarioProductoProyecto.xsd</DependentUpon>
+      <DependentUpon>DSProductosVendidos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmProductosProyectosVendidos.cs">
+    <Compile Include="Reportes\DSUsuarioProductosVendidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSUsuarioProductosVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DSUsuarioProyectosVendidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSUsuarioProyectosVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmUsuarioProyectosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\frmProductosProyectosVendidos.Designer.cs">
-      <DependentUpon>frmProductosProyectosVendidos.cs</DependentUpon>
+    <Compile Include="Reportes\frmUsuarioProyectosVendidos.Designer.cs">
+      <DependentUpon>frmUsuarioProyectosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmProductosVendidos.cs">
       <SubType>Form</SubType>
@@ -204,11 +204,11 @@
     <Compile Include="Reportes\frmProyectosVendidos.Designer.cs">
       <DependentUpon>frmProyectosVendidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmTotalVentasUsuarioProductoProyecto.cs">
+    <Compile Include="Reportes\frmUsuarioProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\frmTotalVentasUsuarioProductoProyecto.Designer.cs">
-      <DependentUpon>frmTotalVentasUsuarioProductoProyecto.cs</DependentUpon>
+    <Compile Include="Reportes\frmUsuarioProductosVendidos.Designer.cs">
+      <DependentUpon>frmUsuarioProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmFacturas.resx">
@@ -252,10 +252,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\EstadisticaProductosProyectosVendidos.rdlc" />
-    <EmbeddedResource Include="Reportes\EstadisticasProductosVendidos.rdlc" />
+    <EmbeddedResource Include="Reportes\EstadisticaDeProductosVendidos.rdlc" />
+    <EmbeddedResource Include="Reportes\EstadisticaUsuarioProyectosVendidos.rdlc" />
     <EmbeddedResource Include="Reportes\EstadisticasProyectosVendidos.rdlc" />
-    <EmbeddedResource Include="Reportes\EstadisticasTotalVentasUsuarioProductoProyecto.rdlc" />
+    <EmbeddedResource Include="Reportes\EstadisticasUsuarioProductosVendidos.rdlc" />
+    <EmbeddedResource Include="Reportes\frmProductosVendidos.resx">
+      <DependentUpon>frmProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmUsuarioProductosVendidos.resx">
+      <DependentUpon>frmUsuarioProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmUsuarioProyectosVendidos.resx">
+      <DependentUpon>frmUsuarioProyectosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Listados\DSPClientesRegistrados.xsc">
       <DependentUpon>DSPClientesRegistrados.xsd</DependentUpon>
     </None>
@@ -310,28 +319,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Reportes\DSPProductosProyectosVendidos.xsc">
-      <DependentUpon>DSPProductosProyectosVendidos.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DSPProductosProyectosVendidos.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSPProductosProyectosVendidos.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DSPProductosProyectosVendidos.xss">
-      <DependentUpon>DSPProductosProyectosVendidos.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DSPProductosVendidos.xsc">
-      <DependentUpon>DSPProductosVendidos.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DSPProductosVendidos.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSPProductosVendidos.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DSPProductosVendidos.xss">
-      <DependentUpon>DSPProductosVendidos.xsd</DependentUpon>
-    </None>
     <None Include="Reportes\DSPProyectosVendidos.xsc">
       <DependentUpon>DSPProyectosVendidos.xsd</DependentUpon>
     </None>
@@ -343,16 +330,38 @@
     <None Include="Reportes\DSPProyectosVendidos.xss">
       <DependentUpon>DSPProyectosVendidos.xsd</DependentUpon>
     </None>
-    <None Include="Reportes\DSPTotalVentasUsuarioProductoProyecto.xsc">
-      <DependentUpon>DSPTotalVentasUsuarioProductoProyecto.xsd</DependentUpon>
+    <None Include="Reportes\DSProductosVendidos.xsc">
+      <DependentUpon>DSProductosVendidos.xsd</DependentUpon>
     </None>
-    <None Include="Reportes\DSPTotalVentasUsuarioProductoProyecto.xsd">
+    <None Include="Reportes\DSProductosVendidos.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSPTotalVentasUsuarioProductoProyecto.Designer.cs</LastGenOutput>
+      <LastGenOutput>DSProductosVendidos.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reportes\DSPTotalVentasUsuarioProductoProyecto.xss">
-      <DependentUpon>DSPTotalVentasUsuarioProductoProyecto.xsd</DependentUpon>
+    <None Include="Reportes\DSProductosVendidos.xss">
+      <DependentUpon>DSProductosVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSUsuarioProductosVendidos.xsc">
+      <DependentUpon>DSUsuarioProductosVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSUsuarioProductosVendidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSUsuarioProductosVendidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DSUsuarioProductosVendidos.xss">
+      <DependentUpon>DSUsuarioProductosVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSUsuarioProyectosVendidos.xsc">
+      <DependentUpon>DSUsuarioProyectosVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSUsuarioProyectosVendidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSUsuarioProyectosVendidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DSUsuarioProyectosVendidos.xss">
+      <DependentUpon>DSUsuarioProyectosVendidos.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

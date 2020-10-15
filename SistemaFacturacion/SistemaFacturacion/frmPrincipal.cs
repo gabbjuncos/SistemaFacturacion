@@ -104,5 +104,19 @@ namespace SistemaFacturacion
             frmPV.Dispose();
 
         }
+
+        private void cantidadDeProductosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductosVendidos frmP = new frmProductosVendidos();
+            frmP.ShowDialog();
+            frmP.Dispose();
+        }
+
+        private void cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarioProyectosVendidos frmUP = new frmUsuarioProyectosVendidos();
+            frmUP.ShowDialog();
+            frmUP.Dispose();
+        }
     }
 }

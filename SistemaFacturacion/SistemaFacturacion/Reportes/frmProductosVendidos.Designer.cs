@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.btnFiltro = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSProductosVendidos = new SistemaFacturacion.Reportes.DSProductosVendidos();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSProductosVendidos)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFechaHasta
@@ -58,6 +64,7 @@
             this.btnFiltro.TabIndex = 2;
             this.btnFiltro.Text = "Filtro";
             this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
             // 
             // label1
             // 
@@ -77,21 +84,35 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Fecha Hasta";
             // 
-            // reportViewer1
+            // reportViewer2
             // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Reportes.EstadisticasProductosVendidos.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(395, 212);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
-            this.reportViewer1.TabIndex = 5;
+            reportDataSource2.Name = "DSProductosVendidos";
+            reportDataSource2.Value = this.DataTable1BindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Reportes.EstadisticaDeProductosVendidos.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(56, 182);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(781, 246);
+            this.reportViewer2.TabIndex = 6;
+            this.reportViewer2.Load += new System.EventHandler(this.reportViewer2_Load);
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DSProductosVendidos;
+            // 
+            // DSProductosVendidos
+            // 
+            this.DSProductosVendidos.DataSetName = "DSProductosVendidos";
+            this.DSProductosVendidos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmProductosVendidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 565);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFiltro);
@@ -100,6 +121,8 @@
             this.Name = "frmProductosVendidos";
             this.Text = "frmProductosVendidos";
             this.Load += new System.EventHandler(this.frmProductosVendidos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSProductosVendidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +135,8 @@
         private System.Windows.Forms.Button btnFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private System.Windows.Forms.BindingSource DataTable1BindingSource;
+        private DSProductosVendidos DSProductosVendidos;
     }
 }

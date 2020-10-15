@@ -45,6 +45,8 @@
             this.listadoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proyectosVendidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadDeProductosVendidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,14 +145,14 @@
             // listadoDeProductosToolStripMenuItem
             // 
             this.listadoDeProductosToolStripMenuItem.Name = "listadoDeProductosToolStripMenuItem";
-            this.listadoDeProductosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.listadoDeProductosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.listadoDeProductosToolStripMenuItem.Text = "Listado de Productos";
             this.listadoDeProductosToolStripMenuItem.Click += new System.EventHandler(this.listadoDeProductosToolStripMenuItem_Click);
             // 
             // listadoDeProyectosToolStripMenuItem
             // 
             this.listadoDeProyectosToolStripMenuItem.Name = "listadoDeProyectosToolStripMenuItem";
-            this.listadoDeProyectosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.listadoDeProyectosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.listadoDeProyectosToolStripMenuItem.Text = "Listado de Proyectos";
             this.listadoDeProyectosToolStripMenuItem.Click += new System.EventHandler(this.listadoDeProyectosToolStripMenuItem_Click);
             // 
@@ -171,7 +173,9 @@
             // estadisticasToolStripMenuItem
             // 
             this.estadisticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.proyectosVendidosToolStripMenuItem});
+            this.proyectosVendidosToolStripMenuItem,
+            this.cantidadDeProductosVendidosToolStripMenuItem,
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem});
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
             this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.estadisticasToolStripMenuItem.Text = "Estadisticas";
@@ -179,9 +183,23 @@
             // proyectosVendidosToolStripMenuItem
             // 
             this.proyectosVendidosToolStripMenuItem.Name = "proyectosVendidosToolStripMenuItem";
-            this.proyectosVendidosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.proyectosVendidosToolStripMenuItem.Text = "Cantidades Proyectos Vendidos";
+            this.proyectosVendidosToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.proyectosVendidosToolStripMenuItem.Text = "Cantidad de Proyectos Vendidos";
             this.proyectosVendidosToolStripMenuItem.Click += new System.EventHandler(this.proyectosVendidosToolStripMenuItem_Click);
+            // 
+            // cantidadDeProductosVendidosToolStripMenuItem
+            // 
+            this.cantidadDeProductosVendidosToolStripMenuItem.Name = "cantidadDeProductosVendidosToolStripMenuItem";
+            this.cantidadDeProductosVendidosToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.cantidadDeProductosVendidosToolStripMenuItem.Text = "Cantidad de Productos Vendidos";
+            this.cantidadDeProductosVendidosToolStripMenuItem.Click += new System.EventHandler(this.cantidadDeProductosVendidosToolStripMenuItem_Click);
+            // 
+            // cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem
+            // 
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem.Name = "cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem";
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem.Text = "Cantidad de Ventas de Proyectos por Usuario";
+            this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -220,5 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem listadoDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estadisticasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proyectosVendidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadDeProductosVendidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem;
     }
 }
