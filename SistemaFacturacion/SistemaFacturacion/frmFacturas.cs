@@ -89,12 +89,15 @@ namespace SistemaFacturacion
             cboProyecto.SelectedIndex = 0;
             cboUsuario.SelectedIndex = 0;
 
+            chcProducto.Checked = false;
+            chcProyecto.Checked = false;
             grdFacturaDetalle.Rows.Clear();
 
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            nro_orden = 0;
             //Al hacer click en Nuevo habilitamos botones, agregar,quitar, cancelar y tambien los campos       
             this.habilitar(true);
 
@@ -109,6 +112,8 @@ namespace SistemaFacturacion
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            //pongo en cero el contador de nro de orden
+            nro_orden = 0;
             //para capturar el identity de factura
             DataTable table = new DataTable();
             //click en grabar deshabilitando los campos y habilitando solo botones nuevo, borrar y salir
@@ -151,12 +156,16 @@ namespace SistemaFacturacion
                 else
                 {
                     MessageBox.Show("Debe tener al menos un DETALLE DE FACTURA.");
+                    limpiar();
 
                 }
             }
             else
             {
                 this.habilitar(true);
+  
+            
+
             }
 
         }
@@ -184,9 +193,12 @@ namespace SistemaFacturacion
             private void btnCancelar_Click(object sender, EventArgs e)
         // click en cancelar deshabilitando los campos y habilitando solo botones nuevo, y salir
         {
+            limpiar();
             this.habilitar(false);
-            
-            
+            nro_orden = 0;
+
+
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

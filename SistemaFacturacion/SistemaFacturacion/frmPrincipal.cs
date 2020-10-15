@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SistemaFacturacion.Formularios;
 using SistemaFacturacion.Clases;
 using SistemaFacturacion.Listados;
+using SistemaFacturacion.Reportes;
 
 namespace SistemaFacturacion
 {
@@ -80,6 +81,28 @@ namespace SistemaFacturacion
             frmReporteProyectos frrp = new frmReporteProyectos();
             frrp.ShowDialog();
             frrp.Dispose();
+        }
+
+        private void listadoDeFacturasPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteUsuariosResponsables frmRR = new frmReporteUsuariosResponsables();
+            frmRR.ShowDialog();
+            frmRR.Dispose();
+        }
+
+        private void listadoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteClientesRegistrados frmRCR = new frmReporteClientesRegistrados();
+            frmRCR.ShowDialog();
+            frmRCR.Dispose();
+        }
+
+        private void proyectosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProyectosVendidos frmPV = new frmProyectosVendidos();
+            frmPV.ShowDialog();
+            frmPV.Dispose();
+
         }
     }
 }
