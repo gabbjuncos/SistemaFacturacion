@@ -30,97 +30,99 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DSUsuarioProductoVendidos = new SistemaFacturacion.Reportes.DSUsuarioProductoVendidos();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DSUsuarioProductoVendidos)).BeginInit();
+            this.DSUsuarioProductoVendidos = new SistemaFacturacion.Reportes.DSUsuarioProductoVendidos();
+            this.rptUsuarioProductosVendidos = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.lblFechaDesde = new System.Windows.Forms.Label();
+            this.lblFechaHasta = new System.Windows.Forms.Label();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSUsuarioProductoVendidos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            reportDataSource1.Name = "DSUsuarioProductosVendidos";
-            reportDataSource1.Value = this.DataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Reportes.EstadisticasUsuarioProductosVendidos.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(21, 161);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(695, 246);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // DSUsuarioProductoVendidos
-            // 
-            this.DSUsuarioProductoVendidos.DataSetName = "DSUsuarioProductoVendidos";
-            this.DSUsuarioProductoVendidos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DataTable1BindingSource
             // 
             this.DataTable1BindingSource.DataMember = "DataTable1";
             this.DataTable1BindingSource.DataSource = this.DSUsuarioProductoVendidos;
             // 
-            // dateTimePicker1
+            // DSUsuarioProductoVendidos
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(156, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.DSUsuarioProductoVendidos.DataSetName = "DSUsuarioProductoVendidos";
+            this.DSUsuarioProductoVendidos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dateTimePicker2
+            // rptUsuarioProductosVendidos
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(156, 89);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            reportDataSource1.Name = "DSUsuarioProductosVendidos";
+            reportDataSource1.Value = this.DataTable1BindingSource;
+            this.rptUsuarioProductosVendidos.LocalReport.DataSources.Add(reportDataSource1);
+            this.rptUsuarioProductosVendidos.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Reportes.EstadisticasUsuarioProductosVendidos.rdlc";
+            this.rptUsuarioProductosVendidos.Location = new System.Drawing.Point(21, 161);
+            this.rptUsuarioProductosVendidos.Name = "rptUsuarioProductosVendidos";
+            this.rptUsuarioProductosVendidos.ServerReport.BearerToken = null;
+            this.rptUsuarioProductosVendidos.Size = new System.Drawing.Size(742, 246);
+            this.rptUsuarioProductosVendidos.TabIndex = 0;
+            this.rptUsuarioProductosVendidos.Load += new System.EventHandler(this.rptUsuarioProductosVendidos_Load);
             // 
-            // label1
+            // dtpFechaDesde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.dtpFechaDesde.Location = new System.Drawing.Point(125, 23);
+            this.dtpFechaDesde.Name = "dtpFechaDesde";
+            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDesde.TabIndex = 1;
             // 
-            // label2
+            // dtpFechaHasta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.dtpFechaHasta.Location = new System.Drawing.Point(125, 83);
+            this.dtpFechaHasta.Name = "dtpFechaHasta";
+            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaHasta.TabIndex = 2;
             // 
-            // button1
+            // lblFechaDesde
             // 
-            this.button1.Location = new System.Drawing.Point(417, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblFechaDesde.AutoSize = true;
+            this.lblFechaDesde.Location = new System.Drawing.Point(18, 30);
+            this.lblFechaDesde.Name = "lblFechaDesde";
+            this.lblFechaDesde.Size = new System.Drawing.Size(67, 13);
+            this.lblFechaDesde.TabIndex = 3;
+            this.lblFechaDesde.Text = "Fecha Inicial";
+            // 
+            // lblFechaHasta
+            // 
+            this.lblFechaHasta.AutoSize = true;
+            this.lblFechaHasta.Location = new System.Drawing.Point(18, 89);
+            this.lblFechaHasta.Name = "lblFechaHasta";
+            this.lblFechaHasta.Size = new System.Drawing.Size(62, 13);
+            this.lblFechaHasta.TabIndex = 4;
+            this.lblFechaHasta.Text = "Fecha Final";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(417, 43);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(141, 25);
+            this.btnFiltrar.TabIndex = 5;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // frmUsuarioProductosVendidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.lblFechaHasta);
+            this.Controls.Add(this.lblFechaDesde);
+            this.Controls.Add(this.dtpFechaHasta);
+            this.Controls.Add(this.dtpFechaDesde);
+            this.Controls.Add(this.rptUsuarioProductosVendidos);
             this.Name = "frmUsuarioProductosVendidos";
-            this.Text = "frmTotalVentasUsuarioProductoProyecto";
+            this.Text = "Venta de Productos por Usuario";
             this.Load += new System.EventHandler(this.frmUsuarioProductosVendidos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DSUsuarioProductoVendidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSUsuarioProductoVendidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,13 +130,13 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer rptUsuarioProductosVendidos;
         private System.Windows.Forms.BindingSource DataTable1BindingSource;
         private Reportes.DSUsuarioProductoVendidos DSUsuarioProductoVendidos;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
+        private System.Windows.Forms.DateTimePicker dtpFechaHasta;
+        private System.Windows.Forms.Label lblFechaDesde;
+        private System.Windows.Forms.Label lblFechaHasta;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

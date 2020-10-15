@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProyecto));
             this.lblProyecto = new System.Windows.Forms.Label();
             this.txtIdProyecto = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -341,6 +342,8 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtIdProyecto);
             this.Controls.Add(this.lblProyecto);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmProyecto";
             this.Text = "Proyectos";
             this.Load += new System.EventHandler(this.frmProyecto_Load);

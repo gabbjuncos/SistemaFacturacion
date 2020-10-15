@@ -26,6 +26,7 @@ namespace SistemaFacturacion
         {
             frmLogin fl;
             fl = new frmLogin();
+            fl.StartPosition = FormStartPosition.CenterScreen;
             fl.ShowDialog();
 
             this.usuarioActual = fl.MiUsuario;
@@ -41,6 +42,7 @@ namespace SistemaFacturacion
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmClientes frc = new frmClientes();
+            frc.StartPosition = FormStartPosition.CenterScreen;
             frc.ShowDialog();
             frc.Dispose();            
         }
@@ -48,6 +50,7 @@ namespace SistemaFacturacion
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProducto frpro = new frmProducto();
+            frpro.StartPosition = FormStartPosition.CenterScreen;
             frpro.ShowDialog();
             frpro.Dispose();
         }
@@ -55,6 +58,7 @@ namespace SistemaFacturacion
         private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProyecto frproy = new frmProyecto();
+            frproy.StartPosition = FormStartPosition.CenterScreen;
             frproy.ShowDialog();
             frproy.Dispose();
         }
@@ -64,7 +68,7 @@ namespace SistemaFacturacion
           
             frmFacturas frfac = new frmFacturas();
             frfac.Text = frfac.Text + " - Usuario: " + this.usuarioActual.N_usuario;
-
+            frfac.StartPosition = FormStartPosition.CenterScreen;
             frfac.ShowDialog();
             frfac.Dispose();
         }
@@ -72,6 +76,7 @@ namespace SistemaFacturacion
         private void listadoDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteProductos frp = new frmReporteProductos();
+            frp.StartPosition = FormStartPosition.CenterScreen;
             frp.ShowDialog();
             frp.Dispose();
         }
@@ -79,6 +84,7 @@ namespace SistemaFacturacion
         private void listadoDeProyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteProyectos frrp = new frmReporteProyectos();
+            frrp.StartPosition = FormStartPosition.CenterScreen;
             frrp.ShowDialog();
             frrp.Dispose();
         }
@@ -86,6 +92,7 @@ namespace SistemaFacturacion
         private void listadoDeFacturasPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteUsuariosResponsables frmRR = new frmReporteUsuariosResponsables();
+            frmRR.StartPosition = FormStartPosition.CenterScreen;
             frmRR.ShowDialog();
             frmRR.Dispose();
         }
@@ -93,6 +100,7 @@ namespace SistemaFacturacion
         private void listadoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteClientesRegistrados frmRCR = new frmReporteClientesRegistrados();
+            frmRCR.StartPosition = FormStartPosition.CenterScreen;
             frmRCR.ShowDialog();
             frmRCR.Dispose();
         }
@@ -100,6 +108,7 @@ namespace SistemaFacturacion
         private void proyectosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProyectosVendidos frmPV = new frmProyectosVendidos();
+            frmPV.StartPosition = FormStartPosition.CenterScreen;
             frmPV.ShowDialog();
             frmPV.Dispose();
 
@@ -108,6 +117,7 @@ namespace SistemaFacturacion
         private void cantidadDeProductosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProductosVendidos frmP = new frmProductosVendidos();
+            frmP.StartPosition = FormStartPosition.CenterScreen;
             frmP.ShowDialog();
             frmP.Dispose();
         }
@@ -115,8 +125,17 @@ namespace SistemaFacturacion
         private void cantidadDeVentasDeProyectosPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsuarioProyectosVendidos frmUP = new frmUsuarioProyectosVendidos();
+            frmUP.StartPosition = FormStartPosition.CenterScreen;
             frmUP.ShowDialog();
             frmUP.Dispose();
+        }
+
+        private void cantidadDeVentasDeProductosPorUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarioProductosVendidos frmUPROD = new frmUsuarioProductosVendidos();
+            frmUPROD.StartPosition = FormStartPosition.CenterScreen;
+            frmUPROD.ShowDialog();
+            frmUPROD.Dispose();
         }
     }
 }

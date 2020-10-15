@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.grdProductos = new System.Windows.Forms.DataGridView();
@@ -226,6 +227,8 @@
             this.Controls.Add(this.grdProductos);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombreProducto);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmProducto";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Form1_Load);

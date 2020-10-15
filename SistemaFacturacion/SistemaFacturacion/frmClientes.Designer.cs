@@ -28,12 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
             this.lblCuit = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.txtCuit = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.grdClientes = new System.Windows.Forms.DataGridView();
+            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razon_social = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_alta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -50,15 +60,6 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.cboIdContacto = new System.Windows.Forms.ComboBox();
             this.cboIdBarrio = new System.Windows.Forms.ComboBox();
-            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razon_social = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_alta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +125,72 @@
             this.grdClientes.TabIndex = 6;
             this.grdClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.grdClientes.SelectionChanged += new System.EventHandler(this.grdClientes_SelectionChanged);
+            // 
+            // id_cliente
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
+            this.id_cliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id_cliente.DividerWidth = 2;
+            this.id_cliente.HeaderText = "ID Cliente";
+            this.id_cliente.Name = "id_cliente";
+            this.id_cliente.ReadOnly = true;
+            // 
+            // borrado
+            // 
+            this.borrado.DividerWidth = 2;
+            this.borrado.HeaderText = "Borrado";
+            this.borrado.Name = "borrado";
+            this.borrado.ReadOnly = true;
+            this.borrado.Visible = false;
+            // 
+            // id_barrio
+            // 
+            this.id_barrio.DividerWidth = 2;
+            this.id_barrio.HeaderText = "Barrio";
+            this.id_barrio.Name = "id_barrio";
+            this.id_barrio.ReadOnly = true;
+            // 
+            // cuit
+            // 
+            this.cuit.DividerWidth = 2;
+            this.cuit.HeaderText = "Cuit";
+            this.cuit.Name = "cuit";
+            this.cuit.ReadOnly = true;
+            // 
+            // razon_social
+            // 
+            this.razon_social.DividerWidth = 2;
+            this.razon_social.HeaderText = "Razón Social";
+            this.razon_social.Name = "razon_social";
+            this.razon_social.ReadOnly = true;
+            // 
+            // calle
+            // 
+            this.calle.DividerWidth = 2;
+            this.calle.HeaderText = "Calle";
+            this.calle.Name = "calle";
+            this.calle.ReadOnly = true;
+            // 
+            // numero
+            // 
+            this.numero.DividerWidth = 2;
+            this.numero.HeaderText = "Número";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+            // 
+            // fecha_alta
+            // 
+            this.fecha_alta.DividerWidth = 2;
+            this.fecha_alta.HeaderText = "Fecha Alta";
+            this.fecha_alta.Name = "fecha_alta";
+            this.fecha_alta.ReadOnly = true;
+            // 
+            // id_contacto
+            // 
+            this.id_contacto.DividerWidth = 2;
+            this.id_contacto.HeaderText = "Contacto";
+            this.id_contacto.Name = "id_contacto";
+            this.id_contacto.ReadOnly = true;
             // 
             // btnNuevo
             // 
@@ -288,72 +355,6 @@
             this.cboIdBarrio.Size = new System.Drawing.Size(100, 21);
             this.cboIdBarrio.TabIndex = 24;
             // 
-            // id_cliente
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            this.id_cliente.DefaultCellStyle = dataGridViewCellStyle1;
-            this.id_cliente.DividerWidth = 2;
-            this.id_cliente.HeaderText = "ID Cliente";
-            this.id_cliente.Name = "id_cliente";
-            this.id_cliente.ReadOnly = true;
-            // 
-            // borrado
-            // 
-            this.borrado.DividerWidth = 2;
-            this.borrado.HeaderText = "Borrado";
-            this.borrado.Name = "borrado";
-            this.borrado.ReadOnly = true;
-            this.borrado.Visible = false;
-            // 
-            // id_barrio
-            // 
-            this.id_barrio.DividerWidth = 2;
-            this.id_barrio.HeaderText = "Barrio";
-            this.id_barrio.Name = "id_barrio";
-            this.id_barrio.ReadOnly = true;
-            // 
-            // cuit
-            // 
-            this.cuit.DividerWidth = 2;
-            this.cuit.HeaderText = "Cuit";
-            this.cuit.Name = "cuit";
-            this.cuit.ReadOnly = true;
-            // 
-            // razon_social
-            // 
-            this.razon_social.DividerWidth = 2;
-            this.razon_social.HeaderText = "Razón Social";
-            this.razon_social.Name = "razon_social";
-            this.razon_social.ReadOnly = true;
-            // 
-            // calle
-            // 
-            this.calle.DividerWidth = 2;
-            this.calle.HeaderText = "Calle";
-            this.calle.Name = "calle";
-            this.calle.ReadOnly = true;
-            // 
-            // numero
-            // 
-            this.numero.DividerWidth = 2;
-            this.numero.HeaderText = "Número";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            // 
-            // fecha_alta
-            // 
-            this.fecha_alta.DividerWidth = 2;
-            this.fecha_alta.HeaderText = "Fecha Alta";
-            this.fecha_alta.Name = "fecha_alta";
-            this.fecha_alta.ReadOnly = true;
-            // 
-            // id_contacto
-            // 
-            this.id_contacto.DividerWidth = 2;
-            this.id_contacto.HeaderText = "Contacto";
-            this.id_contacto.Name = "id_contacto";
-            this.id_contacto.ReadOnly = true;
-            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +382,8 @@
             this.Controls.Add(this.txtCuit);
             this.Controls.Add(this.lblRazonSocial);
             this.Controls.Add(this.lblCuit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmClientes";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);

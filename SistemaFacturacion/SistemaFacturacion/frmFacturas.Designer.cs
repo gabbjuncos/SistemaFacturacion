@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturas));
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grdFacturaDetalle = new System.Windows.Forms.DataGridView();
@@ -401,6 +402,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtpFecha);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmFacturas";
             this.Text = "Factura";
             this.Load += new System.EventHandler(this.frmFacturas_Load);

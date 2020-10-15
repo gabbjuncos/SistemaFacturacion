@@ -368,6 +368,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagen\Logo proyecto.ico" />
+    <Content Include="Imagen\logo.png" />
     <Content Include="SqlServerTypes\nativeBinaries\x64\msvcr120.dll" />
     <Content Include="SqlServerTypes\nativeBinaries\x64\SqlServerSpatial140.dll" />
     <Content Include="SqlServerTypes\nativeBinaries\x86\msvcr120.dll" />
