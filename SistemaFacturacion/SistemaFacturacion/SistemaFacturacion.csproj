@@ -229,6 +229,9 @@
     <EmbeddedResource Include="frmProyecto.resx">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\frmReporteClientesRegistrados.resx">
+      <DependentUpon>frmReporteClientesRegistrados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\frmReporteProductos.resx">
       <DependentUpon>frmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +261,9 @@
     <EmbeddedResource Include="Reportes\EstadisticasUsuarioProductosVendidos.rdlc" />
     <EmbeddedResource Include="Reportes\frmProductosVendidos.resx">
       <DependentUpon>frmProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmProyectosVendidos.resx">
+      <DependentUpon>frmProyectosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmUsuarioProductosVendidos.resx">
       <DependentUpon>frmUsuarioProductosVendidos.cs</DependentUpon>
@@ -369,6 +375,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Imagen\Logo proyecto.ico" />
+    <Content Include="Imagen\Logo proyecto.png" />
     <Content Include="Imagen\logo.png" />
     <Content Include="SqlServerTypes\nativeBinaries\x64\msvcr120.dll" />
     <Content Include="SqlServerTypes\nativeBinaries\x64\SqlServerSpatial140.dll" />

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteClientesRegistrados));
             this.dtVentasPorClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSPClientesRegistrados = new SistemaFacturacion.Listados.DSPClientesRegistrados();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -56,73 +57,85 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.BackColor = System.Drawing.Color.OldLace;
             reportDataSource1.Name = "ListadoClientesRegistrados";
             reportDataSource1.Value = this.dtVentasPorClienteBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Listados.ReportesClientesRegistrados.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(65, 104);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 154);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(676, 334);
+            this.reportViewer1.Size = new System.Drawing.Size(1322, 563);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // dtpFechaDesde
             // 
-            this.dtpFechaDesde.Location = new System.Drawing.Point(209, 18);
+            this.dtpFechaDesde.CalendarMonthBackground = System.Drawing.Color.OldLace;
+            this.dtpFechaDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaDesde.Location = new System.Drawing.Point(474, 20);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 24);
             this.dtpFechaDesde.TabIndex = 1;
             // 
             // dtpFechaHasta
             // 
-            this.dtpFechaHasta.Location = new System.Drawing.Point(209, 59);
+            this.dtpFechaHasta.CalendarMonthBackground = System.Drawing.Color.OldLace;
+            this.dtpFechaHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaHasta.Location = new System.Drawing.Point(474, 61);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(200, 24);
             this.dtpFechaHasta.TabIndex = 2;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(679, 19);
+            this.btnFiltrar.BackColor = System.Drawing.Color.OldLace;
+            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.Location = new System.Drawing.Point(989, 73);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(93, 29);
             this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 18);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(346, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(107, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Fecha Desde";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 59);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(349, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.Size = new System.Drawing.Size(103, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "Fecha Hasta";
             // 
             // cboBarrios
             // 
+            this.cboBarrios.BackColor = System.Drawing.Color.OldLace;
+            this.cboBarrios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBarrios.FormattingEnabled = true;
-            this.cboBarrios.Location = new System.Drawing.Point(511, 18);
+            this.cboBarrios.Location = new System.Drawing.Point(961, 23);
             this.cboBarrios.Name = "cboBarrios";
-            this.cboBarrios.Size = new System.Drawing.Size(121, 21);
+            this.cboBarrios.Size = new System.Drawing.Size(121, 26);
             this.cboBarrios.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(471, 20);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(887, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(54, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Barrio";
             // 
@@ -130,7 +143,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboBarrios);
             this.Controls.Add(this.label2);
@@ -139,8 +153,11 @@
             this.Controls.Add(this.dtpFechaHasta);
             this.Controls.Add(this.dtpFechaDesde);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmReporteClientesRegistrados";
-            this.Text = "frmReporteClientesRegistrados";
+            this.Text = "Clientes Registrados";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReporteClientesRegistrados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtVentasPorClienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSPClientesRegistrados)).EndInit();

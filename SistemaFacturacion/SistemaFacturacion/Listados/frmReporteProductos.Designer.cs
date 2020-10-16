@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteProductos));
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSProductos = new SistemaFacturacion.Listados.DSProductos();
             this.lblDesde = new System.Windows.Forms.Label();
@@ -55,45 +56,48 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.Location = new System.Drawing.Point(78, 16);
+            this.lblDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesde.Location = new System.Drawing.Point(442, 13);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(80, 13);
+            this.lblDesde.Size = new System.Drawing.Size(102, 18);
             this.lblDesde.TabIndex = 1;
             this.lblDesde.Text = "Fecha Inicial";
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHasta.Location = new System.Drawing.Point(78, 60);
+            this.lblHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasta.Location = new System.Drawing.Point(442, 69);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(73, 13);
+            this.lblHasta.Size = new System.Drawing.Size(95, 18);
             this.lblHasta.TabIndex = 2;
             this.lblHasta.Text = "Fecha Final";
             // 
             // dtpDesde
             // 
             this.dtpDesde.CalendarMonthBackground = System.Drawing.Color.OldLace;
-            this.dtpDesde.Location = new System.Drawing.Point(196, 10);
+            this.dtpDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDesde.Location = new System.Drawing.Point(560, 7);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(200, 24);
             this.dtpDesde.TabIndex = 3;
             // 
             // dtpHasta
             // 
             this.dtpHasta.CalendarMonthBackground = System.Drawing.Color.OldLace;
-            this.dtpHasta.Location = new System.Drawing.Point(196, 53);
+            this.dtpHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHasta.Location = new System.Drawing.Point(560, 62);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(200, 24);
             this.dtpHasta.TabIndex = 4;
             // 
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.OldLace;
-            this.btnImprimir.Location = new System.Drawing.Point(530, 33);
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(894, 30);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.Size = new System.Drawing.Size(89, 33);
             this.btnImprimir.TabIndex = 5;
             this.btnImprimir.Text = "Filtrar";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -109,7 +113,7 @@
             this.rptReporteProductos.Location = new System.Drawing.Point(25, 123);
             this.rptReporteProductos.Name = "rptReporteProductos";
             this.rptReporteProductos.ServerReport.BearerToken = null;
-            this.rptReporteProductos.Size = new System.Drawing.Size(763, 315);
+            this.rptReporteProductos.Size = new System.Drawing.Size(1322, 569);
             this.rptReporteProductos.TabIndex = 6;
             this.rptReporteProductos.Load += new System.EventHandler(this.rptReporteProductos_Load);
             // 
@@ -118,15 +122,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.rptReporteProductos);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.lblHasta);
             this.Controls.Add(this.lblDesde);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmReporteProductos";
-            this.Text = "frmReporteProductos";
+            this.Text = "Reporte De Productos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReporteProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSProductos)).EndInit();
